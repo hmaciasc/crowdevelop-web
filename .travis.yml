@@ -1,0 +1,12 @@
+languaje: node_js
+node_js:
+  - stable
+before_script:
+  - 'npm install -g bower gulp-cli'
+  - 'bower install'
+script:
+  - echo "Deploying!"
+install:
+  - npm install -g firebase-tools
+after-success:
+  - firebase deploy -toke $FIREBASE_TOKEN
