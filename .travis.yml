@@ -1,6 +1,6 @@
-languaje: node_js
+language: node_js
 node_js:
-  - stable
+  - 6
 before_script:
   - 'npm install -g bower gulp-cli'
   - 'bower install'
@@ -9,4 +9,4 @@ script:
 install:
   - npm install -g firebase-tools
 after-success:
-  - firebase deploy -toke $FIREBASE_TOKEN
+  - firebase deploy -token $FIREBASE_TOKEN
