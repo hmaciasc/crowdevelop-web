@@ -6,8 +6,7 @@ before_script:
   - 'bower install'
 script:
   - echo "Deploying!"
-  - firebase deploy -token $FIREBASE_TOKEN
 install:
   - npm install -g firebase-tools
 after-success:
-  - firebase deploy -token $FIREBASE_TOKEN
+  - firebase deploy --token $FIREBASE_TOKEN
