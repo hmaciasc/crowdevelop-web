@@ -24,5 +24,15 @@
     "gulp-util": "^3.0.3",
     "jshint-stylish": "^1.0.0",
     "gulp-live-server": "^0.0.29"
+  },
+  "devDependencies": {
+    "connect-history-api-fallback": "^1.3.0",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-if": "^2.0.1",
+    "gulp-jshint": "^1.12.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^1.5.4",
+    "gulp-useref": "^3.1.0"
   }
 }
