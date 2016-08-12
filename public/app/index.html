@@ -23,22 +23,14 @@
     <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase-database.js"></script>
 
+    <!-- AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDP4kTth7VjRSaNosacjj3PKGKM76OJKD0",
-            authDomain: "crowdevelop-40f3c.firebaseapp.com",
-            databaseURL: "https://crowdevelop-40f3c.firebaseio.com",
-            storageBucket: "crowdevelop-40f3c.appspot.com",
-        };
-        firebase.initializeApp(config);
-    </script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
 
-    <script src="./auth.js"></script>
+    <script src="auth.js"></script>
 
     <!-- Controllers -->
     <script src="controllers/mainCtrl.js"></script>
@@ -63,17 +55,10 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Brand</a>
-                <a href=""></a>
+                <a class="btn btn-default" id="quickstart-sign-in">Sign in with Google</a>
             </div>
         </nav>
-
         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            <p>Sign in with your Google account below.</p>
-
-            <!-- Button that handles sign-in/sign-out -->
-            <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in">Sign in with Google</button>
-
-            <!-- Container where we'll display the user details -->
             <div class="quickstart-user-details-container">
                 Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
                 <div>Firebase auth <code>currentUser</code> object value:</div>
