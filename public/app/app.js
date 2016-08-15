@@ -8,7 +8,7 @@
     };
     firebase.initializeApp(config);
 
-    angular.module('crowDevelop', ['app.routes', 'mainCtrl', 'firebase'])
+    angular.module('crowDevelop', ['app.routes', 'authService', 'mainCtrl', 'firebase'])
         .config(['$routeProvider', function($routeProvider) {
             $routeProvider.otherwise({
                 redirectTo: '/'

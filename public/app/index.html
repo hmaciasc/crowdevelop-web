@@ -5,10 +5,13 @@
 <head>
     <meta charset="utf-8">
     <title>CrowDevelop</title>
+    <base href="/">
     <meta name="description" content="Crowdfunding for devs">
     <meta name="author" content="Héctor Macías">
-
+    
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -30,12 +33,11 @@
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
 
-    <script src="auth.js"></script>
-
     <!-- Controllers -->
     <script src="controllers/mainCtrl.js"></script>
 
     <!-- services -->
+    <script src="services/authService.js"></script>
 
     <!-- main app -->
     <script src="app.routes.js"></script>
@@ -44,19 +46,34 @@
 </head>
 
 <body ng-app="crowDevelop" ng-controller="mainController as main">
-    <div class="container-fluid">
-        <!-- Navi top bar -->
+    <div class="container">
         <nav class="navbar navbar-default">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Brand</a>
-                <a class="btn btn-default" id="quickstart-sign-in">Sign in with Google</a>
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Brand</a>
+                </div>
+                <div class="cl">
+
+                </div>
+                <div class="login">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li ng-if="!firebaseUser"><img src="assets/img/googleSignButton.png" ng-click="authObj.signIn()" class="login navbar-btn navbar-right" id="quickstart-sign-in" /></li>
+                            <li ng-if="firebaseUser"><button class="btn btn-navbar navbar-btn navbar-right" ng-click="authObj.signOut()" id="quickstart-sign-in">Sign Out</button></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
             </div>
+            <!-- /.container-fluid -->
         </nav>
         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
             <div class="quickstart-user-details-container">
