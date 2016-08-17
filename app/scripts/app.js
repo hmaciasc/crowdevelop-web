@@ -1,19 +1,23 @@
-(function(){
+'use strict';
 
-    var config = {
-        apiKey: "AIzaSyDP4kTth7VjRSaNosacjj3PKGKM76OJKD0",
-        authDomain: "crowdevelop-40f3c.firebaseapp.com",
-        databaseURL: "https://crowdevelop-40f3c.firebaseio.com",
-        storageBucket: "crowdevelop-40f3c.appspot.com",
-    };
-    firebase.initializeApp(config);
+var config = {
+    apiKey: "AIzaSyDP4kTth7VjRSaNosacjj3PKGKM76OJKD0",
+    authDomain: "crowdevelop-40f3c.firebaseapp.com",
+    databaseURL: "https://crowdevelop-40f3c.firebaseio.com",
+    storageBucket: "crowdevelop-40f3c.appspot.com",
+};
 
-    angular.module('crowDevelop', ['app.routes', 'authService', 'mainCtrl', 'firebase'])
-        .config(['$routeProvider', function($routeProvider) {
-            $routeProvider.otherwise({
-                redirectTo: '/'
-            });
-        }]);
+firebase.initializeApp(config);
 
+angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage'])
 
-}());
+.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+      $routeProvider
+          .when('/', { templateUrl: 'views/home.html', controller: 'HomeCtrl'})
+          .when('/login', { controller: 'LoginCtrl' })
+          .otherwise({ templateUrl: 'views/404.html' });
+      $locationProvider.html5Mode(true);
+    }])
+    .run(['$rootScope', 'AuthService', function($rootScope, AuthService) {
+      $rootScope.authService = new AuthService({ provider: 'google'});
+    }]);
