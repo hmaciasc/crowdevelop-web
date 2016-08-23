@@ -2,7 +2,7 @@
 
 angular.module('crowDevelop')
 
-.controller('ProjectsCreateCtrl', ['$scope', '$firebaseObject', '$location', function($scope, $firebaseObject, $location) {
+.controller('ProjectsCreateCtrl', ['$rootScope', '$scope', '$firebaseObject', '$location', function($rootScope, $scope, $firebaseObject, $location) {
 
     $scope.categories = ["Development", "Game", "Education", "Social"];
 
@@ -17,6 +17,7 @@ angular.module('crowDevelop')
     $scope.create = function() {
         var project = $scope.project;
 
+        /*
         $scope.name = $scope.project.name;
         $scope.category = $scope.project.category;
         $scope.email = $scope.project.email;
@@ -24,12 +25,14 @@ angular.module('crowDevelop')
         $scope.goal = $scope.project.goal;
         $scope.achievement = $scope.project.achievement;
         $scope.selectedDate = $scope.project.selectedDate;
-
+        */
+        $scope.project.owner = $rootScope.firebaseUser.user.uid;
         console.log($scope.project);
-        var ref = firebase.database().ref();
-
-        var obj = $firebaseObject();
+        var rootRef = firebase.database().ref().child('projects');
+        var ref = rootRef.push($scope.project);
+        var obj = $firebaseObject(ref);
         obj.project = project;
+
         obj.$save().then(function(ref) {
             ref.key === obj.$id; // true
         }, function(error) {
