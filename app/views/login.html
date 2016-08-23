@@ -1,9 +1,11 @@
 <div class="login">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul>
-            <li ng-if="!firebaseUser">
-                <img class="login" src="img/googleSignButton.png" ng-click="login()" id="quickstart-sign-in" />
-            </li>
-        </ul>
+        <div class="row" ng-if="!firebaseUser">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <img class="loginImg" src="img/googleSignButton.png" ng-click="login()" id="quickstart-sign-in" />
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

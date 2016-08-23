@@ -2,7 +2,7 @@
 
 angular.module('crowDevelop')
 
-.controller('LoginCtrl', ['$rootScope', '$scope', '$firebaseAuth', '$location', function($rootScope, $scope, $firebaseAuth, $location) {
+.controller('LoginCtrl', ['$rootScope', '$scope', '$location', function($rootScope, $scope, $location) {
 
 
     $scope.login = function() {

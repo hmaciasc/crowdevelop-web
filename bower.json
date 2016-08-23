@@ -18,6 +18,7 @@
     "angular": "~1.5.8",
     "angular-strap": "^2.3.9",
     "bootstrap": "^3.3.7",
-    "angular-ui-router": "^0.3.1"
+    "angular-ui-router": "^0.3.1",
+    "angularfire": "^2.0.2"
   }
 }

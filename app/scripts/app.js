@@ -21,6 +21,10 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'mgcrea.ngStrap'])
             templateUrl: 'views/login.html',
             controller: 'LoginCtrl'
         })
+        .when('/projects/create', {
+            templateUrl: 'views/projects/create.html',
+            controller: 'ProjectsCreateCtrl'
+        })
         .otherwise({
             templateUrl: 'views/404.html'
         });
