@@ -1,9 +1,8 @@
 <div class="login">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-            <li ng-if="!firebaseUser"><img src="img/googleSignButton.png" ng-click="authObj.signIn()" class="login navbar-btn navbar-right" id="quickstart-sign-in" /></li>
-            <li ng-if="firebaseUser">
-                <button class="btn btn-navbar navbar-btn navbar-right" ng-click="authObj.signOut()" id="quickstart-sign-in">Sign Out</button>
+        <ul>
+            <li ng-if="!firebaseUser">
+                <img class="login" src="img/googleSignButton.png" ng-click="login()" id="quickstart-sign-in" />
             </li>
         </ul>
     </div>

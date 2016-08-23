@@ -1,15 +1,22 @@
 'use strict';
 
-angular.module('crowDevelop').controller('LoginCtrl', ['$rootScope', '$scope', '$firebaseAuth', function($rootScope, $scope, $firebaseAuth) {
+angular.module('crowDevelop')
 
-    /**
-     * @return void
-     */
+.controller('LoginCtrl', ['$rootScope', '$scope', '$firebaseAuth', '$location', function($rootScope, $scope, $firebaseAuth, $location) {
+
+
     $scope.login = function() {
+        console.log("LOGIN CTRL");
         $rootScope.authService.login();
         $location.path('/');
     };
 
+
+    $scope.logout = function() {
+        console.log("LOGIN CTRL");
+        $rootScope.authService.logout();
+        $location.path('/');
+    };
     /**
     //var auth = $firebaseAuth();
     $scope.authObj = $firebaseAuth();

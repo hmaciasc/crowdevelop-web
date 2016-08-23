@@ -1,12 +1,13 @@
 <div class="container-fluid">
     <div class="container-fluid">
         <div class="login">
-            <a href="/login">Login - Registro</a>
+            <a href="/login" ng-if="!firebaseUser">Login - Registro</a>
+            <a href="/" ng-if="firebaseUser" ng-click="logout()" id="quickstart-sign-in">Sign Out</a>
         </div>
     </div>
     <div>
         <div>
-            <h1>LOGGEDIN</h1>
+            <h1>Main projects</h1>
         </div>
     </div>
     <h1 class="btn btn-danger"> Bootstrap/Angular test: 5+3 = {{ 5 + 3 }} </h1>
