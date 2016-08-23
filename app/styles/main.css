@@ -1,0 +1,12 @@
+li {
+    list-style-type: none;
+}
+
+.loginImg img{
+    width: 200px;
+}
+
+.profileImg {
+    max-height: 50px;
+    margin-right: 15px;
+}
