@@ -1,10 +1,12 @@
-.loginImg img{
-    height: 50px;
+li {
+    list-style-type: none;
 }
 
-.liItem {
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px;
+.loginImg img{
+    width: 200px;
+}
+
+.profileImg {
+    max-height: 50px;
+    margin-right: 15px;
 }

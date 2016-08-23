@@ -1,45 +1,49 @@
 <div class="container-fluid createProjectForm">
     <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
-            <form novalidate class="form form-horizontal">
-                <div class="form-group form-group-sm">
-                    <label for="email">E-mail:</label>
-                    <input type="email" class="form-control" ng-model="project.email" id="email" required />
-                    <p class="help-block">Email to contact to.</p>
-                </div>
-                <div class="form-group form-group-sm">
-                    <label for="projectName">Project name:</label>
-                    <input type="text" class="form-control" ng-model="project.name" id="projectName" required />
-                    <p class="help-block">Give your project a name.</p>
-                </div>
-                <div class="form-group form-group-sm">
-                    <label for="category">Category:</label>
-                    <select ng-model="project.category" class="form-control" ng-options="x for x in categories"></select>
-                    <p class="help-block">Categorize your project.</p>
-                </div>
-                <div class="form-group form-group-sm">
-                    <label for="description">Description</label>
-                    <textarea class="form-control" rows="4" ng-model="description" required></textarea>
-                    <p class="help-block">Describe your project.</p>
-                </div>
-                <div class="form-group form-group-sm">
-                    <label for="goal">Goal</label>
-                    <input type="number" class="form-control" ng-model="project.goal" value="1000" required />
-                    <p class="help-block ">Stablish your goal in €.</p>
-                </div>
-                <div class="form-group form-group-sm">
-                    <label for="achievement">Achievement</label>
-                    <input type="number" class="form-control" ng-model="project.achievement" value="1000" required />
-                    <p class="help-block ">Stablish your achievement.</p>
-                </div>
-                <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
-                    <label class="control-label"><i class="fa fa-calendar"></i> Date <small>(as date)</small></label>
-                    <input type="text" class="form-control" ng-model="project.selectedDate" name="date" bs-datepicker required>
-                    <p class="help-block ">Select a finish date.</p>
-                </div>
-
-                <input type="submit " ng-click="update(project) " value="Create project " class="btn btn-default " />
-            </form>
+        <div class="col-xs-10 col-xs-offset-1">
+            <h1 ng-if="firebaseUser"> Create a project </h1>
         </div>
+    </div>
+    <div class="row">
+        <form novalidate class="form" ng-submit="create()">
+            <div class="form-group col-xs-10 col-xs-offset-1 ">
+                <label for="email">E-mail:</label>
+                <input type="email" class="form-control" ng-model="project.email" id="email" required />
+                <p class="help-block">Email to contact to.</p>
+            </div>
+            <div class="form-group col-xs-10 col-xs-offset-1 ">
+                <label for="projectName">Project name:</label>
+                <input type="text" class="form-control" ng-model="project.name" id="projectName" required />
+                <p class="help-block">Give your project a name.</p>
+            </div>
+            <div class="form-group col-xs-10 col-xs-offset-1 ">
+                <label for="category">Category:</label>
+                <select ng-model="project.category" class="form-control" ng-options="x for x in categories"></select>
+                <p class="help-block">Categorize your project.</p>
+            </div>
+            <div class="form-group col-xs-10 col-xs-offset-1 ">
+                <label for="description">Description</label>
+                <textarea class="form-control" rows="4" ng-model="description" required></textarea>
+                <p class="help-block">Describe your project.</p>
+            </div>
+            <div class="form-group col-xs-10 col-xs-offset-1 ">
+                <label for="goal">Goal</label>
+                <input type="number" class="form-control" ng-model="project.goal" value="1000" required />
+                <p class="help-block ">Stablish your goal in €.</p>
+            </div>
+            <div class="form-group col-xs-10 col-xs-offset-1 ">
+                <label for="achievement">Achievement</label>
+                <input type="number" class="form-control" ng-model="project.achievement" value="1000" required />
+                <p class="help-block ">Stablish your achievement.</p>
+            </div>
+            <div class="form-group  col-xs-10 col-xs-offset-1  " ng-class="{'has-error': datepickerForm.date.$invalid}">
+                <label class="control-label"><i class="fa fa-calendar"></i> Date <small>(as date)</small></label>
+                <input type="text" class="form-control" ng-model="project.selectedDate" name="date" bs-datepicker required>
+                <p class="help-block ">Select a finish date.</p>
+            </div>
+            <div class="form-group col-xs-10 col-xs-offset-1 ">
+                <input type="submit" value="Create project " class="btn btn-default" />
+            </div>
+        </form>
     </div>
 </div>
