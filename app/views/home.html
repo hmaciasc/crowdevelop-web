@@ -1,36 +1,13 @@
-<div class="container">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Brand</a>
-            </div>
-            <div class="cl">
-
-            </div>
-            <div class="login">
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li ng-if="!firebaseUser"><img src="img/googleSignButton.png" ng-click="authObj.signIn()" class="login navbar-btn navbar-right" id="quickstart-sign-in" /></li>
-                        <li ng-if="firebaseUser"><button class="btn btn-navbar navbar-btn navbar-right" ng-click="authObj.signOut()" id="quickstart-sign-in">Sign Out</button></li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="login">
+            <a href="/login">Login - Registro</a>
         </div>
-        <!-- /.container-fluid -->
-    </nav>
-    <h1 class="btn btn-danger"> Bootstrap/Angular test: 5+3 = {{ 5 + 3 }} </h1>
+    </div>
     <div>
-        <div ng-if="firebaseUser">
+        <div>
             <h1>LOGGEDIN</h1>
         </div>
     </div>
+    <h1 class="btn btn-danger"> Bootstrap/Angular test: 5+3 = {{ 5 + 3 }} </h1>
 </div>
