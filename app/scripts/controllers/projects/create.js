@@ -17,15 +17,6 @@ angular.module('crowDevelop')
     $scope.create = function() {
         var project = $scope.project;
 
-        /*
-        $scope.name = $scope.project.name;
-        $scope.category = $scope.project.category;
-        $scope.email = $scope.project.email;
-        $scope.description = $scope.project.description;
-        $scope.goal = $scope.project.goal;
-        $scope.achievement = $scope.project.achievement;
-        $scope.selectedDate = $scope.project.selectedDate;
-        */
         $scope.project.owner = $rootScope.firebaseUser.user.uid;
         console.log($scope.project);
         var rootRef = firebase.database().ref().child('projects');
