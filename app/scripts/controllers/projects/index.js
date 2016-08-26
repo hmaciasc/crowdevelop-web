@@ -2,10 +2,7 @@
 
 angular.module('crowDevelop')
 
-.controller('ProjectsIndexCtrl', ['$rootScope', '$scope', '$firebaseObject', '$location', '$sce', function($rootScope, $scope, $firebaseObject, $location, $sce) {
-
-
-    //$scope.project.video = $sce.trustAsResourceUrl($scope.project.video);
+.controller('ProjectsIndexCtrl', ['$rootScope', '$scope', '$firebaseObject', '$location', function($rootScope, $scope, $firebaseObject, $location) {
 
     $scope.getProject = function(id) {
         var rootRef = firebase.database().ref('projects/' + id);
@@ -21,5 +18,4 @@ angular.module('crowDevelop')
 
         //$location.path('/');
     };
-
 }]);

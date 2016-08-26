@@ -39,6 +39,9 @@ li {
     box-sizing: border-box;
 }
 
+.progress-bar{
+    width: 70%;
+}
 
 /* Firebase helper */
 code {
