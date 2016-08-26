@@ -1,30 +1,9 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">CrowDevelop</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/login" ng-if="!firebaseUser">Login - Registro</a></li>
-            <li><a href="/" ng-if="firebaseUser" ng-click="logout()" id="quickstart-sign-in">Sign Out</a></li>
-            <li><a href="/projects/create" ng-if="firebaseUser" ng-click="createProject()" id="create-project-button">Create project</a></li>
-        </ul>
-        <div class="nav hidden-xs hidden-sm" ng-show="firebaseUser">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="">Hello, {{firebaseUser.user.displayName}}</a></li>
-                <li><img src="{{firebaseUser.user.photoURL}}" class="img-responsive img-circle profileImg" /></li>
-            </ul>
-        </div>
-    </div>
-</nav>
 <div class="row">
-    <div class="col-sm-11">
+    <div class="col-xs-11 col-xs-offset-1">
         <div>
             <h1>Main projects</h1>
             <a href="/projects/index ">Projects</a>
         </div>
         <h1 class="btn btn-danger "> Bootstrap/Angular test: 5+3 = {{ 5 + 3 }} </h1>
-
     </div>
-
 </div>

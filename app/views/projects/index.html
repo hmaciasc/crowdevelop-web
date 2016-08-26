@@ -1,22 +1,16 @@
-<a href="/"> Home</a>
 <div class="projects container-fluid">
     <div class="row">
         <div class="col-xs-10 col-xs-offset-1 project" ng-repeat="project in projects">
             <h1>{{project.name}}</h1>
-            <p> {{project.category}}</p>
+            <p> Category: {{project.category}}</p>
             <div class="date">
                 <p>Deadline: {{project.day}}/{{project.month}}/{{project.year}}</p>
             </div>
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
             </div>
-            <div class="achievements ">
-                <div class="target ">
-                    <span>{{project.goal}}</span>
-                </div>
-                <div class="goal ">
-                    <p> {{project.achievement}}</p>
-                </div>
+            <div class="target ">
+                <span>Target amount: {{project.goal}}€</span>
             </div>
         </div>
     </div>
