@@ -1,3 +1,15 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+:root {
+    --light-purple: #EEE7F7;
+    --border-purple: #816F9F;
+    --dark-purple: #512DA8;
+    --green: #00E676;
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 li {
     list-style-type: none;
 }
@@ -15,7 +27,10 @@ li {
 /* Project list view */
 .project {
     margin-bottom: 25px;
-    background-color: rgb(165, 68, 210);
+    background-color: var(--light-purple);
     border-radius: 3px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--border-purple);
     box-sizing: border-box;
 }

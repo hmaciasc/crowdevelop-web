@@ -34,10 +34,17 @@
 
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+
+    <!-- Include YT library and this directive -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"></script>
+
 </head>
 
 <body ng-app="crowDevelop">
-
+    <div>
+        <div ng-include src="views/header.html"></div>
+    </div>
     <main id="main" ng-view></main>
 
     <!-- main app -->
@@ -47,6 +54,7 @@
     <script src="scripts/controllers/login.js"></script>
     <script src="scripts/controllers/projects/create.js"></script>
     <script src="scripts/controllers/projects/index.js"></script>
+    <script src="scripts/controllers/header.js"></script>
     <!-- services -->
     <script src="scripts/services/authService.js"></script>
 </body>

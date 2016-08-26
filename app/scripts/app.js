@@ -9,7 +9,8 @@ var config = {
 
 firebase.initializeApp(config);
 
-angular.module('crowDevelop', ['firebase', 'ngRoute', 'mgcrea.ngStrap'])
+angular.module('crowDevelop', ['firebase', 'ngRoute', 'mgcrea.ngStrap', 'youtube-embed'])
+
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
@@ -33,6 +34,12 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'mgcrea.ngStrap'])
             templateUrl: 'views/404.html'
         });
     $locationProvider.html5Mode(true);
+}])
+
+.filter('trusted', ['$sce', function($sce) {
+    return function(url) {
+        return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + url + "?rel=0");
+    };
 }])
 
 .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {

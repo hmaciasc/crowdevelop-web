@@ -7,11 +7,14 @@
             <div class="date">
                 <p>Deadline: {{project.day}}/{{project.month}}/{{project.year}}</p>
             </div>
-            <div class="achievements">
-                <div class="target">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="achievements ">
+                <div class="target ">
                     <span>{{project.goal}}</span>
                 </div>
-                <div class="goal">
+                <div class="goal ">
                     <p> {{project.achievement}}</p>
                 </div>
             </div>

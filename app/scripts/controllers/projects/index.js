@@ -2,9 +2,10 @@
 
 angular.module('crowDevelop')
 
-.controller('ProjectsIndexCtrl', ['$rootScope', '$scope', '$firebaseObject', '$location', function($rootScope, $scope, $firebaseObject, $location) {
+.controller('ProjectsIndexCtrl', ['$rootScope', '$scope', '$firebaseObject', '$location', '$sce', function($rootScope, $scope, $firebaseObject, $location, $sce) {
 
-    $scope.categories = ["Development", "Game", "Education", "Social"];
+
+    //$scope.project.video = $sce.trustAsResourceUrl($scope.project.video);
 
     $scope.getProject = function(id) {
         var rootRef = firebase.database().ref('projects/' + id);
