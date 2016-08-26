@@ -16,11 +16,16 @@ angular.module('crowDevelop')
 
     $scope.create = function() {
         var project = $scope.project;
+        console.log("date " + $scope.project.selectedDate.getDate());
+
+        $scope.project.day = $scope.project.selectedDate.getDay();
+        $scope.project.month = $scope.project.selectedDate.getMonth();
+        $scope.project.year = $scope.project.selectedDate.getFullYear();
 
         $scope.project.owner = $rootScope.firebaseUser.user.uid;
         console.log($scope.project);
         var rootRef = firebase.database().ref().child('projects');
-        var ref = rootRef.push($scope.project);
+        var ref = rootRef.push(project);
         var obj = $firebaseObject(ref);
         obj.project = project;
 

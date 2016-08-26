@@ -1,4 +1,20 @@
-<div class="projects">
-  <button type="button" name="button" class="btn btn-default" ng-click="getProjects()">Load Projects</button>
-  <h1 ng-repeat="project in projects">{{project.project.name}}</h1>
+<a href="/"> Home</a>
+<div class="projects container-fluid">
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 project" ng-repeat="project in projects">
+            <h1>{{project.name}}</h1>
+            <p> {{project.category}}</p>
+            <div class="date">
+                <p>Deadline: {{project.day}}/{{project.month}}/{{project.year}}</p>
+            </div>
+            <div class="achievements">
+                <div class="target">
+                    <span>{{project.goal}}</span>
+                </div>
+                <div class="goal">
+                    <p> {{project.achievement}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

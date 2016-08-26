@@ -10,3 +10,12 @@ li {
     max-height: 50px;
     margin-right: 15px;
 }
+
+
+/* Project list view */
+.project {
+    margin-bottom: 25px;
+    background-color: rgb(165, 68, 210);
+    border-radius: 3px;
+    box-sizing: border-box;
+}
