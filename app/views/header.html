@@ -6,20 +6,14 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
                     <ul class="dropdown-menu">
+                        <li ng-show="firebaseUser"><a href="">Hello, {{firebaseUser.user.displayName}}</a></li>
+                        <li role="separator" class="divider"></li>
                         <li><a href="/">Home</a></li>
+                        <li><a href="/projects/create" ng-if="firebaseUser" ng-click="createProject()" id="create-project-button">Create project</a></li>
                         <li><a href="/login" ng-if="!firebaseUser">Login - Registro</a></li>
                         <li><a href="/" ng-if="firebaseUser" ng-click="logout()" id="quickstart-sign-in">Sign Out</a></li>
-                        <li><a href="/projects/create" ng-if="firebaseUser" ng-click="createProject()" id="create-project-button">Create project</a></li>
 
                     </ul>
-                </li>
-                <li>
-                    <div class="nav hidden-xs hidden-sm" ng-show="firebaseUser">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="">Hello, {{firebaseUser.user.displayName}}</a></li>
-                            <li><img src="{{firebaseUser.user.photoURL}}" class="img-responsive img-circle profileImg" /></li>
-                        </ul>
-                    </div>
                 </li>
             </ul>
         </div>
@@ -31,6 +25,12 @@
                 <li><a href="/projects/create" ng-if="firebaseUser" ng-click="createProject()" id="create-project-button">Create project</a></li>
                 <li><a href="/" ng-if="firebaseUser" ng-click="logout()" id="quickstart-sign-in">Sign Out</a></li>
             </ul>
+            <div ng-show="firebaseUser">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">Hello, {{firebaseUser.user.displayName}}</a></li>
+                    <li><img src="{{firebaseUser.user.photoURL}}" class="img-responsive img-circle profileImg" /></li>
+                </ul>
+            </div>
         </div>
 
     </div>
