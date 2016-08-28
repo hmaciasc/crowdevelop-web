@@ -27,6 +27,9 @@ li {
     margin-right: 15px;
 }
 
+.glyphicon-menu-hamburger {
+  font-size: 20px;
+}
 
 /* Project list view */
 .project {

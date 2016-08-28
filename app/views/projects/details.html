@@ -1,8 +1,10 @@
 <div class="projects container-fluid">
     <div class="row">
-        <div class="col-xs-10 col-xs-offset-1 project" ng-repeat="project in projects">
+        <div class="col-xs-10 col-xs-offset-1 project">
             <h1>{{project.name}}</h1>
             <p> Category: {{project.category}}</p>
+            <p> Description: </p>
+            <p>{{project.description}}</p>
             <div class="date">
                 <p>Deadline: {{project.day}}/{{project.month}}/{{project.year}}</p>
             </div>
@@ -17,7 +19,6 @@
                     </div>
                 </div>
             </div>
-            <a ng-href="/projects/{{project.pid}}">Details</a>
         </div>
     </div>
 </div>

@@ -29,6 +29,10 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStr
             templateUrl: 'views/projects/index.html',
             controller: 'ProjectsIndexCtrl'
         })
+        .when('/projects/:pid', {
+            templateUrl: 'views/projects/details.html',
+            controller: 'ProjectsDetailsCtrl'
+        })
         .otherwise({
             templateUrl: 'views/404.html'
         });

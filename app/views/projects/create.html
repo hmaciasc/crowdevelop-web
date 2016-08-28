@@ -62,7 +62,7 @@
 
             <div class="form-group col-xs-10 col-xs-offset-1">
                 <label for="goal">Goal</label>
-                <input type="number" class="form-control" name="goal" ng-model="project.goal" value="1000" required />
+                <input type="number" class="form-control" name="goal" ng-model="project.goal" required />
                 <p class="help-block ">Stablish your goal in €.</p>
                 <div class="alert alert-danger" ng-show="createProject.goal.$touched && createProject.goal.$error.required">
                     <strong>Alert!</strong> Goal must be stablished.
@@ -71,9 +71,9 @@
 
             <div class="form-group col-xs-10 col-xs-offset-1">
                 <label for="achievement">Achievement</label>
-                <input type="number" class="form-control" name="achievement" ng-model="project.achievement" min="{{project.goal || 1}}" value="1000" required />
+                <input type="number" class="form-control" name="achievement" ng-model="project.achievement" max="{{project.goal}}" required />
                 <p class="help-block ">Stablish your achievement.</p>
-                <div class="alert alert-danger" ng-show="createProject.achievement.$touched && createProject.achievement.$error.min">
+                <div class="alert alert-danger" ng-show="createProject.achievement.$touched && createProject.achievement.$error.max">
                     <strong>Alert!</strong> Must be lower than projects target goal.
                 </div>
             </div>

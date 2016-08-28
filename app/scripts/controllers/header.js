@@ -15,7 +15,7 @@ angular.module('crowDevelop')
             var data = snapshot.val();
             var projects = [];
             for (var projectId in data) {
-                projects.push(data[projectId].project);
+                projects.push(data[projectId]);
             }
             console.log(projects);
             $rootScope.projects = projects;
