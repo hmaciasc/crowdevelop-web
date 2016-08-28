@@ -2,44 +2,44 @@
 
 angular.module('crowDevelop')
 
-.controller('ProjectsCreateCtrl', ['$scope', '$firebaseObject', '$location', function($scope, $firebaseObject, $location) {
+.controller('ProjectsCreateCtrl', ['$rootScope', '$scope', '$firebaseObject', '$location', function($rootScope, $scope, $firebaseObject, $location) {
 
     $scope.categories = ["Development", "Game", "Education", "Social"];
-
-    $scope.name;
-    $scope.category;
-    $scope.email;
-    $scope.description;
-    $scope.goal;
-    $scope.achievement;
-    $scope.selectedDate;
 
     $scope.create = function() {
         var project = $scope.project;
 
-        $scope.name = $scope.project.name;
-        $scope.category = $scope.project.category;
-        $scope.email = $scope.project.email;
-        $scope.description = $scope.project.description;
-        $scope.goal = $scope.project.goal;
-        $scope.achievement = $scope.project.achievement;
-        $scope.selectedDate = $scope.project.selectedDate;
+        $scope.project.owner = $rootScope.firebaseUser.user.uid;
+        $scope.project.donated = 0;
+        $scope.project.day = $scope.project.selectedDate.getDay();
+        $scope.project.month = $scope.project.selectedDate.getMonth();
+        $scope.project.year = $scope.project.selectedDate.getFullYear();
 
-        console.log($scope.project);
-        var ref = firebase.database().ref();
+        $scope.project.video = $scope.project.video.replace("/watch?v=", "/embed/");
+        var vid = $scope.project.video;
+        var initIndex = $scope.project.video.lastIndexOf("/");
+        var videoId = $scope.project.video.slice(initIndex + 1, vid.length);
+        $scope.project.video = videoId;
 
-        var obj = $firebaseObject();
-        obj.project = project;
-        obj.$save().then(function(ref) {
+        var rootRef = firebase.database().ref().child('projects');
+        var ref = rootRef.push().key;
+        $scope.project.pid = ref;
+        //var obj = $firebaseObject(ref);
+        //obj.project = $scope.project;
+
+        firebase.database().ref('projects/' + ref).set($scope.project);
+        //firebase.database().ref().child('projects').update();
+
+        /*$scope.project.$save().then(function(ref) {
             ref.key === obj.$id; // true
         }, function(error) {
             console.log("Error:", error);
         });
 
 
-        obj.$loaded().then(function() {
+        $firebaseObject(ref).$loaded().then(function() {
             $location.path('/');
-        });
+        });*/
 
         $location.path('/');
     };

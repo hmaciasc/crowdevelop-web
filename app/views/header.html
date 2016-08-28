@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <!-- xs and sm -->
+        <div class="navbar-header">
+            <a class="nav navbar-brand" href="/">CrowDevelop</a>
+            <ul class="nav  navbar-nav burguer hidden-md hidden-lg">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-show="firebaseUser"><a href="">Hello, {{firebaseUser.user.displayName}}</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/projects/create" ng-if="firebaseUser" ng-click="createProject()" id="create-project-button">Create project</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/login" ng-if="!firebaseUser">Login - Registro</a></li>
+                        <li><a href="/" ng-if="firebaseUser" ng-click="logout()" id="quickstart-sign-in">Sign Out</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- md and lg -->
+        <div class="hidden-xs hidden-sm">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/projects/create" ng-if="firebaseUser" ng-click="createProject()" id="create-project-button">Create project</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/login" ng-if="!firebaseUser">Login - Registro</a></li>
+            </ul>
+            <div ng-show="firebaseUser">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">Hello, {{firebaseUser.user.displayName}}</a></li>
+                    <li><img src="{{firebaseUser.user.photoURL}}" class="img-responsive img-circle profileImg" /></li>
+                    <li><a href="/" ng-if="firebaseUser" ng-click="logout()" id="quickstart-sign-in">Sign Out</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</nav>
