@@ -7,14 +7,21 @@
     --dark-purple: #512DA8;
     --green: #00E676;
     --shadow-color: rgba(0, 0, 0, 0.52);
+    --grad1: #7058E4;
+    --grad2: #6D2C90;
 }
 
 * {
     font-family: 'Open Sans', sans-serif;
+    color: white;
 }
 
 head, body {
     max-width: 100%;
+}
+
+body {
+    background: linear-gradient(to bottom right, var(--grad1), var(--grad2));
 }
 
 li {
@@ -30,21 +37,30 @@ li {
     margin-right: 15px;
 }
 
-.glyphicon-menu-hamburger {
-    font-size: 20px;
-}
-
 
 /* Project list view */
 
 .project {
-    margin-bottom: 25px;
     background-color: var(--project-back);
     border-radius: 3px;
     border-style: solid;
     border-width: 2px;
     border-color: white;
     box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+    -webkit-box-shadow: 0px 5px 24px 1px var(--shadow-color);
+    -moz-box-shadow: 0px 5px 24px 1px var(--shadow-color);
+    box-shadow: 0px 5px 24px 1px var(--shadow-color);
+}
+
+.projectDetails {
+    background-color: rgba(38, 50, 56, 0.7);
+    box-sizing: inherit;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     -webkit-box-shadow: 0px 5px 24px 1px var(--shadow-color);
     -moz-box-shadow: 0px 5px 24px 1px var(--shadow-color);
     box-shadow: 0px 5px 24px 1px var(--shadow-color);
@@ -73,6 +89,26 @@ code {
 
 /* Override */
 
+.row {
+    margin-bottom: 15px;
+}
+
+.nav {
+    background-color: #8D7EF5;
+}
+
+.navbar-default, .navbar-header {
+    background-color: #8D7EF5;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
 .glyphicon {
     color: var(--dark-purple);
+}
+
+.glyphicon-menu-hamburger {
+    font-size: 20px;
 }

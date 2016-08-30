@@ -19,5 +19,9 @@ angular.module('crowDevelop')
         console.log($scope.projects);
     };
 
+    $scope.go = function(ref) {
+        $location.path(/projects/ + ref);
+    }
+
     $scope.init();
 }]);
