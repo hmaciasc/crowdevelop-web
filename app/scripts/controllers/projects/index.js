@@ -2,20 +2,13 @@
 
 angular.module('crowDevelop')
 
-.controller('ProjectsIndexCtrl', ['$rootScope', '$scope', '$firebaseObject', '$location', function($rootScope, $scope, $firebaseObject, $location) {
+.controller('ProjectsIndexCtrl', ['$rootScope', '$scope', '$firebaseArray', '$location', function($rootScope, $scope, $firebaseArray, $location) {
 
-    $scope.getProject = function(id) {
-        var rootRef = firebase.database().ref('projects/' + id);
-        console.log(rootRef);
-        $scope.projects = rootRef;
-
-        firebase.database().ref('/projects/').once('value').then(function(snapshot) {
-            var projectID = snapshot.val();
-        });
-        //var ref = rootRef.push($scope.project);
-        //var obj = $firebaseObject(ref);
-
-
-        //$location.path('/');
+    $scope.findProject = function() {
+        var projectsRef = firebase.database().ref('projects/');
+        var query = projectsRef.orderByChild('name').equalTo($scope.query);
+        var list = $firebaseArray(query);
+        $rootScope.projectSearch = list;
+        $location.path('/projects/index');
     };
 }]);
