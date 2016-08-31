@@ -13,5 +13,12 @@ angular.module('crowDevelop')
         });
     };
 
+    $scope.getOwner = function(uid) {
+        var userRef = firebase.database().ref('users/' + uid);
+        userRef.on('value', function(snapshot) {
+            $scope.owner = snapshot.val();
+        });
+    }
+
     getProject(pid);
 }]);

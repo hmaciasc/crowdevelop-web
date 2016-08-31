@@ -9,7 +9,8 @@ angular.module('crowDevelop')
     $scope.create = function() {
         var project = $scope.project;
 
-        $scope.project.owner = $rootScope.firebaseUser.user.uid;
+        $scope.project.ownerId = $rootScope.firebaseUser.user.uid;
+        $scope.project.ownerName = $rootScope.firebaseUser.user.displayName;
         $scope.project.donated = 0;
         $scope.project.negativeDonated = 0;
         $scope.project.day = $scope.project.selectedDate.getDay();
@@ -29,18 +30,6 @@ angular.module('crowDevelop')
         //obj.project = $scope.project;
 
         firebase.database().ref('projects/' + ref).set($scope.project);
-        //firebase.database().ref().child('projects').update();
-
-        /*$scope.project.$save().then(function(ref) {
-            ref.key === obj.$id; // true
-        }, function(error) {
-            console.log("Error:", error);
-        });
-
-
-        $firebaseObject(ref).$loaded().then(function() {
-            $location.path('/');
-        });*/
 
         $location.path('/');
     };

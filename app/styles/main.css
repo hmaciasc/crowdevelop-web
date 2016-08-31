@@ -13,17 +13,12 @@
 
 * {
     font-family: 'Open Sans', sans-serif;
-    color: white;
     margin: 0;
     padding: 0;
 }
 
 head, body {
     max-width: 100%;
-}
-
-body {
-    background: linear-gradient(to bottom, var(--grad1), var(--grad2));
 }
 
 li {
@@ -39,15 +34,28 @@ li {
     margin-right: 15px;
 }
 
+.twitter-share-button {
+    position: relative;
+    height: 20px;
+    padding: 1px 8px 1px 6px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    background-color: #1b95e0;
+    border-radius: 3px;
+    box-sizing: border-box;
+    width: 80px !important;
+}
+
 
 /* Project list view */
 
 .project {
-    background-color: var(--project-back);
-    border-radius: 3px;
+    background-color: white;
+    border-radius: 4px;
     border-style: solid;
     border-width: 2px;
-    border-color: white;
+    border-color: black;
     box-sizing: border-box;
     padding-left: 0;
     padding-right: 0;
@@ -91,28 +99,16 @@ code {
 
 /* Override */
 
+.navbar {
+    border-radius: 0px;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0px 5px 24px 1px var(--shadow-color);
+    -moz-box-shadow: 0px 5px 24px 1px var(--shadow-color);
+    box-shadow: 0px 5px 24px 1px var(--shadow-color);
+}
+
 .row {
     margin-bottom: 15px;
-}
-
-.nav {
-    background-color: var(--purple-back-nav);
-}
-
-.navbar-default, .navbar-header {
-    background-color: var(--purple-back-nav);
-}
-
-.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-    background-color: #7064C4;
-}
-
-.navbar-default .navbar-brand {
-    color: white;
-}
-
-#collapse-1> ul> li> a {
-    color: white;
 }
 
 .glyphicon {
