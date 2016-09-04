@@ -1,0 +1,25 @@
+{
+  "name": "tfgCrowDevelop",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Héctor Macías <hectormaciasc@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.8",
+    "angular-strap": "^2.3.9",
+    "bootstrap": "^3.3.7",
+    "angular-ui-router": "^0.3.1",
+    "angularfire": "^2.0.2",
+    "angulike": "^1.2.0"
+  }
+}
