@@ -17,10 +17,9 @@ angular.module('crowDevelop')
         $scope.project.month = $scope.project.selectedDate.getMonth();
         $scope.project.year = $scope.project.selectedDate.getFullYear();
 
-        $scope.project.video = $scope.project.video.replace("/watch?v=", "/embed/");
-        var vid = $scope.project.video;
-        var initIndex = $scope.project.video.lastIndexOf("/");
-        var videoId = $scope.project.video.slice(initIndex + 1, vid.length);
+        var vid = $scope.project.video.replace("/watch?v=", "/embed/");
+        var initIndex = vid.lastIndexOf("/");
+        var videoId = vid.slice(initIndex + 1, vid.length);
         $scope.project.video = videoId;
 
         var rootRef = firebase.database().ref().child('projects');
@@ -29,7 +28,11 @@ angular.module('crowDevelop')
         //var obj = $firebaseObject(ref);
         //obj.project = $scope.project;
 
-        firebase.database().ref('projects/' + ref).set($scope.project);
+        firebase.database().ref('projects/' + ref).set($scope.project)
+            .catch(function(e) {
+                console.log(e);
+                $scope.error = e;
+            });
 
         $location.path('/');
     };

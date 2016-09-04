@@ -79,7 +79,10 @@
             </div>
 
             <div class="form-group col-xs-10 col-xs-offset-1 ">
-                <input type="submit" value="Create project " class="btn btn-default" />
+                <div class="alert alert-danger" ng-show="!firebaseUser">
+                    <strong>Alert!</strong> You have to make an account first.
+                </div>
+                <input type="submit" value="Create project" ng-disabled="!firebaseUser" class="btn btn-default" />
             </div>
         </form>
     </div>

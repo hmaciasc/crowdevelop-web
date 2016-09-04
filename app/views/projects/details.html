@@ -84,5 +84,34 @@
                 </a>
             </div>
         </div>
+        <!-- end social share -->
+    </div>
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 col-lg-6 col-lg-offset-3">
+            <h3>Comments</h3>
+            <form class="form" ng-submit="saveComment()" name="comment">
+                <div class="form-group">
+                    <label for="comment"></label>
+                    <textarea type="textarea" rows="2" name="commentInput" class="form-control" ng-model="comments.newComment" required></textarea>
+                    <div class="alert alert-danger" ng-show="comment.$touched && comment.$error.required">
+                        <strong>Alert!</strong> Goal must be stablished.
+                    </div>
+                </div>
+                <!-- <div class="alert alert-danger" ng-show="!firebaseUser">
+                    <strong>Alert!</strong> You have to make an account first.
+                </div> -->
+                <button type="submit" class="btn btn-default">Submit comment</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 col-lg-6 col-lg-offset-3 comments">
+            <div class="comment" ng-repeat="comment in comments">
+                <ul>
+                    <li class="comment-writer">{{comment.writer}}</li>
+                    <li class="comment-text">{{comment.text}}</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

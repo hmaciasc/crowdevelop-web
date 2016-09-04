@@ -2,7 +2,7 @@
 
 angular.module('crowDevelop')
 
-.controller('ProjectsDetailsCtrl', ['$rootScope', '$scope', '$firebaseObject', '$routeParams', function($rootScope, $scope, $firebaseObject, $routeParams) {
+.controller('ProjectsDetailsCtrl', ['$rootScope', '$scope', '$firebaseObject', '$firebaseArray', '$routeParams', function($rootScope, $scope, $firebaseObject, $firebaseArray, $routeParams) {
 
     var pid = $routeParams.pid;
 
@@ -10,7 +10,13 @@ angular.module('crowDevelop')
         var projectRef = firebase.database().ref('projects/' + pid);
         var obj = $firebaseObject(projectRef);
         $scope.project = obj;
+    };
+
+    $scope.getComments = function(pid) {
+        var commentsRef = firebase.database().ref('comments/' + pid);
+        var obj = $firebaseObject(commentsRef);
         console.log(obj);
+        $scope.comments = obj;
     };
 
     $scope.getOwner = function(uid) {
@@ -22,5 +28,17 @@ angular.module('crowDevelop')
         });
     }
 
+    $scope.saveComment = function() {
+        var commentRef = firebase.database().ref('comments/' + $scope.project.pid);
+        var comment = {
+            writer: $rootScope.firebaseUser.user.displayName,
+            text: $scope.comments.newComment
+        };
+        console.log($scope.comments.newComment);
+        console.log(comment);
+        var obj = $firebaseArray(commentRef).$add(comment);
+    }
+
     $scope.getProject(pid);
+    $scope.getComments(pid);
 }]);
