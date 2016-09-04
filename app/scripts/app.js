@@ -9,7 +9,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStrap', 'angulike'])
+angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStrap'])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
@@ -44,6 +44,14 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStr
         return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + url + "?rel=0");
     };
 }])
+
+.filter('formatText', function($sce) {
+    return function(description) {
+        if (!description) return description;
+        var text = description.replace(/\n/g, '<br />');
+        return $sce.trustAsHtml(text);
+    }
+})
 
 .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
     $rootScope.authService = new AuthService({

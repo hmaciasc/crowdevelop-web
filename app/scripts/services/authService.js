@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAuth', function($rootScope, $firebaseAuth) {
+angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAuth', '$location', function($rootScope, $firebaseAuth, $location) {
 
     /**
      * @constructor
@@ -18,6 +18,7 @@ angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAu
         auth.$signInWithPopup("google").then(function(firebaseUser) {
             console.log(firebaseUser);
             $rootScope.firebaseUser = firebaseUser;
+            $location.path('/');
         }).catch(function(error) {
             $rootScope.logginError = error;
         });

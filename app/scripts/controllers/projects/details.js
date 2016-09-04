@@ -6,19 +6,21 @@ angular.module('crowDevelop')
 
     var pid = $routeParams.pid;
 
-    function getProject(pid) {
+    $scope.getProject = function(pid) {
         var projectRef = firebase.database().ref('projects/' + pid);
-        projectRef.on('value', function(snapshot) {
-            $scope.project = snapshot.val();
-        });
+        var obj = $firebaseObject(projectRef);
+        $scope.project = obj;
+        console.log(obj);
     };
 
     $scope.getOwner = function(uid) {
         var userRef = firebase.database().ref('users/' + uid);
+        var obj = $firebaseObject(userRef);
+        console.log(obj);
         userRef.on('value', function(snapshot) {
             $scope.owner = snapshot.val();
         });
     }
 
-    getProject(pid);
+    $scope.getProject(pid);
 }]);

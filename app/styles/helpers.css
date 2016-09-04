@@ -1,3 +1,72 @@
 .col-center {
     margin: auto;
 }
+
+.text-400 {
+    font-weight: 400;
+}
+
+.text-300 {
+    font-weight: 300;
+}
+
+
+/* Override */
+
+.navbar {
+    border-radius: 0px;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0px 5px 24px 1px var(--shadow-color);
+    -moz-box-shadow: 0px 5px 24px 1px var(--shadow-color);
+    box-shadow: 0px 5px 24px 1px var(--shadow-color);
+}
+
+.row {
+    margin-bottom: 15px;
+}
+
+.glyphicon {
+    color: var(--dark-purple);
+}
+
+.glyphicon-menu-hamburger {
+    font-size: 20px;
+}
+
+
+/*datepicker*/
+
+.datepicker.dropdown-menu {
+    width: 250px;
+    height: 250px;
+}
+
+.datepicker.dropdown-menu button {
+    outline: none;
+    border: 0px;
+}
+
+.datepicker.dropdown-menu tbody {
+    height: 180px;
+}
+
+.datepicker.dropdown-menu tbody button {
+    padding: 6px;
+}
+
+.datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
+    height: 65px;
+}
+
+.timepicker.dropdown-menu {
+    padding: 0 4px;
+}
+
+.timepicker.dropdown-menu button {
+    outline: none;
+    border: 0px;
+}
+
+.timepicker.dropdown-menu tbody button {
+    padding: 6px;
+}

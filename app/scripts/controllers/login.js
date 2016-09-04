@@ -8,7 +8,6 @@ angular.module('crowDevelop')
     $scope.login = function() {
         console.log("LOGIN CTRL");
         $rootScope.authService.login();
-        $location.path('/');
     };
 
 

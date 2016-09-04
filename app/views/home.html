@@ -12,17 +12,17 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2 left-addon">
+    <div class="col-xs-8 col-xs-offset-2 col-lg-6 col-lg-offset-3 left-addon">
         <h2>Popular projects: </h2>
     </div>
 </div>
 <div class="row" ng-repeat="project in projects">
-    <div class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2 project">
+    <div class="col-xs-8 col-xs-offset-2 col-lg-6 col-lg-offset-3 project">
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
-    <div class="col-xs-10 col-xs-offset-1 col-lg-8 col-lg-offset-2" ng-click="go(project.pid)">
+    <div class="col-xs-8 col-xs-offset-2 col-lg-6 col-lg-offset-3" ng-click="go(project.pid)">
         <div class="projectDetails">
             <h3>{{project.name}}</h3>
             <p> Category: {{project.category}}</p>
