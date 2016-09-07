@@ -22,6 +22,6 @@
     "angularfire": "^2.0.2",
     "angulike": "^1.2.0",
     "bootstrap-social": "^5.0.0",
-    "font-awesome": "fontawesome#^4.6.3"
+    "font-awesome": "fontawesome#^4.5"
   }
 }
