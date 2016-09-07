@@ -20,7 +20,16 @@ angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAu
             $rootScope.firebaseUser = firebaseUser;
             $location.path('/');
         }).catch(function(error) {
-            $rootScope.logginError = error;
+            if (error.code === 'auth/account-exists-with-different-credential') {
+                firebase.auth().currentUser.link(error.credential).then(function(firebaseUser) {
+                    console.log("Account linking success", firebaseUser);
+                    console.log(firebaseUser);
+                    $rootScope.firebaseUser = firebaseUser;
+                    $location.path('/');
+                }, function(error) {
+                    console.log("Account linking error", error);
+                });
+            }
         });
     };
 
