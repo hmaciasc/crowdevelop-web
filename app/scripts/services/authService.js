@@ -9,13 +9,13 @@ angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAu
 
     };
 
-    AuthService.prototype.login = function() {
+    AuthService.prototype.login = function(provider) {
         var auth = $firebaseAuth();
         var firebaseUser = null;
         var error = null;
         console.log("LOGIN SERVICE");
 
-        auth.$signInWithPopup("google").then(function(firebaseUser) {
+        auth.$signInWithPopup(provider).then(function(firebaseUser) {
             console.log(firebaseUser);
             $rootScope.firebaseUser = firebaseUser;
             $location.path('/');

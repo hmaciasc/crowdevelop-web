@@ -5,9 +5,9 @@ angular.module('crowDevelop')
 .controller('LoginCtrl', ['$rootScope', '$scope', '$location', function($rootScope, $scope, $location) {
 
 
-    $scope.login = function() {
+    $scope.login = function(provider) {
         console.log("LOGIN CTRL");
-        $rootScope.authService.login();
+        $rootScope.authService.login(provider);
     };
 
 
