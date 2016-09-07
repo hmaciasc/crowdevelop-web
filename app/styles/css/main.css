@@ -1,0 +1,33 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+:root {
+  --light-purple: #EEE7F7;
+  --border-purple: #816F9F;
+  --project-back: #7852DB;
+  --purple-back-nav: #8B80F8;
+  --dark-purple: #4400AB;
+  --green: #00E676;
+  --shadow-color: rgba(0, 0, 0, 0.52);
+  --grad1: #7058E4;
+  --grad2: #6D2C90;
+}
+* {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+head,
+body {
+  max-width: 100%;
+}
+li {
+  list-style-type: none;
+}
+.profileImg {
+  max-height: 50px;
+  margin-right: 15px;
+}
+.logo {
+  display: block;
+  margin: 3em 0;
+  text-align: center;
+}
