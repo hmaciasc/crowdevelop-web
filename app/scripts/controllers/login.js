@@ -2,12 +2,20 @@
 
 angular.module('crowDevelop')
 
-.controller('LoginCtrl', ['$rootScope', '$scope', '$location', function($rootScope, $scope, $location) {
+.controller('LoginCtrl', ['$rootScope', '$scope', '$location', 'AuthService', function($rootScope, $scope, $location, AuthService) {
 
 
     $scope.login = function(provider) {
         console.log("LOGIN CTRL");
-        $rootScope.authService.login(provider);
+        $rootScope.authService.login(provider).then(function(user) {
+            console.log(user);
+            $rootScope.firebaseUser = user;
+            if (user != null) {
+                $location.path('/');
+            }
+        }, function(error) {
+            $scope.loginError = error;
+        });
     };
 
 

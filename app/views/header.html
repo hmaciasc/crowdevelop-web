@@ -11,13 +11,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li ng-show="firebaseUser"><a href="">Hello, {{firebaseUser.user.displayName}}</a></li>
+                <li ng-show="firebaseUser"><a href="">Hello, {{firebaseUser.displayName}}</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="/projects/create" ng-if="firebaseUser" ng-click="createProject()" id="create-project-button">Create project</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="/login" ng-if="!firebaseUser">Login - Registro</a></li>
                 <li><a href="/" ng-if="firebaseUser" ng-click="logout()" id="quickstart-sign-in">Sign Out</a></li>
-                <li class="hidden-xs hidden-sm"><img src="{{firebaseUser.user.photoURL}}" class="img-responsive img-circle profileImg" /></li>
+                <li class="hidden-xs hidden-sm"><img src="{{firebaseUser.photoURL}}" class="img-responsive img-circle profileImg" /></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

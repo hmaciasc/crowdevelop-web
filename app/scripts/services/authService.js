@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAuth', '$location', function($rootScope, $firebaseAuth, $location) {
+angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAuth', '$location', '$q', function($rootScope, $firebaseAuth, $location, $q) {
 
     /**
      * @constructor
@@ -11,26 +11,24 @@ angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAu
 
     AuthService.prototype.login = function(provider) {
         var auth = $firebaseAuth();
-        var firebaseUser = null;
-        var error = null;
+        var deferred = $q.defer();
         console.log("LOGIN SERVICE");
 
         auth.$signInWithPopup(provider).then(function(firebaseUser) {
             console.log(firebaseUser);
-            $rootScope.firebaseUser = firebaseUser;
-            $location.path('/');
+            deferred.resolve(firebaseUser.user);
         }).catch(function(error) {
             if (error.code === 'auth/account-exists-with-different-credential') {
                 firebase.auth().currentUser.link(error.credential).then(function(firebaseUser) {
                     console.log("Account linking success", firebaseUser);
-                    console.log(firebaseUser);
-                    $rootScope.firebaseUser = firebaseUser;
-                    $location.path('/');
+                    deferred.resolve(firebaseUser);
                 }, function(error) {
                     console.log("Account linking error", error);
+                    deferred.reject('Error linking');
                 });
             }
         });
+        return deferred.promise;
     };
 
     AuthService.prototype.logout = function() {

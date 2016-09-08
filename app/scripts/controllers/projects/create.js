@@ -9,8 +9,8 @@ angular.module('crowDevelop')
     $scope.create = function() {
         var project = $scope.project;
 
-        $scope.project.ownerId = $rootScope.firebaseUser.user.uid;
-        $scope.project.ownerName = $rootScope.firebaseUser.user.displayName;
+        $scope.project.ownerId = $rootScope.firebaseUser.uid;
+        $scope.project.ownerName = $rootScope.firebaseUser.displayName;
         $scope.project.donated = 0;
         $scope.project.negativeDonated = 0;
         $scope.project.day = $scope.project.selectedDate.getDay();

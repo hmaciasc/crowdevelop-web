@@ -31,7 +31,7 @@ angular.module('crowDevelop')
     $scope.saveComment = function() {
         var commentRef = firebase.database().ref('comments/' + $scope.project.pid);
         var comment = {
-            writer: $rootScope.firebaseUser.user.displayName,
+            writer: $rootScope.firebaseUser.displayName,
             text: $scope.comments.newComment
         };
         console.log($scope.comments.newComment);
