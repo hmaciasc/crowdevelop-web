@@ -20,7 +20,7 @@ gulp.task('less', function(){
     browsers: ['last 2 versions'],
     cascade: false
   }))
-  .pipe(gulp.cssmin())
+  .pipe(cssmin())
   .pipe(gulp.dest('app/styles/css'));
 });
 
