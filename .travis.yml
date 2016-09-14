@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - '6'
 before_script:
-  - 'npm install'
+  - 'npm install -g bower gulp-cli'
   - 'bower install'
 script:
   - echo "Deploying!"
