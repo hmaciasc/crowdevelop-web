@@ -23,5 +23,8 @@
     "angulike": "^1.2.0",
     "bootstrap-social": "^5.0.0",
     "font-awesome": "fontawesome#^4.5"
+  },
+  "resolutions": {
+    "bootstrap": "v4.0.0-alpha.4"
   }
 }
