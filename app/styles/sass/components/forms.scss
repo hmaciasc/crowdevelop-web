@@ -1,0 +1,86 @@
+.material {
+  position: relative;
+  padding: 0;
+  margin: 5px;
+  width: 100%;
+  border: none;
+  overflow: visible;
+
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 10px 8px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #DDD;
+    font-size: 120%;
+    outline: none;
+    cursor: text;
+
+    &::placeholder {
+      transition: color 300ms ease;
+    }
+    &:not(:focus)::placeholder {
+      color: transparent;
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 120%;
+    color: #607D8B;
+    transform-origin: 0 -150%;
+    transition: transform 300ms ease;
+    pointer-events: none;
+  }
+  input:focus ~ label,
+  input:valid ~ label,
+  select:visited ~ label {
+    transform: scale(0.6);
+  }
+  select {
+    font-family: inherit;
+    background-color: transparent;
+    width: 100%;
+    padding: 4px 0;
+    font-size: 16px;
+    color: rgba(0,0,0, 0.26);
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0, 0.12);
+  }
+
+  /* Remove focus */
+  select:focus {
+    outline: none;
+  }
+
+  /* Use custom arrow */
+  .selectField select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  .selectField {
+    font-family: 'Roboto';
+    position: relative;
+  }
+
+  .selectField:after {
+    position: absolute;
+    top: 0.75em;
+    right: 0.5em;
+    /* Styling the down arrow */
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: .25em solid transparent;
+    border-right: .25em solid transparent;
+    border-top: 0.375em solid rgba(0,0,0, 0.12);
+    pointer-events: none;
+  }
+}
