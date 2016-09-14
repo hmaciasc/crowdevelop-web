@@ -8,8 +8,23 @@
 .text-300 {
   font-weight: 300; }
 
+.mt-10px {
+  margin-top: 10px; }
+
+.mt-20px {
+  margin-top: 20px; }
+
 .mt-30px {
   margin-top: 30px; }
+
+.mt-40px {
+  margin-top: 40px; }
+
+.mt-60px {
+  margin-top: 60px; }
+
+.mt-80px {
+  margin-top: 80px; }
 
 /*datepicker*/
 .datepicker.dropdown-menu {
@@ -80,15 +95,11 @@ head, body {
 li {
   list-style-type: none; }
 
-form {
-  margin: 20px;
-  padding: 20px;
-  background: #FFF; }
-
 .material {
   position: relative;
   padding: 0;
   margin: 5px;
+  width: 100%;
   border: none;
   overflow: visible;
   /* Remove focus */
@@ -165,6 +176,15 @@ form {
     border-top: 0.375em solid rgba(0, 0, 0, 0.12);
     pointer-events: none; }
 
+form input {
+  border-radius: 0 !important; }
+
+.divider {
+  height: 1px;
+  margin: .5rem 0;
+  overflow: hidden;
+  background-color: #e5e5e5; }
+
 /* Project list view */
 .project {
   background-color: white;
@@ -195,12 +215,29 @@ form {
   text-align: justify;
   display: block; }
 
+.comment-input {
+  border: 2px solid #CDD3D7 !important;
+  border-radius: 4px !important; }
+
 .comment {
   padding-bottom: 15px; }
+  .comment .comment-header {
+    display: inline; }
+  .comment .comment-photo {
+    max-height: 40px;
+    width: auto;
+    margin: 0 10px; }
+  .comment .comment-writer {
+    color: #5995DD;
+    font-size: 15px; }
+  .comment .comment-text {
+    color: #444444;
+    text-align: justify;
+    padding: 10px 0; }
 
-.comment-writer {
-  color: #5995DD;
-  font-size: 15px; }
-
-.comment-text {
-  color: #444444; }
+.input-search {
+  background: url("../../../images/icons/search-icon.png") no-repeat !important;
+  background-position: calc(100% - 20px) center !important;
+  background-size: contain !important;
+  background-color: white !important;
+  padding-right: 60px !important; }

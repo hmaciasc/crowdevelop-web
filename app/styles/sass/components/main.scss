@@ -14,16 +14,12 @@ li {
   list-style-type: none;
 }
 
-form {
-  margin: 20px;
-  padding: 20px;
-  background: #FFF;
-}
 
 .material {
   position: relative;
   padding: 0;
   margin: 5px;
+  width: 100%;
   border: none;
   overflow: visible;
 
@@ -104,4 +100,20 @@ form {
     border-top: 0.375em solid rgba(0,0,0, 0.12);
     pointer-events: none;
   }
+}
+
+// override
+form {
+
+    input {
+        border-radius: 0 !important;
+
+    }
+}
+
+.divider {
+    height: 1px;
+    margin: .5rem 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
 }

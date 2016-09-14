@@ -1,93 +1,94 @@
 <div class="projects container-fluid">
-  <div class="row">
-    <div class="col-lg-6 col-lg-offset-3">
-      <div class="text-center">
-        <h1 class="text-400">{{project.name}}</h1>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6 col-lg-offset-3">
-      <div class="text-center">
-        <h4 class="text-300">by {{project.ownerName}}</h4>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2 col-lg-6 col-lg-offset-3 project">
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-    <div class="col-xs-8 col-xs-offset-2 col-lg-6 col-lg-offset-3">
-      <h3>Category: </h3>
-      <span>{{project.category}}</span>
-      <h3> Description: </h3>
-      <span class="description" ng-bind-html="project.description | formatText"></span>
-      <div class="date">
-        <h3>Deadline: <small>{{project.day}}/{{project.month}}/{{project.year}}</small></h3>
-      </div>
-      <div class="target">
-        <span>Target amount: {{project.goal}}€</span>
-        <div class="progress">
-          <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{ project.donated / project.goal * 100 | number:0 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ project.donated / project.goal * 100 | number:0 }}%;">
-            {{ project.donated / project.goal * 100 | number:0 || 0}}%
-          </div>
+    <div class="row mt-60px">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="text-xs-center">
+                <h1 class="text-400">{{project.name}}</h1>
+            </div>
         </div>
-      </div>
     </div>
+    <div class="row mt-30px">
+        <div class="offset-lg-3 col-lg-6">
+            <div class="text-xs-center">
+                <h4 class="text-300">by {{project.ownerName}}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-40px">
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 project">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 mt-30px">
+            <h3 class="mt-20px">Category: </h3>
+            <span>{{project.category}}</span>
+            <h3 class="mt-20px"> Description: </h3>
+            <span class="description" ng-bind-html="project.description | formatText"></span>
+            <div class="date mt-20px">
+                <h3>Deadline: <small>{{project.day}}/{{project.month}}/{{project.year}}</small></h3>
+            </div>
+            <div class="target">
+                <span>Target amount: {{project.goal}}€</span>
+                <div>
+                    <div class="text-xs-center" id="progress-text">{{ project.donated / project.goal * 100 | number:0 || 0}}% Reached</div>
+                    <progress class="progress progress-striped progress-success" value="{{ project.donated / project.goal * 100 | number:0 }}" max="100"></progress>
+                </div>
+            </div>
+        </div>
 
-    <div class="col-xs-8 col-xs-offset-2 col-lg-6 col-lg-offset-3">
-      <h4>Share this project!</h4>
-      <div class="social">
-        <!-- Sharingbutton Facebook -->
-        <a class="btn btn-social-icon btn-facebook" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2F" target="_blank" aria-label="">
-          <span class="fa fa-facebook"></span>
-        </a>
-      </div>
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 mt-20px">
+            <h4>Share this project!</h4>
+            <div class="social">
+                <!-- Sharingbutton Facebook -->
+                <a class="btn btn-social-icon btn-facebook" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2F" target="_blank" aria-label="">
+                    <span class="fa fa-facebook"></span>
+                </a>
+            </div>
 
-      <div class="social">
-        <!-- Sharingbutton Twitter -->
-        <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/intent/tweet/?text=Checkout%20this%20awesome%20project%3A%20{{project.name}}&amp;url=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2F" target="_blank" aria-label="">
-          <span class="fa fa-twitter"></span>
-        </a>
-      </div>
-      <div class="social">
-        <!-- Sharingbutton Google+ -->
-        <a class="btn btn-social-icon btn-google" href="https://plus.google.com/share?url=crowdevelop-40f3c.firebaseapp.com" onclick="javascript:window.open(this.href,
+            <div class="social">
+                <!-- Sharingbutton Twitter -->
+                <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/intent/tweet/?text=Checkout%20this%20awesome%20project%3A%20{{project.name}}&amp;url=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2F" target="_blank" aria-label="">
+                    <span class="fa fa-twitter"></span>
+                </a>
+            </div>
+            <div class="social">
+                <!-- Sharingbutton Google+ -->
+                <a class="btn btn-social-icon btn-google" href="https://plus.google.com/share?url=crowdevelop-40f3c.firebaseapp.com" onclick="javascript:window.open(this.href,
         '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" aria-label="">
-          <span class="fa fa-google"></span>
-        </a>
-      </div>
-    </div>
-    <!-- end social share -->
-  </div>
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2 col-lg-6 col-lg-offset-3">
-      <h3>Comments</h3>
-      <form class="form" ng-submit="saveComment()" name="comment">
-        <div class="form-group">
-          <label for="comment"></label>
-          <textarea type="textarea" rows="2" name="commentInput" class="form-control" ng-model="comments.newComment" required></textarea>
-          <div class="alert alert-danger" ng-show="comment.$touched && comment.$error.required">
-            <strong>Alert!</strong> Goal must be stablished.
-          </div>
+                    <span class="fa fa-google"></span>
+                </a>
+            </div>
         </div>
-        <!-- <div class="alert alert-danger" ng-show="!firebaseUser">
+        <!-- end social share -->
+    </div>
+    <div class="row mt-20px">
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6">
+            <h3>Comments</h3>
+            <form class="form" ng-submit="saveComment()" name="comment">
+                <div class="form-group">
+                    <label for="comment"></label>
+                    <textarea type="textarea" rows="2" name="commentInput" class="form-control comment-input" ng-model="comments.newComment" required></textarea>
+                    <div class="alert alert-danger" ng-show="comment.$touched && comment.$error.required">
+                        <strong>Alert!</strong> Goal must be stablished.
+                    </div>
+                </div>
+                <!-- <div class="alert alert-danger" ng-show="!firebaseUser">
         <strong>Alert!</strong> You have to make an account first.
       </div> -->
-      <button type="submit" class="btn btn-default">Submit comment</button>
-    </form>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-8 col-xs-offset-2 col-lg-6 col-lg-offset-3 comments">
-    <div class="comment" ng-repeat="comment in comments">
-      <ul>
-        <li class="comment-writer">{{comment.writer}}</li>
-        <li class="comment-text">{{comment.text}}</li>
-      </ul>
+                <button type="submit" class="btn btn-secondary">Submit comment</button>
+            </form>
+        </div>
     </div>
-  </div>
-</div>
+    <div class="row mt-20px">
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 comments">
+            <div class="comment" ng-repeat="comment in comments">
+                <div class="comment-header">
+                    <img class="img-rounded comment-photo" src="{{comment.photo}}" alt="User" />
+                    <span class="comment-writer">{{comment.writer}}</span>
+                </div>
+                <p class="comment-text">{{comment.text}}</p>
+                <div class="divider"></div>
+            </div>
+        </div>
+    </div>
 </div>

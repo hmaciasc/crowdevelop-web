@@ -33,16 +33,49 @@
     display: block;
 }
 
+.comment-input {
+    border: 2px solid #CDD3D7 !important;
+    border-radius: 4px !important;
+}
+
 .comment {
     padding-bottom: 15px;
 
+    .comment-header {
+        display: inline;
+    }
+    .comment-photo {
+        // float:left;
+        max-height: 40px;
+        width: auto;
+        margin: 0 10px;
+    }
+
+    .comment-writer {
+        color: #5995DD;
+        font-size: 15px;
+    }
+
+    .comment-text {
+        color: #444444;
+        text-align: justify;
+        padding: 10px 0;
+    }
 }
 
-.comment-writer {
-    color: #5995DD;
-    font-size: 15px;
+
+
+
+@mixin input-image($image, $distance) {
+    background: url($image) no-repeat !important;
+    background-position: -webkit-calc(100% - #{$distance}) center !important;
+    background-position: -moz-calc(100% - #{$distance}) center !important;
+    background-position: calc(100% - #{$distance}) center !important;
+    background-size: contain !important;
+    background-color: white !important;
+    padding-right: 60px !important;
 }
 
-.comment-text {
-    color: #444444;
+.input-search {
+    @include input-image("../../../images/icons/search-icon.png", 20px);
 }

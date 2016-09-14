@@ -1,22 +1,21 @@
-<div class="row">
+<div class="row mt-40px">
     <div class="col-xs-10 offset-xs-1 col-lg-8 offset-lg-2">
         <div class="form-group has-feedback">
             <form class="form" ng-submit="findProject()" name="searchForm">
-                <input type="text" name="searchField" class="form-control" ng-model="query" placeholder="Search" required />
-                <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                <input type="text" name="searchField" class="input-search form-control" ng-model="query" palceholder="Search" required />
             </form>
         </div>
     </div>
 </div>
-<div class="row">
+<div class="row mt-40px">
     <div class="col-xs-8 offset-xs-2 col-lg-6 offset-lg-3 left-addon">
         <h2>Popular projects: </h2>
     </div>
 </div>
-<div class="row" ng-repeat="project in projects">
+<div class="row mt-20px" ng-repeat="project in projects">
     <div class="col-xs-8 offset-xs-2 col-lg-6 offset-lg-3 project">
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
+            <iframe class="embed-responsive-item" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
     <div class="col-xs-8 offset-xs-2 col-lg-6 offset-lg-3" ng-click="go(project.pid)">
@@ -24,8 +23,9 @@
             <h3>{{project.name}}</h3>
             <p> Category: {{project.category}}</p>
             <div class="target">
-                <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ project.donated / project.goal * 100 | number:0 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ project.donated / project.goal * 100 | number:0 }}%;"></div>
+                <div>
+                    <div class="text-xs-center" id="progress-text">{{ project.donated / project.goal * 100 | number:0 || 0}}% Reached</div>
+                    <progress class="progress progress-striped progress-success" value="{{ project.donated / project.goal * 100 | number:0 }}" max="100"></progress>
                 </div>
             </div>
         </div>
