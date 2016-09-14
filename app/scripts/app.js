@@ -38,7 +38,7 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStr
             controller: 'ProjectsDetailsCtrl'
         })
         .otherwise({
-            templateUrl: 'views/404.html'
+            templateUrl: 'views/shared/404.html'
         });
     $locationProvider.html5Mode(true);
 }])

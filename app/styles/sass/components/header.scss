@@ -1,0 +1,33 @@
+.header-default {
+    background-color: transparent;
+
+    button {
+        // color: white;
+    }
+}
+
+.header-item {
+    max-height: 40px;
+    font-size: 14px;
+    border-radius: 1px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+    border: solid 1px black;
+    padding: 7px 24px;
+    color: black !important;
+}
+
+.collapse-item {
+    font-size: 14px;
+    color: black !important;
+}
+
+.profileImg {
+    max-height: 30px;
+    margin-right: 15px;
+}
+
+.logo {
+    display: block;
+    margin: 3em 0;
+    text-align: center;
+}

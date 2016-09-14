@@ -17,7 +17,7 @@
   "dependencies": {
     "angular": "~1.5.8",
     "angular-strap": "^2.3.9",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "v4.0.0-alpha.4",
     "angular-ui-router": "^0.3.1",
     "angularfire": "^2.0.2",
     "angulike": "^1.2.0",
