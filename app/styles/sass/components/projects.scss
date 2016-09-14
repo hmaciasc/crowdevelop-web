@@ -10,9 +10,7 @@
     cursor: pointer;
     padding-left: 0;
     padding-right: 0;
-    -webkit-box-shadow: 0px 5px 24px 1px var(--shadow-color);
-    -moz-box-shadow: 0px 5px 24px 1px var(--shadow-color);
-    box-shadow: 0px 5px 24px 1px var(--shadow-color);
+    box-shadow: 0px 5px 24px 1px $shadow-color;
 }
 
 .projectDetails {
@@ -23,9 +21,7 @@
     padding-left: 15px;
     padding-right: 15px;
     cursor: pointer;
-    -webkit-box-shadow: 0px 5px 24px 1px var(--shadow-color);
-    -moz-box-shadow: 0px 5px 24px 1px var(--shadow-color);
-    box-shadow: 0px 5px 24px 1px var(--shadow-color);
+    box-shadow: 0px 5px 24px 1px $shadow-color;
 }
 
 .social {
@@ -39,7 +35,7 @@
 
 .comment {
     padding-bottom: 15px;
-    box-sizing: border-box;
+
 }
 
 .comment-writer {
