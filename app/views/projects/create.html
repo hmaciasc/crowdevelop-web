@@ -36,7 +36,7 @@
 
                 <div class="form-group col-xs-10 offset-xs-1 material" ng-class="{'has-error': datepickerForm.date.$invalid}">
                     <input type="text" class="form-control" ng-model="project.selectedDate" data-min-date="today" name="date" bs-datepicker required />
-                    <label class="control-label"><i class="fa fa-calendar"></i> Date <small>(as date)</small></label>
+                    <label class="control-label"><i class="fa fa-calendar"></i> Date </label>
                     <p class="help-block ">Select a finish date.</p>
                     <div class="alert alert-danger" ng-show="createProject.date.$touched && createProject.date.$error.required">
                         <strong>Alert!</strong> Need to specify a date.
@@ -44,8 +44,8 @@
                 </div>
 
                 <div class="form-group col-xs-10 offset-xs-1 material">
-                    <label for="description">Description</label>
                     <textarea type="textarea" rows="2" name="description" class="form-control" ng-model="project.description" required></textarea>
+                    <!-- <label for="description">Description</label> -->
                     <p class="help-block">Describe your project.</p>
                     <div class="alert alert-danger" ng-show="createProject.description.$touched && createProject.description.$error.required">
                         <strong>Alert!</strong> Description must be 300 characters.

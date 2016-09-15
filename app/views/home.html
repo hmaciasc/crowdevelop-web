@@ -1,33 +1,38 @@
 <div class="row mt-40px">
-    <div class="col-xs-10 offset-xs-1 col-lg-8 offset-lg-2">
-        <div class="form-group has-feedback">
-            <form class="form" ng-submit="findProject()" name="searchForm">
-                <input type="text" name="searchField" class="input-search form-control" ng-model="query" palceholder="Search" required />
-            </form>
+  <div class="col-xs-10 offset-xs-1 col-lg-8 offset-lg-2">
+    <div class="form-group has-feedback">
+      <form class="form" ng-submit="findProject()" name="searchForm">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" name="searchField" class="form-control" ng-model="query" palceholder="Search" required />
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+          </div>
         </div>
+      </form>
     </div>
+  </div>
 </div>
 <div class="row mt-40px">
-    <div class="col-xs-8 offset-xs-2 col-lg-6 offset-lg-3 left-addon">
-        <h2>Popular projects: </h2>
-    </div>
+  <div class="col-xs-8 offset-xs-2 col-lg-6 offset-lg-3 left-addon">
+    <h2>Popular projects: </h2>
+  </div>
 </div>
 <div class="row mt-20px" ng-repeat="project in projects">
-    <div class="col-xs-8 offset-xs-2 col-lg-6 offset-lg-3 project">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
-        </div>
+  <div class="col-xs-8 offset-xs-2 col-lg-6 offset-lg-3 project">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
     </div>
-    <div class="col-xs-8 offset-xs-2 col-lg-6 offset-lg-3" ng-click="go(project.pid)">
-        <div class="projectDetails">
-            <h3>{{project.name}}</h3>
-            <p> Category: {{project.category}}</p>
-            <div class="target">
-                <div>
-                    <div class="text-xs-center" id="progress-text">{{ project.donated / project.goal * 100 | number:0 || 0}}% Reached</div>
-                    <progress class="progress progress-striped progress-success" value="{{ project.donated / project.goal * 100 | number:0 }}" max="100"></progress>
-                </div>
-            </div>
+  </div>
+  <div class="col-xs-8 offset-xs-2 col-lg-6 offset-lg-3" ng-click="go(project.pid)">
+    <div class="projectDetails">
+      <h3>{{project.name}}</h3>
+      <p> Category: {{project.category}}</p>
+      <div class="target">
+        <div>
+          <div class="text-xs-center" id="progress-text">{{ project.donated / project.goal * 100 | number:0 || 0}}% Reached</div>
+          <progress class="progress progress-striped progress-success" value="{{ project.donated / project.goal * 100 | number:0 }}" max="100"></progress>
         </div>
+      </div>
     </div>
+  </div>
 </div>

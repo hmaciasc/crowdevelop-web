@@ -1,0 +1,15 @@
+{
+  "lang": "en",
+  "background_color": "#ffffff",
+  "name": "CrowDevelop",
+  "short_name": "CrowDevelop",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "YOU-NEED-TO-HAVE-A-144-x-144-ICON.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "portrait"
+}

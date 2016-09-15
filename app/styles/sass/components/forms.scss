@@ -36,11 +36,14 @@
     transition: transform 300ms ease;
     pointer-events: none;
   }
+
   input:focus ~ label,
   input:valid ~ label,
-  select:visited ~ label {
+  select ~ label,
+  textarea ~ label {
     transform: scale(0.6);
   }
+
   select {
     font-family: inherit;
     background-color: transparent;
