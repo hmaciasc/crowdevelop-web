@@ -1,5 +1,35 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto';
 @import 'https://fonts.googleapis.com/css?family=Fira+Sans:500,700,400|Roboto:400';
+.color-purple {
+  color: #816F9F; }
+
+.bg-purple {
+  background: #816F9F; }
+
+.color-dark-purple {
+  color: #3d1e90; }
+
+.bg-dark-purple {
+  background: #3d1e90; }
+
+.color-light-purple {
+  color: #cabcf1; }
+
+.bg-light-purple {
+  background: #cabcf1; }
+
+.fs-14px {
+  font-size: 14px; }
+
+.fs-16px {
+  font-size: 16px; }
+
+.fs-26px {
+  font-size: 26px; }
+
+.fs-36px {
+  font-size: 36px; }
+
 .col-center {
   margin: auto; }
 
@@ -81,11 +111,16 @@
   text-align: center; }
 
 footer {
-  height: 150px;
-  margin-top: 50px; }
+  height: 100px;
+  margin: 0 auto -100px; }
+  footer div {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
 
 .footer-item {
-  padding: 15px 30px; }
+  padding: 15px 30px;
+  border: 2px solid black; }
 
 * {
   font-family: 'Roboto', sans-serif;
@@ -93,7 +128,8 @@ footer {
   padding: 0;
   box-sizing: border-box; }
 
-head, body {
+body,
+head {
   max-width: 100%;
   background-color: white; }
 
@@ -110,7 +146,7 @@ h1 {
   font-weight: 500;
   line-height: 1.25;
   opacity: 1.00;
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 10px;
   letter-spacing: -0.72px;
   word-spacing: 0.00px;
@@ -146,7 +182,7 @@ p {
   font-weight: 400;
   line-height: 1.60;
   opacity: 0.70;
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 25px;
   letter-spacing: -0.30px;
   word-spacing: -0.10px;
@@ -155,9 +191,12 @@ p {
 form input {
   border-radius: 0 !important; }
 
+.navbar {
+  margin: 20px 0; }
+
 .divider {
   height: 1px;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   overflow: hidden;
   background-color: #e5e5e5; }
 
@@ -254,17 +293,14 @@ form input {
   cursor: pointer;
   padding-left: 0;
   padding-right: 0;
-  box-shadow: 0px 5px 24px 1px rgba(0, 0, 0, 0.52); }
+  box-shadow: 0 5px 24px 1px rgba(0, 0, 0, 0.52); }
 
 .projectDetails {
   background-color: rgba(38, 50, 56, 0.7);
   box-sizing: inherit;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 5px 15px;
   cursor: pointer;
-  box-shadow: 0px 5px 24px 1px rgba(0, 0, 0, 0.52); }
+  box-shadow: 0 5px 24px 1px rgba(0, 0, 0, 0.52); }
 
 .social {
   display: inline; }
@@ -299,3 +335,8 @@ form input {
   background-size: contain !important;
   background-color: white !important;
   padding-right: 60px !important; }
+
+.category {
+  margin: auto;
+  padding: 15px 20px;
+  border: 1px solid #212220; }

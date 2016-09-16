@@ -20,7 +20,7 @@ angular.module('crowDevelop')
     };
 
     $scope.go = function(ref) {
-        $location.path(/projects/ + ref);
+        $location.path(ref);
     }
 
     $scope.init();

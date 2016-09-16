@@ -1,5 +1,4 @@
 /* Project list view */
-
 .project {
     background-color: white;
     border-radius: 4px;
@@ -10,18 +9,15 @@
     cursor: pointer;
     padding-left: 0;
     padding-right: 0;
-    box-shadow: 0px 5px 24px 1px $shadow-color;
+    box-shadow: 0 5px 24px 1px $shadow-color;
 }
 
 .projectDetails {
     background-color: rgba(38, 50, 56, 0.7);
     box-sizing: inherit;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 5px 15px;
     cursor: pointer;
-    box-shadow: 0px 5px 24px 1px $shadow-color;
+    box-shadow: 0 5px 24px 1px $shadow-color;
 }
 
 .social {
@@ -44,6 +40,7 @@
     .comment-header {
         display: inline;
     }
+
     .comment-photo {
         // float:left;
         max-height: 40px;
@@ -62,10 +59,6 @@
         padding: 10px 0;
     }
 }
-
-
-
-
 @mixin input-image($image, $distance) {
     background: url($image) no-repeat !important;
     background-position: -webkit-calc(100% - #{$distance}) center !important;
@@ -78,4 +71,10 @@
 
 .input-search {
     @include input-image("../../../images/icons/search-icon.png", 20px);
+}
+
+.category {
+    margin: auto;
+    padding: 15px 20px;
+    border: 1px solid $border-color;
 }

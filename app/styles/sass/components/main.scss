@@ -1,33 +1,27 @@
 // fonts
-
-@import 'https://fonts.googleapis.com/css?family=Fira+Sans:500,700,400|Roboto:400';
-
-
-// reset
+@import 'https://fonts.googleapis.com/css?family=Fira+Sans:500,700,400|Roboto:400'; // reset
 
 * {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-head, body {
-  max-width: 100%;
-  background-color: white;
+body,
+head {
+    max-width: 100%;
+    background-color: white;
 }
 
 li {
-  list-style-type: none;
+    list-style-type: none;
 }
-
 
 html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
-
 // fonts
 
 h1 {
@@ -36,7 +30,7 @@ h1 {
     font-weight: 500;
     line-height: 1.25;
     opacity: 1.00;
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 10px;
     letter-spacing: -0.72px;
     word-spacing: 0.00px;
@@ -75,25 +69,27 @@ p {
     font-weight: 400;
     line-height: 1.60;
     opacity: 0.70;
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 25px;
     letter-spacing: -0.30px;
     word-spacing: -0.10px;
     text-transform: none;
 }
-
 // override
-form {
 
+form {
     input {
         border-radius: 0 !important;
-
     }
+}
+
+.navbar {
+    margin: 20px 0;
 }
 
 .divider {
     height: 1px;
-    margin: .5rem 0;
+    margin: 0.5rem 0;
     overflow: hidden;
     background-color: #e5e5e5;
 }

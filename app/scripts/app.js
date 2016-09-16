@@ -33,7 +33,11 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStr
             templateUrl: 'views/projects/index.html',
             controller: 'ProjectsIndexCtrl'
         })
-        .when('/projects/:pid', {
+        .when('/projects/category/:category', {
+            templateUrl: 'views/projects/index.html',
+            controller: 'ProjectsCategoryCtrl'
+        })
+        .when('/projects/index/:pid', {
             templateUrl: 'views/projects/details.html',
             controller: 'ProjectsDetailsCtrl'
         })
@@ -58,6 +62,7 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStr
 })
 
 .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
+    $rootScope.categories = ["Development", "Game", "Education", "Social", "Art", "Sports", "Health", "News"];
     $rootScope.authService = new AuthService({
         provider: 'google'
     });

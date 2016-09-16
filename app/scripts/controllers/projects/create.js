@@ -4,8 +4,6 @@ angular.module('crowDevelop')
 
 .controller('ProjectsCreateCtrl', ['$rootScope', '$scope', '$firebaseObject', '$location', function($rootScope, $scope, $firebaseObject, $location) {
 
-    $scope.categories = ["Development", "Game", "Education", "Social"];
-
     $scope.create = function() {
         var project = $scope.project;
 

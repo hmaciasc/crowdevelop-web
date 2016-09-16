@@ -1,16 +1,16 @@
 <div class="login">
-    <div class="row">
-        <div class="col-xs-10 offset-xs-1 col-lg-4 offset-lg-4 ">
-            <h1>Login options</h1>
+    <div class="row mt-20px">
+        <div class="offset-xs-1 col-xs-10 offset-lg-4 col-lg-4">
+            <h2>Login options</h2>
         </div>
     </div>
-    <div class="row" ng-if="!firebaseUser">
-        <div class="col-xs-10 offset-xs-1 col-lg-4 offset-lg-4" ng-if="loginError">
+    <div class="row mt-40px" ng-if="!firebaseUser">
+        <div class="offset-xs-1 col-xs-10 offset-lg-4 col-lg-4" ng-if="loginError">
             <div class="alert alert-warning">
                 <strong>Warning!</strong> {{loginError}}
             </div>
         </div>
-        <div class="col-xs-10 offset-xs-1 col-lg-4 offset-lg-4">
+        <div class="offset-xs-1 col-xs-10 offset-lg-4 col-lg-4">
             <ul class="list-group">
                 <li class="list-group-item">
                     <a class="btn btn-block btn-social btn-google" ng-click="login('google')">
