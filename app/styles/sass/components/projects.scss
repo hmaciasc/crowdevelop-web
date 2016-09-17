@@ -20,8 +20,10 @@
     box-shadow: 0 5px 24px 1px $shadow-color;
 }
 
-.social {
-    display: inline;
+.fav-icon {
+    font-size: 25px;
+    padding: 5px;
+    color: $color-heart;
 }
 
 .description {

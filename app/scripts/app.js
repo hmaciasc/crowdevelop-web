@@ -29,6 +29,10 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStr
             templateUrl: 'views/projects/create.html',
             controller: 'ProjectsCreateCtrl'
         })
+        .when('/projects/favourites', {
+            templateUrl: 'views/projects/favourites.html',
+            controller: 'ProjectsFavouritesCtrl'
+        })
         .when('/projects/index', {
             templateUrl: 'views/projects/index.html',
             controller: 'ProjectsIndexCtrl'

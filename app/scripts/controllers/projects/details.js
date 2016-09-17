@@ -28,6 +28,23 @@ angular.module('crowDevelop')
         });
     }
 
+    $scope.favourite = function(pid) {
+        var favRef = firebase.database().ref('favourites/' + $rootScope.firebaseUser.uid);
+        var state = $firebaseObject(favRef.child(pid));
+        state.$loaded().then(function() {
+            favRef.child(pid).set(!state.$value);
+            $scope.favourited = !state.$value;
+        });
+    }
+
+    $scope.getFavourite = function(pid) {
+        var favRef = firebase.database().ref('favourites/' + $rootScope.firebaseUser.uid);
+        var state = $firebaseObject(favRef.child(pid));
+        state.$loaded().then(function() {
+            $scope.favourited = state.$value;
+        });
+    }
+
     $scope.saveComment = function() {
         var commentRef = firebase.database().ref('comments/' + $scope.project.pid);
         var comment = {
@@ -42,4 +59,7 @@ angular.module('crowDevelop')
 
     $scope.getProject(pid);
     $scope.getComments(pid);
+    if ($rootScope.firebaseUser) {
+        $scope.getFavourite(pid);
+    }
 }]);

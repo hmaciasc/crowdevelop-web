@@ -13,7 +13,10 @@
                     <a class="nav-link collapse-item" href="">Hello, {{firebaseUser.displayName}}</a>
                 </li>
                 <li class="nav-item" ng-show="firebaseUser">
-                    <a class="nav-link collapse-item" href="/projects/create" ng-if="firebaseUser" ng-click="createProject()" id="create-project-button">Create project</a>
+                    <a class="nav-link collapse-item" href="/projects/create" ng-if="firebaseUser">Create project</a>
+                </li>
+                <li class="nav-item" ng-show="firebaseUser">
+                    <a class="nav-link collapse-item" href="/projects/favourites" ng-if="firebaseUser">Favourites</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapse-item" href="/login" ng-if="!firebaseUser">Login - Registro</a>

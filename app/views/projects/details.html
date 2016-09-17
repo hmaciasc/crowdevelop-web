@@ -36,31 +36,35 @@
             </div>
         </div>
 
-        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 mt-20px">
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-3 mt-20px">
             <h4>Share this project!</h4>
-            <div class="social">
+            <div class="d-inline">
                 <!-- Sharingbutton Facebook -->
                 <a class="btn btn-social-icon btn-facebook" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2F" target="_blank" aria-label="">
                     <span class="fa fa-facebook"></span>
                 </a>
             </div>
 
-            <div class="social">
+            <div class="d-inline pdl-10px">
                 <!-- Sharingbutton Twitter -->
                 <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/intent/tweet/?text=Checkout%20this%20awesome%20project%3A%20{{project.name}}&amp;url=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2F" target="_blank" aria-label="">
                     <span class="fa fa-twitter"></span>
                 </a>
             </div>
-            <div class="social">
+            <div class="d-inline pdl-10px">
                 <!-- Sharingbutton Google+ -->
                 <a class="btn btn-social-icon btn-google" href="https://plus.google.com/share?url=crowdevelop-40f3c.firebaseapp.com" onclick="javascript:window.open(this.href,
         '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" aria-label="">
                     <span class="fa fa-google"></span>
                 </a>
             </div>
+            <div class="d-inline pdl-10px" ng-click="favourite(project.pid)" ng-if="firebaseUser">
+                <i class="fav-icon fa fa-heart" ng-show="favourited"></i>
+                <i class="fav-icon fa fa-heart-o" ng-show="!favourited"></i>
+            </div>
         </div>
-        <!-- end social share -->
     </div>
+
     <div class="row mt-20px">
         <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6">
             <h3>Comments</h3>

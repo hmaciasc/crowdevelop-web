@@ -2,7 +2,7 @@
 
 angular.module('crowDevelop')
 
-.controller('HeaderCtrl', ['$rootScope', '$scope', '$location', function($rootScope, $scope, $location) {
+.controller('HeaderCtrl', ['$rootScope', '$scope', function($rootScope, $scope) {
 
     $scope.logout = function() {
         $rootScope.firebaseUser = null;
