@@ -1,23 +1,15 @@
 <div class="row mt-40px">
-    <div class="col-xs-10 offset-xs-1 offset-lg-2 col-lg-8">
-        <div class="form-group has-feedback">
-            <form class="form" ng-submit="findProject()" name="searchForm">
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="text" name="searchField" class="form-control" ng-model="query" palceholder="Search" required />
-                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
-                    </div>
-                </div>
-            </form>
+    <div class="offset-xs-1 col-xs-10 offset-lg-2 col-lg-8 left-addon">
+        <div class="empty text-xs-center" ng-if="!favProjects.length">
+            <h1>You have no favourite projects...Yet!</h1>
+            <h2>Go find some awesome project first!</h2>
+        </div>
+        <div class="empty" ng-if="favProjects.length">
+            <h2>My favourite projects: </h2>
         </div>
     </div>
 </div>
-<div class="row mt-40px">
-    <div class="offset-xs-1 col-xs-10 offset-lg-2 col-lg-8 left-addon">
-        <h2>Search results: </h2>
-    </div>
-</div>
-<div class="row mt-40px" ng-repeat="project in projectSearch">
+<div class="row mt-40px" ng-repeat="project in favProjects">
     <div class="col-xs-10 offset-xs-1 offset-lg-2 col-lg-8 project">
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>

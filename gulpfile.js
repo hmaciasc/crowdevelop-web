@@ -1,84 +1,53 @@
 // Load Gulp
 var gulp = require('gulp'),
-    gutil = require('gulp-util'),
+    cssmin = require('gulp-cssmin'),
+    sass = require('gulp-sass'),
+    path = require('path'),
+    browserSync = require('browser-sync'),
+    modRewrite = require('connect-modrewrite'),
+    exec = require('child_process').exec,
     plugins = require('gulp-load-plugins')({
         rename: {
-            'gulp-live-server': 'serve'
+            'gulp-live-server': 'serve',
+            'gulp-autoprefixer': 'autoprefixer'
         }
     });
 
-// Start Watching: Run "gulp"
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch', 'firebase']);
 
-// Run "gulp server"
-gulp.task('server', ['serve', 'watch']);
-
-// Minify jQuery Plugins: Run manually with: "gulp squish-jquery"
-gulp.task('squish-jquery', function () {
-    return gulp.src('assets/js/libs/**/*.js')
-        .pipe(plugins.uglify({
-            output: {
-                'ascii_only': true
-            }
-        }))
-        .pipe(plugins.concat('jquery.plugins.min.js'))
-        .pipe(gulp.dest('build'));
+gulp.task('serve', function() {
+    browserSync.init(null, {
+        notify: false,
+        port: 8080,
+        server: {
+            baseDir: ['app'],
+        }
+    });
+    gulp.watch('app/styles/sass/**/*.scss', ['sass']);
+    gulp.watch(['app/**/*.*']).on('change', browserSync.reload);
 });
 
-// Minify Custom JS: Run manually with: "gulp build-js"
-gulp.task('build-js', function () {
-    return gulp.src('assets/js/*.js')
-        .pipe(plugins.jshint())
-        .pipe(plugins.jshint.reporter('jshint-stylish'))
-        .pipe(plugins.uglify({
-            output: {
-                'ascii_only': true
-            }
-        }))
-        .pipe(plugins.concat('scripts.min.js'))
-        .pipe(gulp.dest('build'));
-});
-
-// Less to CSS: Run manually with: "gulp build-css"
-gulp.task('build-css', function () {
-    return gulp.src('assets/less/*.less')
-        .pipe(plugins.plumber())
-        .pipe(plugins.less())
-        .on('error', function (err) {
-            gutil.log(err);
-            this.emit('end');
-        })
+gulp.task('sass', function() {
+    gulp.src('app/styles/sass/*.scss')
+        .pipe(sass().on('error', sass.logError))
         .pipe(plugins.autoprefixer({
-            browsers: [
-                    '> 1%',
-                    'last 2 versions',
-                    'firefox >= 4',
-                    'safari 7',
-                    'safari 8',
-                    'IE 8',
-                    'IE 9',
-                    'IE 10',
-                    'IE 11'
-                ],
+            browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(plugins.cssmin())
-        .pipe(gulp.dest('build')).on('error', gutil.log);
+        // .pipe(cssmin())
+        .pipe(gulp.dest('app/styles/css'))
+        .pipe(browserSync.stream());
 });
 
-// Default task
-gulp.task('watch', function () {
-    gulp.watch('assets/js/libs/**/*.js', ['squish-jquery']);
-    gulp.watch('assets/js/*.js', ['build-js']);
-    gulp.watch('assets/less/**/*.less', ['build-css']);
+gulp.task('watch', function() {
+    gulp.watch('app/styles/sass/**/*.scss', ['sass']);
 });
 
-// Folder "/" serving at http://localhost:8888
-// Should use Livereload (http://livereload.com/extensions/)
-gulp.task('serve', function () {
-    var server = plugins.serve.static('/', 8888);
-    server.start();
-    gulp.watch(['build/*'], function (file) {
-        server.notify.apply(server, [file]);
+gulp.task('firebase', function(cb) {
+    exec('sudo firebase serve', function(err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
     });
+    gulp.watch('app/styles/sass/**/*.scss', ['sass']);
 });

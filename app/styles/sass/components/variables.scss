@@ -1,0 +1,33 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+
+$light-white: #EEE7F7;
+$purple: #7852DB;
+$purple-back-nav: #8B80F8;
+$green: #00E676;
+$shadow-color: rgba(#000, .52);
+$border-color: #212220;
+$color-heart : #E31E3A;
+
+$colors: (
+    purple: #816F9F,
+    dark-purple: darken($purple, 25%),
+    light-purple: lighten($purple, 25%)
+);
+
+// Generate colors and bgs helpers
+@each $key, $value in $colors {
+    .color-#{$key} {
+        color: $value;
+    }
+
+    .bg-#{$key} {
+        background: $value;
+    }
+}
+$font-sizes: 14, 16, 26, 36;
+@each $val in $font-sizes {
+    .fs-#{$val}px {
+        font-size: $val+px;
+    }
+}
+$screen-sizes: ( xs : 544, sm : 768, md : 992, lg : 1200, );

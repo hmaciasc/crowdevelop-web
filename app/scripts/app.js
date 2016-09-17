@@ -21,20 +21,32 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStr
             templateUrl: 'views/login.html',
             controller: 'LoginCtrl'
         })
+        .when('/tos', {
+            templateUrl: 'views/shared/tos.html',
+            controller: 'TosCtrl'
+        })
         .when('/projects/create', {
             templateUrl: 'views/projects/create.html',
             controller: 'ProjectsCreateCtrl'
+        })
+        .when('/projects/favourites', {
+            templateUrl: 'views/projects/favourites.html',
+            controller: 'ProjectsFavouritesCtrl'
         })
         .when('/projects/index', {
             templateUrl: 'views/projects/index.html',
             controller: 'ProjectsIndexCtrl'
         })
-        .when('/projects/:pid', {
+        .when('/projects/category/:category', {
+            templateUrl: 'views/projects/index.html',
+            controller: 'ProjectsCategoryCtrl'
+        })
+        .when('/projects/index/:pid', {
             templateUrl: 'views/projects/details.html',
             controller: 'ProjectsDetailsCtrl'
         })
         .otherwise({
-            templateUrl: 'views/404.html'
+            templateUrl: 'views/shared/404.html'
         });
     $locationProvider.html5Mode(true);
 }])
@@ -54,6 +66,7 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStr
 })
 
 .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
+    $rootScope.categories = ["Development", "Game", "Education", "Social", "Art", "Sports", "Health", "News"];
     $rootScope.authService = new AuthService({
         provider: 'google'
     });

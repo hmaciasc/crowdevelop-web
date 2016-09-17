@@ -2,6 +2,12 @@
     margin: auto;
 }
 
+// paddings
+
+.pdl-10px {
+    padding-left: 10px;
+}
+
 .text-400 {
     font-weight: 400;
 }
@@ -10,27 +16,30 @@
     font-weight: 300;
 }
 
+// margins
 
-/* Override */
-
-.navbar {
-    border-radius: 0px;
-    border: 1px solid transparent;
-    -webkit-box-shadow: 0px 5px 24px 1px var(--shadow-color);
-    -moz-box-shadow: 0px 5px 24px 1px var(--shadow-color);
-    box-shadow: 0px 5px 24px 1px var(--shadow-color);
+.mt-10px{
+    margin-top: 10px;
 }
 
-.row {
-    margin-bottom: 15px;
+.mt-20px{
+    margin-top: 20px;
 }
 
-.glyphicon {
-    color: var(--dark-purple);
+.mt-30px{
+    margin-top: 30px;
 }
 
-.glyphicon-menu-hamburger {
-    font-size: 20px;
+.mt-40px{
+    margin-top: 40px;
+}
+
+.mt-60px{
+    margin-top: 60px;
+}
+
+.mt-80px{
+    margin-top: 80px;
 }
 
 
