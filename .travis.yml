@@ -5,10 +5,12 @@ before_script:
   - 'npm install -g bower gulp-cli protractor'
   - 'bower install'
 
+  before_script:
   - "export DISPLAY=:99.0"
-
-  - sh -e /etc/init.d/xvfb start
-  - nohup bash -c "./nodemodules/protractor/bin/webdriver-manager start 2>&1 &"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - "webdriver-manager --version"
+  - nohup bash -c "webdriver-manager start 2>&1 &"
   - sleep 5
   - npm run protractor
 script:
