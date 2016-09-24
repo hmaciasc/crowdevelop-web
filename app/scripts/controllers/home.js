@@ -4,7 +4,6 @@ angular.module('crowDevelop')
 
 .controller('HomeCtrl', ['$rootScope', '$scope', '$firebaseArray', '$location', function($rootScope, $scope, $firebaseArray, $location) {
 
-    $scope.msg = 'hola';
     $scope.findProject = function() {
         var projectsRef = firebase.database().ref('projects/');
         var query = projectsRef.orderByChild('name').equalTo($scope.query);

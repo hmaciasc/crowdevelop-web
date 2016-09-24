@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - '6'
 before_script:
-  - 'npm install -g bower gulp-cli'
+  - 'npm install -g bower gulp-cli protractor'
   - 'bower install'
 
   - "export DISPLAY=:99.0"
@@ -10,6 +10,7 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - nohup bash -c "./nodemodules/protractor/bin/webdriver-manager start 2>&1 &"
   - sleep 5
+  - npm run protractor
 script:
   - protractor protractor.conf.js
   - echo "Deploying!"

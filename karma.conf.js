@@ -19,6 +19,7 @@ module.exports = function(config) {
             'app/bower_components/angular-animate/angular-animate.min.js',
             'app/bower_components/angular-route/angular-route.min.js',
             'app/bower_components/angular-mocks/angular-mocks.js',
+            'app/bower_components/mockfirebase/browser/mockfirebase.js',
             'app/bower_components/firebase/firebase.js',
             'app/bower_components/angularfire/dist/angularfire.min.js',
             'app/bower_components/angular-strap/dist/angular-strap.min.js',
@@ -62,7 +63,7 @@ module.exports = function(config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
 
 
         // Continuous Integration mode
