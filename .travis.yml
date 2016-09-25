@@ -6,7 +6,7 @@ before_script:
   - 'npm install'
   - 'bower install'
 
-  - 'gulp'
+  - 'firebase serve'
 
   - 'export DISPLAY=:99.0'
   - 'sh -e /etc/init.d/xvfb start'
