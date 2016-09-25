@@ -9,6 +9,7 @@ angular.module('crowDevelop')
         var query = projectsRef.orderByChild('name').equalTo($scope.query);
         var list = $firebaseArray(query);
         $rootScope.projectSearch = list;
+        console.log(list);
         $location.path('/projects/index');
     };
 
