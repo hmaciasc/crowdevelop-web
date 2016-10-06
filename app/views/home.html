@@ -42,7 +42,7 @@
 <div class="row mt-40px" ng-repeat="project in projects" ng-if="projects.length">
     <div class="col-xs-10 offset-xs-1 offset-lg-2 col-lg-8 project">
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
+            <iframe class="embed-responsive-item" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" color="red" allowfullscreen></iframe>
         </div>
     </div>
     <div class="col-xs-10 offset-xs-1 offset-lg-2 col-lg-8 " ng-click="go('projects/index/'+project.pid)">

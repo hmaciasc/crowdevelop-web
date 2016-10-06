@@ -11,6 +11,9 @@ firebase.initializeApp(config);
 
 angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStrap'])
 
+// .constant('domain', 'http://urekon-api.herokuapp.com')
+.constant('domain', 'http://localhost:3000')
+
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
@@ -53,7 +56,7 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStr
 
 .filter('trusted', ['$sce', function($sce) {
     return function(url) {
-        return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + url + "?rel=0");
+        return $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + url);
     };
 }])
 

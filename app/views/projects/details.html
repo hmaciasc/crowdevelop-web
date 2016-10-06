@@ -19,6 +19,68 @@
                 <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 mt-20px">
+            <div class="donation">
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#paymentModal">
+                  Donate!
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">Donate to: {{ project.name }}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form role="form">
+                                    <div class="row">
+                                        <div class="col-xs-10 offset-xs-1 col-md-10 offset-md-1 form-group">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="cardNumber" ng-model="cardNumber" placeholder="Valid Card Number" required autofocus />
+                                                <span class="input-group-addon"><span class="fa fa-credit-card-alt"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-10 offset-xs-1 col-md-10 offset-md-1">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">€</div>
+                                                    <input type="number" class="form-control" id="exampleInputAmount" ng-model="amount" placeholder="Amount">
+                                                    <div class="input-group-addon">.00</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-5 offset-xs-1 col-md-5 offset-md-1">
+                                            <div class="form-group">
+                                                <label for="expiry">EXPIRY DATE</label>
+                                                <input class="form-control inputCard" name="expiry" id="expiry" type="month" ng-model="expiry" min="{{ minDate() }}" placeholder="yyyy-MM" required/>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-5 col-md-5 pull-right">
+                                            <div class="form-group">
+                                                <label for="cvcCode">CVC</label>
+                                                <input type="password" class="form-control" id="cvcCode" placeholder="CVC" ng-model="cvc" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-success">Pay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 mt-30px">
             <h3 class="mt-20px">Category: </h3>
             <span>{{project.category}}</span>
