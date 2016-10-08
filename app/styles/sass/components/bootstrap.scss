@@ -1,0 +1,33 @@
+/* BOOTSTRAP OVERRIDES */
+
+/* Enabling flex cols */
+$enable-flex : true;
+
+/* Margin and padding spacing */
+$spacer:   15px;
+$spacer-x: $spacer;
+$spacer-y: $spacer;
+$spacers: (
+  0: (
+    x: 0,
+    y: 0
+  ),
+  1: (
+    x: $spacer-x,
+    y: $spacer-y
+  ),
+  2: (
+    x: ($spacer-x * 2),
+    y: ($spacer-y * 2)
+  ),
+  3: (
+    x: ($spacer-x * 3),
+    y: ($spacer-y * 3)
+  ),
+  4: (
+    x: ($spacer-x * 4),
+    y: ($spacer-y * 4)
+  )
+);
+
+@import "../../../bower_components/bootstrap/scss/bootstrap";

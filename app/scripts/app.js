@@ -9,7 +9,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStrap'])
+angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'credit-cards'])
 
 // .constant('domain', 'http://urekon-api.herokuapp.com')
 .constant('domain', 'http://localhost:3000')
@@ -67,6 +67,18 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'mgcrea.ngStr
         return $sce.trustAsHtml(text);
     }
 })
+
+.run(['$rootScope', function($rootScope) {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/scripts/serviceWorker.js').then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    }
+}])
 
 .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
     $rootScope.categories = ["Development", "Game", "Education", "Social", "Art", "Sports", "Health", "News"];

@@ -1,12 +1,26 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto';
 
 $light-white: #EEE7F7;
-$purple: #7852DB;
 $purple-back-nav: #8B80F8;
 $green: #00E676;
 $shadow-color: rgba(#000, .52);
 $border-color: #212220;
 $color-heart : #E31E3A;
+
+$background: #fefefe;
+$text: #4b507a;
+
+$cyan: #60daaa;
+$yellow: #fbca67;
+$orange: #ff8a30;
+$red: #f45e61;
+$purple: #6477b9;
+$blue: #0eb7da;
+$black: #000;
+
+$button-color: $black;
+$button-hover: $purple;
+
 
 $colors: (
     purple: #816F9F,
