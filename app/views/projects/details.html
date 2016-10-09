@@ -1,25 +1,25 @@
 <div class="projects container-fluid">
-    <div class="row mt-60px">
+    <div class="row m-t-4">
         <div class="col-lg-8 offset-lg-2">
             <div class="text-xs-center">
                 <h1 class="text-400">{{project.name}}</h1>
             </div>
         </div>
     </div>
-    <div class="row mt-30px">
+    <div class="row m-t-3">
         <div class="offset-lg-3 col-lg-6">
             <div class="text-xs-center">
                 <h4 class="text-300">by {{project.ownerName}}</h4>
             </div>
         </div>
     </div>
-    <div class="row mt-40px">
+    <div class="row m-t-4">
         <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 project">
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 mt-20px">
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 m-t-2">
             <div class="donation">
                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#paymentModal">
                     Donate!
@@ -68,22 +68,23 @@
                                         </div>
                                     </div>
                                 </form>
+                                <div class="loaderDiv"></div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                <button type="submit" form="donationForm" class="btn btn-success">Donate</button>
+                                <button type="submit" form="donationForm" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order">Donate</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 mt-30px">
-            <h3 class="mt-20px">Category: </h3>
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 m-t-3">
+            <h3 class="m-t-2">Category: </h3>
             <span>{{project.category}}</span>
-            <h3 class="mt-20px"> Description: </h3>
+            <h3 class="m-t-2"> Description: </h3>
             <span class="description" ng-bind-html="project.description | formatText"></span>
-            <div class="date mt-20px">
+            <div class="date m-t-2">
                 <h3>Deadline: <small>{{project.day}}/{{project.month}}/{{project.year}}</small></h3>
             </div>
             <div class="target">
@@ -95,7 +96,7 @@
             </div>
         </div>
 
-        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-3 mt-20px">
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-3 m-t-2">
             <h4>Share this project!</h4>
             <div class="d-inline">
                 <!-- Sharingbutton Facebook -->
@@ -124,7 +125,7 @@
         </div>
     </div>
 
-    <div class="row mt-20px">
+    <div class="row m-t-2">
         <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6">
             <h3>Comments</h3>
             <form class="form" ng-submit="saveComment()" name="comment">
@@ -142,7 +143,7 @@
             </form>
         </div>
     </div>
-    <div class="row mt-20px">
+    <div class="row m-t-2">
         <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 comments">
             <div class="comment" ng-repeat="comment in comments">
                 <div class="comment-header">

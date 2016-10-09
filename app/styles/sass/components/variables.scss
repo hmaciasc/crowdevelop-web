@@ -1,6 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto';
 
 $light-white: #EEE7F7;
+$white: #fefefe;
 $purple-back-nav: #8B80F8;
 $green: #00E676;
 $shadow-color: rgba(#000, .52);
@@ -16,6 +17,7 @@ $orange: #ff8a30;
 $red: #f45e61;
 $purple: #6477b9;
 $blue: #0eb7da;
+$deep-blue: #2f4bd0;
 $black: #000;
 
 $button-color: $black;
@@ -23,6 +25,7 @@ $button-hover: $purple;
 
 
 $colors: (
+    white: #fefefe,
     purple: #816F9F,
     dark-purple: darken($purple, 25%),
     light-purple: lighten($purple, 25%)

@@ -70,6 +70,7 @@ angular.module('crowDevelop')
     }
 
     function updateProject() {
+        $('.loaderDiv').toggleClass('loader');
         var projectRef = firebase.database().ref('projects/' + pid);
         var obj = $firebaseObject(projectRef);
         obj.$loaded(
@@ -85,6 +86,7 @@ angular.module('crowDevelop')
                 console.error("Error:", error);
             }
         );
+        // $('.loaderDiv').toggleClass('loader');
     }
 
     $.fn.toggleInputError = function(erred) {

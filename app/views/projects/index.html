@@ -1,4 +1,4 @@
-<div class="row mt-40px">
+<div class="row m-t-4">
     <div class="col-xs-10 offset-xs-1 offset-lg-2 col-lg-8">
         <div class="form-group has-feedback">
             <form class="form" ng-submit="findProject()" name="searchForm">
@@ -12,12 +12,12 @@
         </div>
     </div>
 </div>
-<div class="row mt-40px">
+<div class="row m-t-4">
     <div class="offset-xs-1 col-xs-10 offset-lg-2 col-lg-8 left-addon">
         <h2>Search results: </h2>
     </div>
 </div>
-<div class="row mt-40px" ng-repeat="project in projectSearch">
+<div class="row m-t-4" ng-repeat="project in projectSearch">
     <div class="col-xs-10 offset-xs-1 offset-lg-2 col-lg-8 project">
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>

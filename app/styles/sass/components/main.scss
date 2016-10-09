@@ -83,6 +83,16 @@ form {
     }
 }
 
+.title-bg {
+    background-image: url('../../images/title.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -9;
+    color: $white;
+    height: 500px;
+}
+
 .navbar {
     margin: 20px 0;
 }
