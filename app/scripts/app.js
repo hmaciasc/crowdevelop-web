@@ -78,7 +78,6 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate'])
 }])
 
 .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
-    document.domain = "crowdevelop-40f3c.firebaseapp.com/";
     $rootScope.categories = ["Development", "Game", "Education", "Social", "Art", "Sports", "Health", "News"];
     $rootScope.authService = new AuthService({
         provider: 'google'
