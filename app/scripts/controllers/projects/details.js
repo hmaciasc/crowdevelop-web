@@ -58,7 +58,33 @@ angular.module('crowDevelop')
     }
 
     $scope.donate = function() {
+        var donationsRef = firebase.database().ref('donations/' + $scope.project.pid);
+        var donation = {
+            payer: $rootScope.firebaseUser.displayName,
+            amount: $scope.amount
+        };
+        console.log(donation);
+        $firebaseArray(donationsRef).$add(donation);
 
+        updateProject();
+    }
+
+    function updateProject() {
+        var projectRef = firebase.database().ref('projects/' + pid);
+        var obj = $firebaseObject(projectRef);
+        obj.$loaded(
+            function(data) {
+                data.donated = parseInt(data.donated, 10) + parseInt($scope.amount, 10);
+                data.$save().then(function(projectRef) {
+                    projectRef.key === obj.$id; // true
+                }, function(error) {
+                    console.log("Error:", error);
+                });
+            },
+            function(error) {
+                console.error("Error:", error);
+            }
+        );
     }
 
     $.fn.toggleInputError = function(erred) {
@@ -71,6 +97,7 @@ angular.module('crowDevelop')
         this.toggleClass('form-control-success', erred);
         return this;
     };
+
 
     function creditCardValidation() {
         $('[data-numeric]').payment('restrictNumeric');

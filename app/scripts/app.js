@@ -9,10 +9,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'credit-cards'])
-
-// .constant('domain', 'http://urekon-api.herokuapp.com')
-.constant('domain', 'http://localhost:3000')
+angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate'])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
@@ -81,6 +78,7 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'credit-cards
 }])
 
 .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
+    document.domain = "crowdevelop-40f3c.firebaseapp.com/";
     $rootScope.categories = ["Development", "Game", "Education", "Social", "Art", "Sports", "Health", "News"];
     $rootScope.authService = new AuthService({
         provider: 'google'

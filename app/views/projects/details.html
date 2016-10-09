@@ -36,20 +36,20 @@
                                 <h4 class="modal-title" id="myModalLabel">Donate to: {{ project.name }}</h4>
                             </div>
                             <div class="modal-body">
-                                <form id="donationForm" novalidate autocomplete="on" role="form" method="POST">
+                                <form id="donationForm" ng-submit="donate()" novalidate autocomplete="on" role="form" method="POST">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label class="sr-only" for="amount">Amount (in euros)</label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">€</div>
-                                                    <input type="text" class="form-control" id="amount" placeholder="Amount">
+                                                    <input type="text" class="form-control" id="amount" ng-model="amount" placeholder="Amount">
                                                     <div class="input-group-addon">.00</div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="cc-number" class="control-label">Card number <small class="text-muted">[<span class="cc-brand"></span>]</small></label>
-                                                <input id="cc-number" type="tel" class="form-control cc-number" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required>
+                                                <input id="cc-number" type="tel" class="form-control cc-number" ng-model="cNumber" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required>
                                             </div>
                                         </div>
                                     </div>
@@ -57,13 +57,13 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="cc-exp" class="control-label">Card expiry date</label>
-                                                <input id="cc-exp" type="tel" class="form-control cc-exp" autocomplete="cc-exp" placeholder="•• / ••" required>
+                                                <input id="cc-exp" type="tel" class="form-control cc-exp" ng-model="expiryDate" autocomplete="cc-exp" placeholder="•• / ••" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="cc-cvc" class="control-label">Card CVC</label>
-                                                <input id="cc-cvc" type="tel" class="form-control cc-cvc" autocomplete="off" placeholder="•••" required>
+                                                <input id="cc-cvc" type="tel" class="form-control cc-cvc" ng-model="cvc" autocomplete="off" placeholder="•••" required>
                                             </div>
                                         </div>
                                     </div>
