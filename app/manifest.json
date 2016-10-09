@@ -3,7 +3,7 @@
   "short_name": "CrowDevelop",
   "theme_color": "#000000",
   "background_color": "#2196f3",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "Scope": "/app",
   "start_url": "/",
@@ -49,8 +49,5 @@
       "type": "image/png"
     }
   ],
-  "related_applications": [{
-      "platform": "web"
-    }],
   "splash_pages": null
 }
