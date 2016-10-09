@@ -1,4 +1,7 @@
 /* BOOTSTRAP OVERRIDES */
+.input-group-addon {
+    width: 8% !important;
+}
 
 /* Enabling flex cols */
 $enable-flex : true;
@@ -29,5 +32,6 @@ $spacers: (
     y: ($spacer-y * 4)
   )
 );
+
 
 @import "../../../bower_components/bootstrap/scss/bootstrap";

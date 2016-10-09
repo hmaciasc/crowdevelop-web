@@ -1,4 +1,9 @@
 /* BOOTSTRAP OVERRIDES */
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+@import 'https://fonts.googleapis.com/css?family=Fira+Sans:500,700,400|Roboto:400';
+.input-group-addon {
+  width: 8% !important; }
+
 /* Enabling flex cols */
 /* Margin and padding spacing */
 /*!
@@ -8,8 +13,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
-@import 'https://fonts.googleapis.com/css?family=Roboto';
-@import 'https://fonts.googleapis.com/css?family=Fira+Sans:500,700,400|Roboto:400';
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;

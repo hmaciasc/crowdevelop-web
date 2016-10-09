@@ -61,19 +61,20 @@ angular.module('crowDevelop')
 
     }
 
+    $.fn.toggleInputError = function(erred) {
+        this.parent('.form-group').toggleClass('has-danger', erred);
+        this.toggleClass('form-control-danger', erred);
+        return this;
+    };
+    $.fn.toggleInputSuccess = function(erred) {
+        this.parent('.form-group').toggleClass('has-success', erred);
+        this.toggleClass('form-control-success', erred);
+        return this;
+    };
+
     function creditCardValidation() {
         $('[data-numeric]').payment('restrictNumeric');
         $('.cc-number').payment('formatCardNumber');
-        $.fn.toggleInputError = function(erred) {
-            this.parent('.form-group').toggleClass('has-danger', erred);
-            this.toggleClass('form-control-danger', erred);
-            return this;
-        };
-        $.fn.toggleInputSuccess = function(erred) {
-            this.parent('.form-group').toggleClass('has-success', erred);
-            this.toggleClass('form-control-success', erred);
-            return this;
-        };
         $('.cc-number').on('input', function(e) {
             e.preventDefault();
             var cardType = $.payment.cardType($('.cc-number').val());
@@ -86,16 +87,7 @@ angular.module('crowDevelop')
     function expiryValidation() {
         $('[data-numeric]').payment('restrictNumeric');
         $('.cc-exp').payment('formatCardExpiry');
-        $.fn.toggleInputError = function(erred) {
-            this.parent('.form-group').toggleClass('has-danger', erred);
-            this.toggleClass('form-control-danger', erred);
-            return this;
-        };
-        $.fn.toggleInputSuccess = function(erred) {
-            this.parent('.form-group').toggleClass('has-success', erred);
-            this.toggleClass('form-control-success', erred);
-            return this;
-        };
+
         $('.cc-exp').on('input', function(e) {
             e.preventDefault();
             var cardType = $.payment.cardType($('.cc-number').val());
@@ -107,16 +99,6 @@ angular.module('crowDevelop')
     function cvcValidation() {
         $('[data-numeric]').payment('restrictNumeric');
         $('.cc-cvc').payment('formatCardCVC');
-        $.fn.toggleInputError = function(erred) {
-            this.parent('.form-group').toggleClass('has-danger', erred);
-            this.toggleClass('form-control-danger', erred);
-            return this;
-        };
-        $.fn.toggleInputSuccess = function(erred) {
-            this.parent('.form-group').toggleClass('has-success', erred);
-            this.toggleClass('form-control-success', erred);
-            return this;
-        };
         $('.cc-cvc').on('input', function(e) {
             e.preventDefault();
             var cardType = $.payment.cardType($('.cc-number').val());
