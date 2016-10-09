@@ -56,7 +56,7 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'credit-cards
 
 .filter('trusted', ['$sce', function($sce) {
     return function(url) {
-        return $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + url);
+        return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + url);
     };
 }])
 

@@ -58,41 +58,76 @@ angular.module('crowDevelop')
     }
 
     $scope.donate = function() {
-        if (validateCardNumber($scope.cardNumber)) {
-            // credit card valid!
-        }
+
     }
 
-    function validateCardNumber(number) {
-        var regex = new RegExp("^[0-9]{16}$");
-        if (!regex.test(number))
-            return false;
-
-        return luhnCheck(number);
+    function creditCardValidation() {
+        $('[data-numeric]').payment('restrictNumeric');
+        $('.cc-number').payment('formatCardNumber');
+        $.fn.toggleInputError = function(erred) {
+            this.parent('.form-group').toggleClass('has-danger', erred);
+            this.toggleClass('form-control-danger', erred);
+            return this;
+        };
+        $.fn.toggleInputSuccess = function(erred) {
+            this.parent('.form-group').toggleClass('has-success', erred);
+            this.toggleClass('form-control-success', erred);
+            return this;
+        };
+        $('.cc-number').on('input', function(e) {
+            e.preventDefault();
+            var cardType = $.payment.cardType($('.cc-number').val());
+            $('.cc-number').toggleInputError(!$.payment.validateCardNumber($('.cc-number').val()));
+            $('.cc-number').toggleInputSuccess($.payment.validateCardNumber($('.cc-number').val()));
+            $('.cc-brand').text(cardType);
+        });
     }
 
-    function luhnCheck(val) {
-        var sum = 0;
-        for (var i = 0; i < val.length; i++) {
-            var intVal = parseInt(val.substr(i, 1));
-            if (i % 2 == 0) {
-                intVal *= 2;
-                if (intVal > 9) {
-                    intVal = 1 + (intVal % 10);
-                }
-            }
-            sum += intVal;
-        }
-        return (sum % 10) == 0;
+    function expiryValidation() {
+        $('[data-numeric]').payment('restrictNumeric');
+        $('.cc-exp').payment('formatCardExpiry');
+        $.fn.toggleInputError = function(erred) {
+            this.parent('.form-group').toggleClass('has-danger', erred);
+            this.toggleClass('form-control-danger', erred);
+            return this;
+        };
+        $.fn.toggleInputSuccess = function(erred) {
+            this.parent('.form-group').toggleClass('has-success', erred);
+            this.toggleClass('form-control-success', erred);
+            return this;
+        };
+        $('.cc-exp').on('input', function(e) {
+            e.preventDefault();
+            var cardType = $.payment.cardType($('.cc-number').val());
+            $('.cc-exp').toggleInputError(!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
+            $('.cc-exp').toggleInputSuccess($.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
+        });
     }
 
-    $scope.minDate = function() {
-        let date = new Date();
-        let month = date.getMonth() + 2;
-        let year = date.getFullYear();
-        return year + "-" + month;
+    function cvcValidation() {
+        $('[data-numeric]').payment('restrictNumeric');
+        $('.cc-cvc').payment('formatCardCVC');
+        $.fn.toggleInputError = function(erred) {
+            this.parent('.form-group').toggleClass('has-danger', erred);
+            this.toggleClass('form-control-danger', erred);
+            return this;
+        };
+        $.fn.toggleInputSuccess = function(erred) {
+            this.parent('.form-group').toggleClass('has-success', erred);
+            this.toggleClass('form-control-success', erred);
+            return this;
+        };
+        $('.cc-cvc').on('input', function(e) {
+            e.preventDefault();
+            var cardType = $.payment.cardType($('.cc-number').val());
+            $('.cc-cvc').toggleInputError(!$.payment.validateCardCVC($('.cc-cvc').val(), cardType));
+            $('.cc-cvc').toggleInputSuccess($.payment.validateCardCVC($('.cc-cvc').val(), cardType));
+        });
     }
 
+    creditCardValidation();
+    expiryValidation();
+    cvcValidation();
     $scope.getProject(pid);
     $scope.getComments(pid);
     if ($rootScope.firebaseUser) {
