@@ -25,6 +25,10 @@
                     Donate to this project
                 </button>
                 <a class="btn btn-success btn-lg" href="/login" ng-if="!firebaseUser">Login to make a donation</a>
+                <div class="d-inline pdl-10px" ng-click="favourite(project.pid)" ng-if="firebaseUser">
+                    <i class="fav-icon fa fa-heart" ng-show="favourited"></i>
+                    <i class="fav-icon fa fa-heart-o" ng-show="!favourited"></i>
+                </div>
                 <!-- Modal -->
                 <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -118,10 +122,6 @@
                 '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" aria-label="">
                     <span class="fa fa-google"></span>
                 </a>
-            </div>
-            <div class="d-inline pdl-10px" ng-click="favourite(project.pid)" ng-if="firebaseUser">
-                <i class="fav-icon fa fa-heart" ng-show="favourited"></i>
-                <i class="fav-icon fa fa-heart-o" ng-show="!favourited"></i>
             </div>
         </div>
     </div>

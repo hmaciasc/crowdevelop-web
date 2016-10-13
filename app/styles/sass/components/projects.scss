@@ -22,8 +22,22 @@
 
 .fav-icon {
     font-size: 25px;
-    padding: 5px;
+    content: '';
+    padding: 8px;
+    padding-top: 9px;
     color: $color-heart;
+    border: 2px solid;
+    border-color: black;
+    border-radius: 50px;
+
+    &:hover {
+        border-color: $color-heart;
+    }
+    &::after {
+        font-family: 'Roboto';
+        font-size: 20px;
+        content: 'Favourite';
+    }
 }
 
 .description {

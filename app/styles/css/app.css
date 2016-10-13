@@ -5539,8 +5539,19 @@ form input {
 
 .fav-icon {
   font-size: 25px;
-  padding: 5px;
-  color: #E31E3A; }
+  content: '';
+  padding: 8px;
+  padding-top: 9px;
+  color: #f10829;
+  border: 2px solid;
+  border-color: black;
+  border-radius: 50px; }
+  .fav-icon:hover {
+    border-color: #f10829; }
+  .fav-icon::after {
+    font-family: 'Roboto';
+    font-size: 20px;
+    content: 'Favourite'; }
 
 .description {
   text-align: justify;
