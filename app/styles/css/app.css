@@ -4807,6 +4807,29 @@ a.bg-inverse:focus, a.bg-inverse:hover {
   margin-top: 40px !important;
   margin-bottom: 40px !important; }
 
+.m-a-5 {
+  margin: 50px 50px !important; }
+
+.m-t-5 {
+  margin-top: 50px !important; }
+
+.m-r-5 {
+  margin-right: 50px !important; }
+
+.m-b-5 {
+  margin-bottom: 50px !important; }
+
+.m-l-5 {
+  margin-left: 50px !important; }
+
+.m-x-5 {
+  margin-right: 50px !important;
+  margin-left: 50px !important; }
+
+.m-y-5 {
+  margin-top: 50px !important;
+  margin-bottom: 50px !important; }
+
 .p-a-0 {
   padding: 0 0 !important; }
 
@@ -4921,6 +4944,29 @@ a.bg-inverse:focus, a.bg-inverse:hover {
 .p-y-4 {
   padding-top: 40px !important;
   padding-bottom: 40px !important; }
+
+.p-a-5 {
+  padding: 50px 50px !important; }
+
+.p-t-5 {
+  padding-top: 50px !important; }
+
+.p-r-5 {
+  padding-right: 50px !important; }
+
+.p-b-5 {
+  padding-bottom: 50px !important; }
+
+.p-l-5 {
+  padding-left: 50px !important; }
+
+.p-x-5 {
+  padding-right: 50px !important;
+  padding-left: 50px !important; }
+
+.p-y-5 {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important; }
 
 .pos-f-t {
   position: fixed;
@@ -5213,6 +5259,19 @@ a.text-danger:focus, a.text-danger:hover {
     box-shadow: 0 2.5em 0 -1.3em; }
   40% {
     box-shadow: 0 2.5em 0 0; } }
+
+.success {
+  color: #50be61;
+  font-size: 18px;
+  margin: 20px auto;
+  position: relative;
+  transform: translateZ(0);
+  transform: rotate(720deg); }
+  .success::after {
+    content: '  Donation made. Thank you!';
+    font-size: 18px; }
+  .success i::after {
+    font-size: 30px; }
 
 .header-default {
   background-color: transparent; }

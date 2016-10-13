@@ -5,6 +5,7 @@ angular.module('crowDevelop')
 .controller('ProjectsDetailsCtrl', ['$rootScope', '$scope', '$firebaseObject', '$firebaseArray', '$routeParams', function($rootScope, $scope, $firebaseObject, $firebaseArray, $routeParams) {
 
     var pid = $routeParams.pid;
+    $scope.success = false;
 
     $scope.getProject = function(pid) {
         var projectRef = firebase.database().ref('projects/' + pid);
@@ -58,12 +59,12 @@ angular.module('crowDevelop')
     }
 
     $scope.donate = function() {
+
         var donationsRef = firebase.database().ref('donations/' + $scope.project.pid);
         var donation = {
             payer: $rootScope.firebaseUser.displayName,
             amount: $scope.amount
         };
-        console.log(donation);
         $firebaseArray(donationsRef).$add(donation);
 
         updateProject();
@@ -77,7 +78,7 @@ angular.module('crowDevelop')
             function(data) {
                 data.donated = parseInt(data.donated, 10) + parseInt($scope.amount, 10);
                 data.$save().then(function(projectRef) {
-                    projectRef.key === obj.$id; // true
+                    projectRef.key === obj.$id;
                 }, function(error) {
                     console.log("Error:", error);
                 });
@@ -86,7 +87,12 @@ angular.module('crowDevelop')
                 console.error("Error:", error);
             }
         );
-        // $('.loaderDiv').toggleClass('loader');
+        setTimeout(endSpinner, 3000);
+    }
+
+    function endSpinner() {
+        $('.loaderDiv').toggleClass('loader');
+        $('.successDiv').toggleClass('invisible success');
     }
 
     $.fn.toggleInputError = function(erred) {

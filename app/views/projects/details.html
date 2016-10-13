@@ -21,10 +21,10 @@
         </div>
         <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 m-t-2">
             <div class="donation">
-                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#paymentModal">
-                    Donate!
+                <button type="button" class="btn btn-success btn-lg" ng-if="firebaseUser" data-toggle="modal" data-target="#paymentModal">
+                    Donate to this project
                 </button>
-
+                <a class="btn btn-success btn-lg" href="/login" ng-if="!firebaseUser">Login to make a donation</a>
                 <!-- Modal -->
                 <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -69,6 +69,7 @@
                                     </div>
                                 </form>
                                 <div class="loaderDiv"></div>
+                                <div class="successDiv text-xs-center invisible"><i class="fa fa-check" aria-hidden="true"></i></div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

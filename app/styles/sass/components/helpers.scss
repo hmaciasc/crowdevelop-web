@@ -101,3 +101,20 @@
         box-shadow: 0 2.5em 0 0;
     }
 }
+
+.success {
+    color: #50be61;
+    font-size: 18px;
+    margin: 20px auto;
+    position: relative;
+    transform: translateZ(0);
+    transform: rotate(720deg);
+
+    &::after {
+        content: '  Donation made. Thank you!';
+        font-size: 18px;
+    }
+    i::after {
+        font-size: 30px;
+    }
+}
