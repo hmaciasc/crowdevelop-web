@@ -5273,9 +5273,6 @@ a.text-danger:focus, a.text-danger:hover {
   .success i::after {
     font-size: 30px; }
 
-.header-default {
-  background-color: transparent; }
-
 .header-item {
   max-height: 40px;
   font-size: 14px;
@@ -5291,12 +5288,19 @@ a.text-danger:focus, a.text-danger:hover {
 
 .profileImg {
   max-height: 35px;
-  margin-right: 15px; }
+  margin-right: 15px;
+  margin-top: 3px; }
 
-.logo {
-  display: block;
-  margin: 3em 0;
-  text-align: center; }
+.nav {
+  line-height: 2; }
+
+.navbar-brand {
+  padding-left: 24px;
+  padding-top: 6px; }
+
+.navbar-div {
+  border-top: 2px solid #000 !important;
+  border-bottom: 2px solid #000; }
 
 footer {
   height: 100px;

@@ -1,16 +1,6 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto';
 
-$light-white: #EEE7F7;
-$white: #fefefe;
-$purple-back-nav: #8B80F8;
-$green: #00E676;
-$shadow-color: rgba(#000, .52);
-$border-color: #212220;
-$color-heart : #f10829;
-
-$background: #fefefe;
-$text: #4b507a;
-
+// COLORS
 $cyan: #60daaa;
 $yellow: #fbca67;
 $orange: #ff8a30;
@@ -20,8 +10,27 @@ $blue: #0eb7da;
 $deep-blue: #2f4bd0;
 $black: #000;
 
+// Primary
+$background: #fefefe;
+$text: #4b507a;
+
+
+// HEADER
+$header-accent: #000;
+
+// BUTTONS
 $button-color: $black;
 $button-hover: $purple;
+
+$light-white: #EEE7F7;
+$white: #fefefe;
+$purple-back-nav: #8B80F8;
+$green: #00E676;
+$shadow-color: rgba(#000, .52);
+$border-color: #212220;
+$color-heart : #f10829;
+
+
 
 
 $colors: (
