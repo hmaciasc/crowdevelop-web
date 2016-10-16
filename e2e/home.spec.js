@@ -28,7 +28,7 @@ describe('CrowDevelop home page', function() {
 
     it('should have a brand text', function() {
         var brand = element.all(by.className('navbar-brand')).first();
-        expect(brand.getText()).toEqual('CrowDevelop');
+        expect(brand.getText()).toEqual('CROWDEVELOP');
     });
 
     it('should have footer links', function() {
