@@ -17,6 +17,14 @@
 }
 
 
+.pos-f-b {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: $zindex-navbar-fixed;
+}
+
 /*datepicker*/
 
 .datepicker.dropdown-menu {
@@ -56,7 +64,7 @@
 
 /* Loader */
 .loader {
-    color: $deep-blue;
+    color: $loader;
     font-size: 10px;
     margin: 20px auto;
     position: relative;

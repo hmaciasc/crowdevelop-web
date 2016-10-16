@@ -1,41 +1,46 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto';
 
 // COLORS
-$cyan: #60daaa;
+$green-blue: #60daaa;
+$green: #00E676;
+$old-green: #ACD07A;
 $yellow: #fbca67;
 $orange: #ff8a30;
 $red: #f45e61;
+$red-heart: #f10829;
+$cyan: #0eb7da;
 $purple: #6477b9;
-$blue: #0eb7da;
 $deep-blue: #2f4bd0;
 $black: #000;
+$white: #fefefe;
+$light-white: #EEE7F7;
 
 // Primary
-$background: #fefefe;
+$background: $white;
 $text: #4b507a;
-
+$loader: $deep-blue;
 
 // HEADER
-$header-accent: #000;
-$brand-accent: #ACD07A;
+$header-accent: $black;
+$brand-accent: $old-green;
+
+// FOOTER
+$link-animation: $green-blue;
+$footer-item-color: $old-green;
 
 // BUTTONS
 $button-color: $black;
 $button-hover: $purple;
+$color-heart : $red-heart;
 
-$light-white: #EEE7F7;
-$white: #fefefe;
 $purple-back-nav: #8B80F8;
-$green: #00E676;
 $shadow-color: rgba(#000, .52);
 $border-color: #212220;
-$color-heart : #f10829;
-
-
 
 
 $colors: (
-    white: #fefefe,
+    white: $white,
+    black: $black,
     purple: #816F9F,
     dark-purple: darken($purple, 25%),
     light-purple: lighten($purple, 25%)

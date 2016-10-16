@@ -16,11 +16,17 @@
 .profileImg {
     max-height: 35px;
     margin-right: 15px;
-    margin-top: 3px;
+    margin-top: 4.5px;
 }
 
 .nav {
     line-height: 2;
+}
+
+@media screen and (max-width: 544px) {
+    #collapseNavbar {
+        margin-top: 15px;
+    }
 }
 
 .navbar-brand {

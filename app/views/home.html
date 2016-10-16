@@ -39,7 +39,7 @@
         <h2>Popular projects: </h2>
     </div>
 </div>
-<div class="row flex-items-xs-center m-t-4" ng-repeat="project in projects" ng-if="projects.length">
+<!-- <div class="row flex-items-xs-center m-t-4" ng-repeat="project in projects" ng-if="projects.length">
     <div class="col-xs-11 text-xs-center project">
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" color="red" allowfullscreen></iframe>
@@ -57,4 +57,40 @@
             </div>
         </div>
     </div>
+</div> -->
+<div id="carousel-example-generic" class="carousel slide m-t-4" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="{{$index}}" ng-class='{active:$first}' class="active" ng-repeat="project in projects" ng-if="projects.length"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item" ng-class='{active:$first}' ng-repeat="project in projects" ng-if="projects.length">
+            <div class="row flex-items-xs-center">
+                <div class="col-xs-8 text-xs-center project">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" color="red" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-xs-5" ng-click="go('projects/index/'+project.pid)">
+                    <div class="projectDetails">
+                        <h3>{{project.name}}</h3>
+                        <p> Category: {{project.category}}</p>
+                        <div class="target">
+                            <div>
+                                <div class="text-xs-center" id="progress-text">{{ project.donated / project.goal * 100 | number:0 || 0}}% Reached</div>
+                                <progress class="progress progress-striped progress-success" value="{{ project.donated / project.goal * 100 | number:0 }}" max="100"></progress>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="icon-prev color-black" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="icon-next color-black" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>

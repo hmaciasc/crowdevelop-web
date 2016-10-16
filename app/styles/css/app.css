@@ -5157,6 +5157,12 @@ a.text-danger:focus, a.text-danger:hover {
 .bg-white {
   background: #fefefe; }
 
+.color-black {
+  color: #000; }
+
+.bg-black {
+  background: #000; }
+
 .color-purple {
   color: #816F9F; }
 
@@ -5198,6 +5204,13 @@ a.text-danger:focus, a.text-danger:hover {
 
 .text-300 {
   font-weight: 300; }
+
+.pos-f-b {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030; }
 
 /*datepicker*/
 .datepicker.dropdown-menu {
@@ -5289,10 +5302,14 @@ a.text-danger:focus, a.text-danger:hover {
 .profileImg {
   max-height: 35px;
   margin-right: 15px;
-  margin-top: 3px; }
+  margin-top: 4.5px; }
 
 .nav {
   line-height: 2; }
+
+@media screen and (max-width: 544px) {
+  #collapseNavbar {
+    margin-top: 15px; } }
 
 .navbar-brand {
   margin-left: 24px;
@@ -5358,18 +5375,17 @@ a.text-danger:focus, a.text-danger:hover {
   transform: perspective(1000px) rotate3d(0, 1, 0, 180deg); }
 
 footer {
-  height: 100px;
-  margin: 0 auto -100px; }
-  footer div {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%); }
+  height: 150px; }
+
+.footer-row {
+  height: 100%; }
 
 .footer-item {
+  height: 150px;
   text-decoration: none !important;
   background: none;
   border: 0;
-  color: #000;
+  color: #ACD07A;
   margin: 1em;
   padding: 1em 2em;
   position: relative;
@@ -5493,6 +5509,9 @@ form input {
   margin: 0.5rem 0;
   overflow: hidden;
   background-color: #e5e5e5; }
+
+.login {
+  height: 70vh; }
 
 .material {
   position: relative;
@@ -5641,7 +5660,7 @@ form input {
   padding: 1em 2em;
   border: 1px solid #212220; }
   .category:hover {
-    background-color: #60daaa; }
+    background-color: #0eb7da; }
   .category a {
     text-decoration: none !important;
     color: #000; }
