@@ -21,7 +21,7 @@
             <form class="form" ng-submit="findProject()" name="searchForm">
                 <div class="form-group">
                     <div class="input-group">
-                        <input type="text" name="searchField" class="form-control" ng-model="query" palceholder="Search" required />
+                        <input type="text" name="searchField" class="form-control searchInput" ng-model="query" palceholder="Search" required />
                         <div class="input-group-addon"><i class="fa fa-search"></i></div>
                     </div>
                 </div>
@@ -29,8 +29,8 @@
         </div>
     </div>
 </div>
-<div class="row m-t-4">
-    <div class="text-xs-center" ng-if="!projects.length">
+<div class="row m-t-4" ng-if="!projects.length">
+    <div class="text-xs-center">
         <h2 class="empty">No projects created yet</h2>
     </div>
 </div>
@@ -39,25 +39,6 @@
         <h2>Popular projects: </h2>
     </div>
 </div>
-<!-- <div class="row flex-items-xs-center m-t-4" ng-repeat="project in projects" ng-if="projects.length">
-    <div class="col-xs-11 text-xs-center project">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" color="red" allowfullscreen></iframe>
-        </div>
-    </div>
-    <div class="col-xs-10" ng-click="go('projects/index/'+project.pid)">
-        <div class="projectDetails">
-            <h3>{{project.name}}</h3>
-            <p> Category: {{project.category}}</p>
-            <div class="target">
-                <div>
-                    <div class="text-xs-center" id="progress-text">{{ project.donated / project.goal * 100 | number:0 || 0}}% Reached</div>
-                    <progress class="progress progress-striped progress-success" value="{{ project.donated / project.goal * 100 | number:0 }}" max="100"></progress>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div id="carousel-example-generic" class="carousel slide m-t-4" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carousel-example-generic" data-slide-to="{{$index}}" ng-class='{active:$first}' class="active" ng-repeat="project in projects" ng-if="projects.length"></li>

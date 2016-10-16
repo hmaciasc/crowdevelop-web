@@ -21,14 +21,14 @@
         </div>
         <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 m-t-2">
             <div class="donation">
-                <button type="button" class="btn btn-success btn-lg" ng-if="firebaseUser" data-toggle="modal" data-target="#paymentModal">
+                <button type="button" class="btn btn-def-black" ng-if="firebaseUser" data-toggle="modal" data-target="#paymentModal">
                     Donate to this project
                 </button>
-                <a class="btn btn-success btn-lg" href="/login" ng-if="!firebaseUser">Login to make a donation</a>
-                <div class="d-inline pdl-10px" ng-click="favourite(project.pid)" ng-if="firebaseUser">
+                <a class="btn btn-def-black" href="/login" ng-if="!firebaseUser">Login to make a donation</a>
+                <button class="btn d-inline pdl-10px" ng-class="(favourited) ? 'btn-red-heart' : 'btn-black'" ng-click="favourite(project.pid)" ng-if="firebaseUser">
                     <i class="fav-icon fa fa-heart" ng-show="favourited"></i>
                     <i class="fav-icon fa fa-heart-o" ng-show="!favourited"></i>
-                </div>
+                </button>
                 <!-- Modal -->
                 <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -51,13 +51,13 @@
                                                     <div class="input-group-addon">.00</div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group m-t-3">
                                                 <label for="cc-number" class="control-label">Card number <small class="text-muted">[<span class="cc-brand"></span>]</small></label>
                                                 <input id="cc-number" type="tel" class="form-control cc-number" ng-model="cNumber" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row m-t-3">
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="cc-exp" class="control-label">Card expiry date</label>
@@ -75,9 +75,8 @@
                                 <div class="loaderDiv"></div>
                                 <div class="successDiv text-xs-center invisible"><i class="fa fa-check" aria-hidden="true"></i></div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                <button type="submit" form="donationForm" class="btn btn-success" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order">Donate</button>
+                            <div class="modal-footer bg-black text-xs-center">
+                                <button type="submit" form="donationForm" class="btn btn-def-black" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order"><i class="fa fa-credit-card" aria-hidden="true"></i> Donate</button>
                             </div>
                         </div>
                     </div>

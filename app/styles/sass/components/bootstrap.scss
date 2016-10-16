@@ -1,6 +1,44 @@
 /* BOOTSTRAP OVERRIDES */
 .input-group-addon {
     width: 8% !important;
+    background-color: $color-modal-content !important;
+    border: none !important;
+    border-bottom: 3px solid $border-color !important;
+    border-radius: 0 !important;
+}
+
+// BUTTONS
+.btn {
+    border-radius: 0.1rem !important;
+}
+
+.btn-def-black {
+    background-color: $btn-color !important;
+    border-color: $btn-color !important;
+    color: $btn-text-color !important;
+}
+
+.btn-def-black:hover {
+    background-color: $btn-text-color !important;
+    border-color: $btn-color !important;
+    color: $btn-color !important;
+}
+
+
+// MODAL
+.modal-body,
+.modal-header {
+    background-color: $color-modal-content;
+
+    input, input:focus {
+        background-color: $color-modal-content;
+        border: none !important;
+        border-bottom: 3px solid $border-color !important;
+    }
+}
+
+.modal-footer {
+    background-color: $color-modal-footer;
 }
 
 /* Enabling flex cols */
@@ -36,6 +74,5 @@ $spacers: (
     y: ($spacer-y * 5)
   )
 );
-
 
 @import "../../../bower_components/bootstrap/scss/bootstrap";
