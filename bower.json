@@ -16,13 +16,13 @@
   ],
   "dependencies": {
     "angular": "~1.5.8",
-    "angular-strap": "^2.3.9",
     "bootstrap": "v4.0.0-alpha.4",
     "angular-ui-router": "^0.3.1",
     "angularfire": "^2.0.2",
     "angulike": "^1.2.0",
     "bootstrap-social": "^5.0.0",
-    "font-awesome": "fontawesome#^4.5"
+    "font-awesome": "fontawesome#^4.5",
+    "jquery.payment": "jquery-payment#^1.1.6"
   },
   "resolutions": {
     "bootstrap": "v4.0.0-alpha.4"
@@ -33,7 +33,6 @@
     "install": "^1.0.4",
     "angular-mocks": "1.5.8",
     "angular-route": "1.5.8",
-    "angular-animate": "1.5.8",
-    "mockfirebase": "^0.11.0"
+    "angular-animate": "1.5.8"
   }
 }

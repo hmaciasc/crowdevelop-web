@@ -1,16 +1,83 @@
 footer {
-    height: 100px;
-    // margin: 25px 0;
-    margin: 0 auto -100px;
+    height: 150px;
+}
 
-    div {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
+.footer-row {
+    height: 100%;
+}
+
+// Basic styles
+.footer-item {
+    height: 150px;
+    text-decoration: none !important;
+    background: none;
+    border: 0;
+    // box-shadow: inset 0 0 0 2px $button-color; // Using inset box-shadow instead of border for sizing simplicity
+    color: $footer-item-color;
+    margin: 1em;
+    padding: 1em 2em;
+
+    // Required, since we're setting absolute on pseudo-elements
+    position: relative;
+    vertical-align: middle;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
     }
 }
 
-.footer-item {
-    padding: 15px 30px;
-    border: 2px solid black;
+.draw {
+    transition: all 0.25s;
+
+    &::before,
+    &::after {
+        border: 2px solid transparent;
+        width: 0;
+        height: 0;
+    }
+
+    // This covers the top & right borders (expands right, then down)
+    &::before {
+        bottom: 0;
+        right: 0;
+    }
+
+    // And this the bottom & left borders (expands left, then up)
+    &::after {
+        top: 0;
+        left: 0;
+    }
+
+    &:hover {
+        color: $link-animation;
+        padding: 20px;
+    }
+
+    // Hover styles
+    &:hover::before,
+    &:hover::after {
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover::before {
+        border-bottom-color: $link-animation; // Make borders visible
+        border-left-color: $link-animation;
+        transition:
+        width 0.25s ease-out, // Width expands first
+        height 0.25s ease-out 0.25s; // And then height
+    }
+
+    &:hover::after {
+        border-top-color: $link-animation; // Make borders visible
+        border-right-color: $link-animation;
+        transition:
+        border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+        width 0.25s ease-out 0.5s, // And then exanding width
+        height 0.25s ease-out 0.75s; // And finally height
+    }
 }

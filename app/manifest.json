@@ -1,11 +1,11 @@
 {
-  "name": "Crow Develop",
+  "name": "Crowd Develop",
   "short_name": "CrowDevelop",
   "theme_color": "#000000",
   "background_color": "#2196f3",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
-  "Scope": "/",
+  "Scope": "/app",
   "start_url": "/",
   "icons": [
     {

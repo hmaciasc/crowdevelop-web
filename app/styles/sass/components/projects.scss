@@ -1,10 +1,10 @@
 /* Project list view */
 .project {
-    background-color: white;
+    background-color: col(white);
     border-radius: 4px;
     border-style: solid;
     border-width: 2px;
-    border-color: black;
+    border-color: col(black);
     box-sizing: border-box;
     cursor: pointer;
     padding-left: 0;
@@ -21,9 +21,24 @@
 }
 
 .fav-icon {
-    font-size: 25px;
-    padding: 5px;
-    color: $color-heart;
+    padding-left: 4px !important;
+    // font-size: 25px;
+    // content: '';
+    // padding: 8px;
+    // padding-top: 9px;
+    // color: $color-heart;
+    // border: 2px solid;
+    // border-color: black;
+    // border-radius: 50px;
+
+    // &:hover {
+    //     border-color: $color-heart;
+    // }
+    // &::after {
+    //     font-family: 'Roboto';
+    //     font-size: 20px;
+    //     content: 'Favourite';
+    // }
 }
 
 .description {
@@ -71,12 +86,30 @@
     padding-right: 60px !important;
 }
 
-.input-search {
-    @include input-image("../../../images/icons/search-icon.png", 20px);
+.category {
+    margin: 1em;
+    padding: 1em 2em;
+    border: 1px solid $border-color;
+
+    &:hover {
+        background-color: col(cyan);
+    }
+
+    a {
+        text-decoration: none !important;
+        color: col(black);
+    }
+
+}
+// Donation form validation
+.has-error input {
+    border-width: 2px;
 }
 
-.category {
-    margin: auto;
-    padding: 15px 20px;
-    border: 1px solid $border-color;
+.validation.text-danger:after {
+    content: 'Validation failed';
+}
+
+.validation.text-success:after {
+    content: 'Validation passed';
 }

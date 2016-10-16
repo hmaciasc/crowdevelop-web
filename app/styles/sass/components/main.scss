@@ -83,8 +83,14 @@ form {
     }
 }
 
-.navbar {
-    margin: 20px 0;
+.title-bg {
+    background-image: url('../../images/title.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -9;
+    color: col(white);
+    height: 500px;
 }
 
 .divider {
@@ -92,4 +98,14 @@ form {
     margin: 0.5rem 0;
     overflow: hidden;
     background-color: #e5e5e5;
+}
+
+.searchInput, .searchInput:focus{
+    background-color: $color-modal-content;
+    border: none !important;
+    border-bottom: 3px solid $border-color !important;
+}
+
+.login {
+    height: 70vh;
 }

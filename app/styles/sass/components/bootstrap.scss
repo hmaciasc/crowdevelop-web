@@ -1,0 +1,78 @@
+/* BOOTSTRAP OVERRIDES */
+.input-group-addon {
+    width: 8% !important;
+    background-color: $color-modal-content !important;
+    border: none !important;
+    border-bottom: 3px solid $border-color !important;
+    border-radius: 0 !important;
+}
+
+// BUTTONS
+.btn {
+    border-radius: 0.1rem !important;
+}
+
+.btn-def-black {
+    background-color: $btn-color !important;
+    border-color: $btn-color !important;
+    color: $btn-text-color !important;
+}
+
+.btn-def-black:hover {
+    background-color: $btn-text-color !important;
+    border-color: $btn-color !important;
+    color: $btn-color !important;
+}
+
+
+// MODAL
+.modal-body,
+.modal-header {
+    background-color: $color-modal-content;
+
+    input, input:focus {
+        background-color: $color-modal-content;
+        border: none !important;
+        border-bottom: 3px solid $border-color !important;
+    }
+}
+
+.modal-footer {
+    background-color: $color-modal-footer;
+}
+
+/* Enabling flex cols */
+$enable-flex : true;
+
+/* Margin and padding spacing */
+$spacer:   10px;
+$spacer-x: $spacer;
+$spacer-y: $spacer;
+$spacers: (
+  0: (
+    x: 0,
+    y: 0
+  ),
+  1: (
+    x: $spacer-x,
+    y: $spacer-y
+  ),
+  2: (
+    x: ($spacer-x * 2),
+    y: ($spacer-y * 2)
+  ),
+  3: (
+    x: ($spacer-x * 3),
+    y: ($spacer-y * 3)
+  ),
+  4: (
+    x: ($spacer-x * 4),
+    y: ($spacer-y * 4)
+  ),
+  5: (
+    x: ($spacer-x * 5),
+    y: ($spacer-y * 5)
+  )
+);
+
+@import "../../../bower_components/bootstrap/scss/bootstrap";

@@ -1,30 +1,94 @@
 <div class="projects container-fluid">
-    <div class="row mt-60px">
+    <div class="row m-t-4">
         <div class="col-lg-8 offset-lg-2">
             <div class="text-xs-center">
                 <h1 class="text-400">{{project.name}}</h1>
             </div>
         </div>
     </div>
-    <div class="row mt-30px">
+    <div class="row m-t-3">
         <div class="offset-lg-3 col-lg-6">
             <div class="text-xs-center">
                 <h4 class="text-300">by {{project.ownerName}}</h4>
             </div>
         </div>
     </div>
-    <div class="row mt-40px">
+    <div class="row m-t-4">
         <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 project">
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 mt-30px">
-            <h3 class="mt-20px">Category: </h3>
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 m-t-2">
+            <div class="donation">
+                <button type="button" class="btn btn-def-black" ng-if="firebaseUser" data-toggle="modal" data-target="#paymentModal">
+                    Donate to this project
+                </button>
+                <a class="btn btn-def-black" href="/login" ng-if="!firebaseUser">Login to make a donation</a>
+                <button class="btn d-inline pdl-10px" ng-class="(favourited) ? 'btn-red-heart' : 'btn-black'" ng-click="favourite(project.pid)" ng-if="firebaseUser">
+                    <i class="fav-icon fa fa-heart" ng-show="favourited"></i>
+                    <i class="fav-icon fa fa-heart-o" ng-show="!favourited"></i>
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">Donate to: {{ project.name }}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="donationForm" ng-submit="donate()" novalidate autocomplete="on" role="form" method="POST">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="amount">Amount (in euros)</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">€</div>
+                                                    <input type="text" class="form-control" id="amount" ng-model="amount" placeholder="Amount">
+                                                    <div class="input-group-addon">.00</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-t-3">
+                                                <label for="cc-number" class="control-label">Card number <small class="text-muted">[<span class="cc-brand"></span>]</small></label>
+                                                <input id="cc-number" type="tel" class="form-control cc-number" ng-model="cNumber" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-t-3">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="cc-exp" class="control-label">Card expiry date</label>
+                                                <input id="cc-exp" type="tel" class="form-control cc-exp" ng-model="expiryDate" autocomplete="cc-exp" placeholder="•• / ••" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="cc-cvc" class="control-label">Card CVC</label>
+                                                <input id="cc-cvc" type="tel" class="form-control cc-cvc" ng-model="cvc" autocomplete="off" placeholder="•••" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="loaderDiv"></div>
+                                <div class="successDiv text-xs-center invisible"><i class="fa fa-check" aria-hidden="true"></i></div>
+                            </div>
+                            <div class="modal-footer bg-black text-xs-center">
+                                <button type="submit" form="donationForm" class="btn btn-def-black" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order"><i class="fa fa-credit-card" aria-hidden="true"></i> Donate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 m-t-3">
+            <h3 class="m-t-2">Category: </h3>
             <span>{{project.category}}</span>
-            <h3 class="mt-20px"> Description: </h3>
+            <h3 class="m-t-2"> Description: </h3>
             <span class="description" ng-bind-html="project.description | formatText"></span>
-            <div class="date mt-20px">
+            <div class="date m-t-2">
                 <h3>Deadline: <small>{{project.day}}/{{project.month}}/{{project.year}}</small></h3>
             </div>
             <div class="target">
@@ -36,7 +100,7 @@
             </div>
         </div>
 
-        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-3 mt-20px">
+        <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-3 m-t-2">
             <h4>Share this project!</h4>
             <div class="d-inline">
                 <!-- Sharingbutton Facebook -->
@@ -53,19 +117,15 @@
             </div>
             <div class="d-inline pdl-10px">
                 <!-- Sharingbutton Google+ -->
-                <a class="btn btn-social-icon btn-google" href="https://plus.google.com/share?url=crowdevelop-40f3c.firebaseapp.com" onclick="javascript:window.open(this.href,
-        '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" aria-label="">
+                <a class="btn btn-social-icon btn-google" href="https://plus.google.com/share?url=crowdevelop-40f3c.firebaseapp.com/projects/index/{{project.pid}}" onclick="javascript:window.open(this.href,
+                '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" aria-label="">
                     <span class="fa fa-google"></span>
                 </a>
-            </div>
-            <div class="d-inline pdl-10px" ng-click="favourite(project.pid)" ng-if="firebaseUser">
-                <i class="fav-icon fa fa-heart" ng-show="favourited"></i>
-                <i class="fav-icon fa fa-heart-o" ng-show="!favourited"></i>
             </div>
         </div>
     </div>
 
-    <div class="row mt-20px">
+    <div class="row m-t-2">
         <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6">
             <h3>Comments</h3>
             <form class="form" ng-submit="saveComment()" name="comment">
@@ -77,13 +137,13 @@
                     </div>
                 </div>
                 <!-- <div class="alert alert-danger" ng-show="!firebaseUser">
-        <strong>Alert!</strong> You have to make an account first.
-      </div> -->
+            <strong>Alert!</strong> You have to make an account first.
+        </div> -->
                 <button type="submit" class="btn btn-secondary">Submit comment</button>
             </form>
         </div>
     </div>
-    <div class="row mt-20px">
+    <div class="row m-t-2">
         <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 comments">
             <div class="comment" ng-repeat="comment in comments">
                 <div class="comment-header">

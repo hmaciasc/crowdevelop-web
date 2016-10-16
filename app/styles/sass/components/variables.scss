@@ -1,21 +1,75 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto';
 
-$light-white: #EEE7F7;
-$purple: #7852DB;
-$purple-back-nav: #8B80F8;
-$green: #00E676;
-$shadow-color: rgba(#000, .52);
-$border-color: #212220;
-$color-heart : #E31E3A;
+@function col($col) {
+  @return map-get($colors, '#{$col}');
+}
 
 $colors: (
-    purple: #816F9F,
-    dark-purple: darken($purple, 25%),
-    light-purple: lighten($purple, 25%)
+    'black':           #000,
+    'white':           #fefefe,
+    'light-black':     #505050,
+    'dark-white':      #EAE8E0,
+    'light-white':     #EEE7F7,
+
+    'green-blue':      #60daaa,
+    'green':           #00E676,
+    'old-green':       #ACD07A,
+
+    'yellow':          #fbca67,
+    'orange':          #ff8a30,
+
+    'red':             #f45e61,
+    'red-heart':       #f10829,
+
+    'cyan':            #0eb7da,
+    'purple':          #6477b9,
+    'deep-blue':       #2f4bd0,
+    'dark-blue':       #141E27,
+    'dark-brown':      #212220
 );
 
-// Generate colors and bgs helpers
+// Primary
+$background: col(white);
+$text: col(purple);
+$loader: col(purple);
+
+// HEADER
+$header-accent: col(black);
+$brand-accent: col(old-green);
+
+// FOOTER
+$link-animation: col(green-blue);
+$footer-item-color: col(old-green);
+
+// BUTTONS
+$btn-color: col(black);
+$btn-text-color: col(white);
+$button-color: col(black);
+$button-hover: col(purple);
+$color-heart : col(red-heart);
+
+$purple-back-nav: col(purple);
+$shadow-color: col(black);
+$border-color: col(dark-brown);
+
+// MODAL
+$color-modal-content: col(dark-white);
+$color-modal-footer: col(dark-blue);
+
+
+// GENERATORS
 @each $key, $value in $colors {
+    .btn-#{$key} {
+        background-color: $value;
+        border-color: $value;
+        color: lighten($value, 55%);
+    }
+
+    .btn-#{$key}:hover {
+        background-color: lighten($value, 55%);
+        border-color: $value;
+        color: $value;
+    }
     .color-#{$key} {
         color: $value;
     }
