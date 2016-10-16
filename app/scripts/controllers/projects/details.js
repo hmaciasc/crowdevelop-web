@@ -16,14 +16,12 @@ angular.module('crowDevelop')
     $scope.getComments = function(pid) {
         var commentsRef = firebase.database().ref('comments/' + pid);
         var obj = $firebaseObject(commentsRef);
-        console.log(obj);
         $scope.comments = obj;
     };
 
     $scope.getOwner = function(uid) {
         var userRef = firebase.database().ref('users/' + uid);
         var obj = $firebaseObject(userRef);
-        console.log(obj);
         userRef.on('value', function(snapshot) {
             $scope.owner = snapshot.val();
         });
@@ -53,13 +51,10 @@ angular.module('crowDevelop')
             text: $scope.comments.newComment,
             photo: $rootScope.firebaseUser.photoURL
         };
-        console.log($scope.comments.newComment);
-        console.log(comment);
         var obj = $firebaseArray(commentRef).$add(comment);
     }
 
     $scope.donate = function() {
-
         var donationsRef = firebase.database().ref('donations/' + $scope.project.pid);
         var donation = {
             payer: $rootScope.firebaseUser.displayName,
@@ -68,6 +63,24 @@ angular.module('crowDevelop')
         $firebaseArray(donationsRef).$add(donation);
 
         updateProject();
+    }
+
+    $scope.changeProjectStatus = function(status) {
+        var projectRef = firebase.database().ref('projects/' + $scope.project.pid);
+        var obj = $firebaseObject(projectRef);
+        obj.$loaded(
+            function(data) {
+                data.status = status;
+                data.$save().then(function(projectRef) {
+                    projectRef.key === obj.$id;
+                }, function(error) {
+                    console.log("Error:", error);
+                });
+            },
+            function(error) {
+                console.error("Error:", error);
+            }
+        );
     }
 
     function updateProject() {

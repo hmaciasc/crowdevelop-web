@@ -1,4 +1,12 @@
 <div class="projects container-fluid">
+    <div class="row flex-items-xs-middle m-t-2" ng-if="firebaseUser && project.ownerId == firebaseUser.uid">
+        <div class="col-xs text-xs-center">
+            <p class="title">Administrate your project:</p>
+        </div>
+        <div class="col-xs text-xs-center">
+            <button type="button" name="button" class="btn btn-red" ng-click="changeProjectStatus('closed')" ng-if="project.status != 'inProgress'">End project</button>
+        </div>
+    </div>
     <div class="row m-t-4">
         <div class="col-lg-8 offset-lg-2">
             <div class="text-xs-center">
@@ -21,10 +29,10 @@
         </div>
         <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6 m-t-2">
             <div class="donation">
-                <button type="button" class="btn btn-def-black" ng-if="firebaseUser" data-toggle="modal" data-target="#paymentModal">
+                <button type="button" class="btn btn-def-black" ng-if="firebaseUser && project.status == 'inProgress'" data-toggle="modal" data-target="#paymentModal">
                     Donate to this project
                 </button>
-                <a class="btn btn-def-black" href="/login" ng-if="!firebaseUser">Login to make a donation</a>
+                <a class="btn btn-def-black" href="/login" ng-if="!firebaseUser && project.status == 'inProgress'">Login to make a donation</a>
                 <button class="btn d-inline pdl-10px" ng-class="(favourited) ? 'btn-red-heart' : 'btn-black'" ng-click="favourite(project.pid)" ng-if="firebaseUser">
                     <i class="fav-icon fa fa-heart" ng-show="favourited"></i>
                     <i class="fav-icon fa fa-heart-o" ng-show="!favourited"></i>
