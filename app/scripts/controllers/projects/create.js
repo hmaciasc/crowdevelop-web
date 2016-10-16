@@ -4,6 +4,8 @@ angular.module('crowDevelop')
 
 .controller('ProjectsCreateCtrl', ['$rootScope', '$scope', '$firebaseObject', '$location', function($rootScope, $scope, $firebaseObject, $location) {
 
+    $scope.currentDate = new Date();
+
     $scope.create = function() {
         var project = $scope.project;
 
@@ -11,7 +13,7 @@ angular.module('crowDevelop')
         $scope.project.ownerName = $rootScope.firebaseUser.displayName;
         $scope.project.donated = 0;
         $scope.project.day = $scope.project.selectedDate.getDay();
-        $scope.project.month = $scope.project.selectedDate.getMonth();
+        $scope.project.month = $scope.project.selectedDate.getMonth() + 1;
         $scope.project.year = $scope.project.selectedDate.getFullYear();
         $scope.project.status = "inProgress";
 
@@ -26,7 +28,6 @@ angular.module('crowDevelop')
 
         firebase.database().ref('projects/' + ref).set($scope.project)
             .catch(function(e) {
-                console.log(e);
                 $scope.error = e;
             });
 

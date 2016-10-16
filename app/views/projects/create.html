@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="form-group col-xs-10 offset-xs-1 material" ng-class="{'has-error': datepickerForm.date.$invalid}">
-                    <input type="text" class="form-control" ng-model="project.selectedDate" data-min-date="today" name="date" bs-datepicker required />
+                    <input type="date" class="form-control" placeholder="yyyy-MM-dd" ng-model="project.selectedDate" min="{{currentDate | date: 'yyyy-MM-dd'}}" name="date" required />
                     <label class="control-label"><i class="fa fa-calendar"></i> Date </label>
                     <p class="help-block ">Select a finish date.</p>
                     <div class="alert alert-danger" ng-show="createProject.date.$touched && createProject.date.$error.required">
