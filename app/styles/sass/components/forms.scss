@@ -35,6 +35,7 @@
     transform-origin: 0 -150%;
     transition: transform 300ms ease;
     pointer-events: none;
+    z-index: 5;
   }
 
   input:focus ~ label,

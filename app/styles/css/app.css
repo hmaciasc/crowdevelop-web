@@ -5978,7 +5978,8 @@ form input {
     color: #607D8B;
     transform-origin: 0 -150%;
     transition: transform 300ms ease;
-    pointer-events: none; }
+    pointer-events: none;
+    z-index: 5; }
   .material input:focus ~ label,
   .material input:valid ~ label,
   .material select ~ label,

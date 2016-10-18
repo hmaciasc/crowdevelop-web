@@ -44,6 +44,61 @@ angular.module('crowDevelop')
         });
     }
 
+    $scope.addFeature = function() {
+        // var favRef = firebase.database().ref('favourites/' + $rootScope.firebaseUser.uid);
+        // var state = $firebaseObject(favRef.child(pid));
+        // state.$loaded().then(function() {
+        //     favRef.child(pid).set(!state.$value);
+        //     $scope.favourited = !state.$value;
+        // });
+        // var featuresRef = firebase.database().ref('features/' + $scope.project.pid);
+        // var feature = {
+        //     description: $scope.newFeature,
+        //     points: 1
+        // };
+        // $firebaseArray(featuresRef).$add(feature);
+
+        var root = firebase.database().ref().child('features/' + $scope.project.pid);
+        var featureRef = root.push().key;
+        var feature = {
+            description: $scope.newFeature,
+            points: 1,
+            fid: featureRef
+        };
+        firebase.database().ref('features/' + $scope.project.pid + '/' + featureRef).set(feature)
+            .catch(function(e) {
+                $scope.error = e;
+            });
+    }
+
+    $scope.upVote = function(fid) {
+        var voteRef = firebase.database().ref('featureVotes/' + $rootScope.firebaseUser.uid);
+        var state = $firebaseObject(voteRef.child(fid));
+        state.$loaded().then(function() {
+            voteRef.child(fid).set(!state.$value);
+            $scope.upVoted = !state.$value;
+        });
+    }
+
+    $scope.getFeatures = function(pid) {
+        var featuresRef = firebase.database().ref('features/' + pid);
+        var obj = $firebaseArray(featuresRef);
+        // obj.$loaded()
+        //     .then(function(data) {
+        //         var voteRef = firebase.database().ref('featureVotes/' + $rootScope.firebaseUser.uid);
+        //         for (var i = 0; i < data.length; i++) {
+        //             var state = $firebaseObject(voteRef.child(data[i].fid));
+        //             state.$loaded().then(function(data[i]) {
+        //                 data[i].status = state.$value;
+        //             });
+        //         }
+        //         console.log(data);
+        //     }).catch(function(error) {
+        //         console.error("Error:", error);
+        //     });
+        $scope.features = obj;
+    }
+
     $scope.saveComment = function() {
         var commentRef = firebase.database().ref('comments/' + $scope.project.pid);
         var comment = {
@@ -155,11 +210,35 @@ angular.module('crowDevelop')
         });
     }
 
+    function expiryValidation() {
+        $('[data-numeric]').payment('restrictNumeric');
+        $('.cc-exp').payment('formatCardExpiry');
+
+        $('.cc-exp').on('input', function(e) {
+            e.preventDefault();
+            var cardType = $.payment.cardType($('.cc-number').val());
+            $('.cc-exp').toggleInputError(!$.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
+            $('.cc-exp').toggleInputSuccess($.payment.validateCardExpiry($('.cc-exp').payment('cardExpiryVal')));
+        });
+    }
+
+    function cvcValidation() {
+        $('[data-numeric]').payment('restrictNumeric');
+        $('.cc-cvc').payment('formatCardCVC');
+        $('.cc-cvc').on('input', function(e) {
+            e.preventDefault();
+            var cardType = $.payment.cardType($('.cc-number').val());
+            $('.cc-cvc').toggleInputError(!$.payment.validateCardCVC($('.cc-cvc').val(), cardType));
+            $('.cc-cvc').toggleInputSuccess($.payment.validateCardCVC($('.cc-cvc').val(), cardType));
+        });
+    }
+
     creditCardValidation();
     expiryValidation();
     cvcValidation();
     $scope.getProject(pid);
     $scope.getComments(pid);
+    $scope.getFeatures(pid);
     if ($rootScope.firebaseUser) {
         $scope.getFavourite(pid);
     }

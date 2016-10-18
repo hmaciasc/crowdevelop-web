@@ -11,7 +11,7 @@
                     <input type="email" name="email" class="form-control" ng-model="project.email" required />
                     <label for="email">E-mail:</label>
                     <p class="help-block">Email to contact to.</p>
-                    <div class="alert alert-danger" ng-show="createProject.email.$touched && createProject.email.$invalid">
+                    <div class="alert alert-danger" ng-show="createProject.email.$submitted && createProject.email.$invalid">
                         <strong>Alert!</strong> Need to specify a valid email.
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                     <input type="text" class="form-control" ng-model="project.name" name="name" required />
                     <label for="projectName">Project name:</label>
                     <p class="help-block">Give your project a name.</p>
-                    <div class="alert alert-danger" ng-show="createProject.name.$touched && createProject.name.$error.required">
+                    <div class="alert alert-danger" ng-show="createProject.name.$submitted && createProject.name.$error.required">
                         <strong>Alert!</strong> Need to specify a name.
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     <select ng-model="project.category" class="form-control selectField" name="category" ng-options="x for x in categories" required></select>
                     <label for="category">Category:</label>
                     <p class="help-block">Categorize your project.</p>
-                    <div class="alert alert-danger" ng-show="createProject.category.$touched && createProject.category.$error.required">
+                    <div class="alert alert-danger" ng-show="createProject.category.$submitted && createProject.category.$error.required">
                         <strong>Alert!</strong> Need to specify a category.
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                     <input type="date" class="form-control" placeholder="yyyy-MM-dd" ng-model="project.selectedDate" min="{{currentDate | date: 'yyyy-MM-dd'}}" name="date" required />
                     <label class="control-label"><i class="fa fa-calendar"></i> Date </label>
                     <p class="help-block ">Select a finish date.</p>
-                    <div class="alert alert-danger" ng-show="createProject.date.$touched && createProject.date.$error.required">
+                    <div class="alert alert-danger" ng-show="createProject.date.$submitted && createProject.date.$error.required">
                         <strong>Alert!</strong> Need to specify a date.
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     <textarea type="textarea" rows="2" name="description" class="form-control" ng-model="project.description" required></textarea>
                     <!-- <label for="description">Description</label> -->
                     <p class="help-block">Describe your project.</p>
-                    <div class="alert alert-danger" ng-show="createProject.description.$touched && createProject.description.$error.required">
+                    <div class="alert alert-danger" ng-show="createProject.description.$submitted && createProject.description.$error.required">
                         <strong>Alert!</strong> Description must be 300 characters.
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <input type="url" class="form-control" name="video" ng-model="project.video" required />
                     <label for="video">Video</label>
                     <p class="help-block">Video about project.</p>
-                    <div class="alert alert-danger" ng-show="createProject.video.$touched && createProject.video.$error.url">
+                    <div class="alert alert-danger" ng-show="createProject.video.$submitted && createProject.video.$error.url">
                         <strong>Alert!</strong> Must be a valid url.
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                     <input type="number" class="form-control" name="goal" ng-model="project.goal" required />
                     <label for="goal">Goal</label>
                     <p class="help-block ">Stablish your goal in €.</p>
-                    <div class="alert alert-danger" ng-show="createProject.goal.$touched && createProject.goal.$error.required">
+                    <div class="alert alert-danger" ng-show="createProject.goal.$submitted && createProject.goal.$error.required">
                         <strong>Alert!</strong> Goal must be stablished.
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     <input type="number" class="form-control" name="achievement" ng-model="project.achievement" max="{{project.goal}}" required />
                     <label for="achievement">Achievement</label>
                     <p class="help-block ">Stablish your achievement.</p>
-                    <div class="alert alert-danger" ng-show="createProject.achievement.$touched && createProject.achievement.$error.max">
+                    <div class="alert alert-danger" ng-show="createProject.achievement.$submitted && createProject.achievement.$error.max">
                         <strong>Alert!</strong> Must be lower than projects target goal.
                     </div>
                 </div>
