@@ -5,14 +5,8 @@
     </div>
 </div>
 <div class="row m-t-4">
-    <div class="offset-xs-2 col-xs-8 offset-lg-2 col-lg-8">
-        <div class="row">
-            <div class="col-xs-12 col-lg-3 text-xs-center m-t-1" ng-repeat="category in categories">
-                <div class="category" ng-click="go('projects/category/' + category)">
-                    <a href="#">{{ category }}</a>
-                </div>
-            </div>
-        </div>
+    <div class="col-xs-5 col-lg-3 text-xs-center m-t-1" ng-repeat="category in categories">
+        <button class="category btn btn-{{category}}" ng-click="go('projects/category/' + category)">{{ category }}</button>
     </div>
 </div>
 <div class="row flex-items-xs-center m-t-4">

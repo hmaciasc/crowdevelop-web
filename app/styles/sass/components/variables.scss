@@ -1,10 +1,33 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto';
 
 @function col($col) {
-  @return map-get($colors, '#{$col}');
+  @return map-get($base-colors, '#{$col}');
 }
 
-$colors: (
+$black:           #000;
+$white:           #fefefe;
+$light-black:     #505050;
+$dark-white:      #EAE8E0;
+$light-white:     #EEE7F7;
+
+$green-blue:      #60daaa;
+$green:           #00E676;
+$old-green:       #ACD07A;
+
+$yellow:          #fbca67;
+$orange:          #ff8a30;
+
+$red:             #f45e61;
+$red-heart:       #f10829;
+
+$cyan:            #0eb7da;
+$purple:          #6477b9;
+$light-blue:      #2fa0d0;
+$deep-blue:       #2f4bd0;
+$dark-blue:       #141E27;
+$dark-brown:      #212220;
+
+$base-colors: (
     'black':           #000,
     'white':           #fefefe,
     'light-black':     #505050,
@@ -23,10 +46,24 @@ $colors: (
 
     'cyan':            #0eb7da,
     'purple':          #6477b9,
+    'light-blue':      #2fa0d0,
     'deep-blue':       #2f4bd0,
     'dark-blue':       #141E27,
-    'dark-brown':      #212220
+    'dark-brown':      #212220,
+
 );
+
+$categories: (
+    'Development':     col(cyan),
+    'Game':            col(green),
+    'Education':       col(old-green),
+    'Social':          col(purple),
+    'Art':             col(yellow),
+    'Sports':          col(deep-blue),
+    'Health':          col(light-blue),
+    'News':            col(orange)
+);
+
 
 // Primary
 $background: col(white);
@@ -57,6 +94,7 @@ $color-modal-content: col(dark-white);
 $color-modal-footer: col(dark-blue);
 
 
+$colors: map-merge($base-colors, $categories);
 // GENERATORS
 @each $key, $value in $colors {
     .btn-#{$key} {

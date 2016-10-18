@@ -224,6 +224,22 @@
 .bg-purple {
   background: #6477b9; }
 
+.btn-light-blue {
+  background-color: #2fa0d0;
+  border-color: #2fa0d0;
+  color: white; }
+
+.btn-light-blue:hover {
+  background-color: white;
+  border-color: #2fa0d0;
+  color: #2fa0d0; }
+
+.color-light-blue {
+  color: #2fa0d0; }
+
+.bg-light-blue {
+  background: #2fa0d0; }
+
 .btn-deep-blue {
   background-color: #2f4bd0;
   border-color: #2f4bd0;
@@ -271,6 +287,134 @@
 
 .bg-dark-brown {
   background: #212220; }
+
+.btn-Development {
+  background-color: #0eb7da;
+  border-color: #0eb7da;
+  color: white; }
+
+.btn-Development:hover {
+  background-color: white;
+  border-color: #0eb7da;
+  color: #0eb7da; }
+
+.color-Development {
+  color: #0eb7da; }
+
+.bg-Development {
+  background: #0eb7da; }
+
+.btn-Game {
+  background-color: #00E676;
+  border-color: #00E676;
+  color: white; }
+
+.btn-Game:hover {
+  background-color: white;
+  border-color: #00E676;
+  color: #00E676; }
+
+.color-Game {
+  color: #00E676; }
+
+.bg-Game {
+  background: #00E676; }
+
+.btn-Education {
+  background-color: #ACD07A;
+  border-color: #ACD07A;
+  color: white; }
+
+.btn-Education:hover {
+  background-color: white;
+  border-color: #ACD07A;
+  color: #ACD07A; }
+
+.color-Education {
+  color: #ACD07A; }
+
+.bg-Education {
+  background: #ACD07A; }
+
+.btn-Social {
+  background-color: #6477b9;
+  border-color: #6477b9;
+  color: white; }
+
+.btn-Social:hover {
+  background-color: white;
+  border-color: #6477b9;
+  color: #6477b9; }
+
+.color-Social {
+  color: #6477b9; }
+
+.bg-Social {
+  background: #6477b9; }
+
+.btn-Art {
+  background-color: #fbca67;
+  border-color: #fbca67;
+  color: white; }
+
+.btn-Art:hover {
+  background-color: white;
+  border-color: #fbca67;
+  color: #fbca67; }
+
+.color-Art {
+  color: #fbca67; }
+
+.bg-Art {
+  background: #fbca67; }
+
+.btn-Sports {
+  background-color: #2f4bd0;
+  border-color: #2f4bd0;
+  color: white; }
+
+.btn-Sports:hover {
+  background-color: white;
+  border-color: #2f4bd0;
+  color: #2f4bd0; }
+
+.color-Sports {
+  color: #2f4bd0; }
+
+.bg-Sports {
+  background: #2f4bd0; }
+
+.btn-Health {
+  background-color: #2fa0d0;
+  border-color: #2fa0d0;
+  color: white; }
+
+.btn-Health:hover {
+  background-color: white;
+  border-color: #2fa0d0;
+  color: #2fa0d0; }
+
+.color-Health {
+  color: #2fa0d0; }
+
+.bg-Health {
+  background: #2fa0d0; }
+
+.btn-News {
+  background-color: #ff8a30;
+  border-color: #ff8a30;
+  color: white; }
+
+.btn-News:hover {
+  background-color: white;
+  border-color: #ff8a30;
+  color: #ff8a30; }
+
+.color-News {
+  color: #ff8a30; }
+
+.bg-News {
+  background: #ff8a30; }
 
 .fs-14px {
   font-size: 14px; }
@@ -5920,14 +6064,7 @@ form input {
     padding: 10px 0; }
 
 .category {
-  margin: 1em;
-  padding: 1em 2em;
-  border: 1px solid #212220; }
-  .category:hover {
-    background-color: #0eb7da; }
-  .category a {
-    text-decoration: none !important;
-    color: #000; }
+  width: 200px; }
 
 .has-error input {
   border-width: 2px; }
