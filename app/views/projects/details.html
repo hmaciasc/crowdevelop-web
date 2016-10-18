@@ -132,7 +132,22 @@
             </div>
         </div>
     </div>
-
+    <div class="row m-t-2">
+        <div class="col-xs-10 m-0-auto text-xs-center">
+            <form class="form" ng-submit="addFeature()" name="features">
+                <div class="form-group material">
+                    <input type="text" name="feature" class="form-control" ng-model="feature" required />
+                    <label for="feature">Feature:</label>
+                    <div class="alert alert-danger" ng-show="features.feature.$touched && features.feature.$invalid">
+                        <strong>Alert!</strong> Please write something.
+                    </div>
+                </div>
+                <div class="form-group material">
+                    <input type="submit" value="Publish feature" class="btn btn-green" />
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="row m-t-2">
         <div class="offset-xs-2 col-xs-8 offset-lg-3 col-lg-6">
             <h3>Comments</h3>
