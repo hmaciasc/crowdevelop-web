@@ -7,14 +7,14 @@ angular.module('crowDevelop')
     var pid = $routeParams.pid;
     $scope.success = false;
 
-    $scope.getProject = function(pid) {
+    $scope.getProject = function() {
         var projectRef = firebase.database().ref('projects/' + pid);
         var obj = $firebaseObject(projectRef);
         $scope.project = obj;
     };
 
-    $scope.getComments = function(pid) {
-        var commentsRef = firebase.database().ref('comments/' + pid);
+    $scope.getComments = function() {
+        var commentsRef = firebase.database().ref('comments/' + $scope.project.$id);
         var obj = $firebaseObject(commentsRef);
         $scope.comments = obj;
     };
@@ -27,18 +27,18 @@ angular.module('crowDevelop')
         });
     }
 
-    $scope.favourite = function(pid) {
+    $scope.favourite = function() {
         var favRef = firebase.database().ref('favourites/' + $rootScope.firebaseUser.uid);
-        var state = $firebaseObject(favRef.child(pid));
+        var state = $firebaseObject(favRef.child($scope.project.$id));
         state.$loaded().then(function() {
-            favRef.child(pid).set(!state.$value);
+            favRef.child($scope.project.$id).set(!state.$value);
             $scope.favourited = !state.$value;
         });
     }
 
-    $scope.getFavourite = function(pid) {
+    $scope.getFavourite = function() {
         var favRef = firebase.database().ref('favourites/' + $rootScope.firebaseUser.uid);
-        var state = $firebaseObject(favRef.child(pid));
+        var state = $firebaseObject(favRef.child($scope.project.$id));
         state.$loaded().then(function() {
             $scope.favourited = state.$value;
         });
@@ -58,7 +58,7 @@ angular.module('crowDevelop')
     }
 
     $scope.voteFeature = function(fid, status) {
-        var voteRef = firebase.database().ref('featureVotes/' + pid + '/' + $rootScope.firebaseUser.uid);
+        var voteRef = firebase.database().ref('featureVotes/' + $scope.project.$id + '/' + $rootScope.firebaseUser.uid);
         var state = $firebaseArray(voteRef.child(fid));
         state.$loaded().then(function() {
             for (let i = 0; i < $scope.features.length; i++) {
@@ -68,7 +68,7 @@ angular.module('crowDevelop')
             }
             voteRef.child(fid).set(status);
         });
-        var featureRef = firebase.database().ref('features/' + pid + '/' + fid);
+        var featureRef = firebase.database().ref('features/' + $scope.project.$id + '/' + fid);
         var feature = $firebaseObject(featureRef);
         feature.$loaded().then(function() {
             console.log(feature);
@@ -77,14 +77,14 @@ angular.module('crowDevelop')
         // $scope.features = feature;
     }
 
-    $scope.getFeatures = function(pid) {
-        var featuresRef = firebase.database().ref('features/' + pid);
+    $scope.getFeatures = function() {
+        var featuresRef = firebase.database().ref('features/' + $scope.project.$id);
         var obj = $firebaseArray(featuresRef);
         $scope.features = obj;
     }
 
-    function getUserFeatureVotes(pid) {
-        var userFeaturesRef = firebase.database().ref('featureVotes/' + pid + '/' + $rootScope.firebaseUser.uid);
+    function getUserFeatureVotes() {
+        var userFeaturesRef = firebase.database().ref('featureVotes/' + $scope.project.$id + '/' + $rootScope.firebaseUser.uid);
         var votes = $firebaseArray(userFeaturesRef);
         votes.$loaded().then(function() {
             for (var i = 0; i < $scope.features.length; i++) {
@@ -111,6 +111,7 @@ angular.module('crowDevelop')
         var donationsRef = firebase.database().ref('donations/' + $scope.project.$id);
         var donation = {
             payer: $rootScope.firebaseUser.displayName,
+            uid: $rootScope.firebaseUser.uid,
             amount: $scope.amount
         };
         $firebaseArray(donationsRef).$add(donation);
@@ -138,7 +139,7 @@ angular.module('crowDevelop')
 
     function updateProject() {
         $('.loaderDiv').toggleClass('loader');
-        var projectRef = firebase.database().ref('projects/' + pid);
+        var projectRef = firebase.database().ref('projects/' + $scope.project.$id);
         var obj = $firebaseObject(projectRef);
         obj.$loaded(
             function(data) {
@@ -234,11 +235,11 @@ angular.module('crowDevelop')
     creditCardValidation();
     expiryValidation();
     cvcValidation();
-    $scope.getProject(pid);
-    $scope.getComments(pid);
-    $scope.getFeatures(pid);
+    $scope.getProject();
+    $scope.getComments();
+    $scope.getFeatures();
     if ($rootScope.firebaseUser) {
-        $scope.getFavourite(pid);
-        getUserFeatureVotes(pid);
+        $scope.getFavourite();
+        getUserFeatureVotes();
     }
 }]);

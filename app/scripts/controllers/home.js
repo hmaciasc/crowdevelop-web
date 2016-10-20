@@ -9,7 +9,6 @@ angular.module('crowDevelop')
         var query = projectsRef.orderByChild('name').equalTo($scope.query);
         var list = $firebaseArray(query);
         $rootScope.projectSearch = list;
-        console.log(list);
         $location.path('/projects/index');
     };
 
@@ -17,7 +16,6 @@ angular.module('crowDevelop')
         var projectRef = firebase.database().ref('projects/');
         var query = projectRef.orderByChild('donated').limitToLast(10);
         $scope.projects = $firebaseArray(query);
-        console.log($scope.projects);
     };
 
     $scope.go = function(ref) {

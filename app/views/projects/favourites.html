@@ -9,20 +9,20 @@
         </div>
     </div>
 </div>
-<div class="row m-t-4" ng-repeat="project in favProjects">
-    <div class="col-xs-10 offset-xs-1 offset-lg-2 col-lg-8 project">
+<div class="row flex-items-xs-center m-t-4" ng-repeat="project in favProjects" ng-if="favProjects.length">
+    <div class="col-xs-8 text-xs-center project">
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
+            <iframe class="embed-responsive-item" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" color="red" allowfullscreen></iframe>
         </div>
     </div>
-    <div class="col-xs-10 offset-xs-1 offset-lg-2 col-lg-8" ng-click="go('projects/index/' + project.$id)">
-        <div class="projectDetails ">
+    <div class="col-xs-5" ng-click="go('projects/index/'+project.$id)">
+        <div class="projectDetails">
             <h3>{{project.name}}</h3>
             <p> Category: {{project.category}}</p>
-            <div class="target ">
+            <div class="target">
                 <div>
-                    <div class="text-xs-center " id="progress-text ">{{ project.donated / project.goal * 100 | number:0 || 0}}% Reached</div>
-                    <progress class="progress progress-striped progress-success " value="{{ project.donated / project.goal * 100 | number:0 }} " max="100 "></progress>
+                    <div class="text-xs-center" id="progress-text">{{ project.donated / project.goal * 100 | number:0 || 0}}% Reached</div>
+                    <progress class="progress progress-striped progress-success" value="{{ project.donated / project.goal * 100 | number:0 }}" max="100"></progress>
                 </div>
             </div>
         </div>
