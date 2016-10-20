@@ -27,20 +27,20 @@ angular.module('crowDevelop')
         });
     }
 
+    $scope.getFavourite = function() {
+        var favRef = firebase.database().ref('favourites/' + $rootScope.firebaseUser.uid);
+        var state = $firebaseObject(favRef.child($scope.project.$id));
+        state.$loaded().then(function() {
+            $scope.favourited = state.$value;
+        });
+    }
+
     $scope.favourite = function() {
         var favRef = firebase.database().ref('favourites/' + $rootScope.firebaseUser.uid);
         var state = $firebaseObject(favRef.child($scope.project.$id));
         state.$loaded().then(function() {
             favRef.child($scope.project.$id).set(!state.$value);
             $scope.favourited = !state.$value;
-        });
-    }
-
-    $scope.getFavourite = function() {
-        var favRef = firebase.database().ref('favourites/' + $rootScope.firebaseUser.uid);
-        var state = $firebaseObject(favRef.child($scope.project.$id));
-        state.$loaded().then(function() {
-            $scope.favourited = state.$value;
         });
     }
 
@@ -59,26 +59,37 @@ angular.module('crowDevelop')
 
     $scope.voteFeature = function(fid, status) {
         var voteRef = firebase.database().ref('featureVotes/' + $scope.project.$id + '/' + $rootScope.firebaseUser.uid);
-        var state = $firebaseArray(voteRef.child(fid));
+        var state = $firebaseObject(voteRef.child(fid));
         state.$loaded().then(function() {
             for (let i = 0; i < $scope.features.length; i++) {
                 if ($scope.features[i].$id == fid) {
-                    $scope.features[i].status = status;
+                    if (state.$value !== status || state.$value == undefined) {
+                        $scope.features[i].status = status;
+                        updatePoints(fid, status);
+                    }
+                    voteRef.child(fid).set(status);
+                    break;
                 }
             }
-            voteRef.child(fid).set(status);
         });
+        getUserFeatureVotes();
+    }
+
+    function updatePoints(fid, status) {
         var featureRef = firebase.database().ref('features/' + $scope.project.$id + '/' + fid);
         var feature = $firebaseObject(featureRef);
         feature.$loaded().then(function() {
-            console.log(feature);
-
+            if (status == 'up') {
+                feature.points = parseInt(feature.points) + 1;
+            } else if (status == 'down') {
+                feature.points = parseInt(feature.points) - 1;
+            }
+            feature.$save();
         });
-        // $scope.features = feature;
     }
 
     $scope.getFeatures = function() {
-        var featuresRef = firebase.database().ref('features/' + $scope.project.$id);
+        var featuresRef = firebase.database().ref('features/' + $scope.project.$id).orderByChild('points');
         var obj = $firebaseArray(featuresRef);
         $scope.features = obj;
     }
