@@ -71,32 +71,37 @@ angular.module('crowDevelop')
             });
     }
 
-    $scope.upVote = function(fid) {
-        var voteRef = firebase.database().ref('featureVotes/' + $rootScope.firebaseUser.uid);
-        var state = $firebaseObject(voteRef.child(fid));
+    $scope.voteFeature = function(fid, status) {
+        var voteRef = firebase.database().ref('featureVotes/' + pid + '/' + $rootScope.firebaseUser.uid);
+        var state = $firebaseArray(voteRef.child(fid));
         state.$loaded().then(function() {
-            voteRef.child(fid).set(!state.$value);
-            $scope.upVoted = !state.$value;
+            for (let i = 0; i < $scope.features.length; i++) {
+                if ($scope.features[i].fid == fid) {
+                    $scope.features[i].status = status;
+                }
+            }
+            voteRef.child(fid).set(status);
         });
     }
 
     $scope.getFeatures = function(pid) {
         var featuresRef = firebase.database().ref('features/' + pid);
         var obj = $firebaseArray(featuresRef);
-        // obj.$loaded()
-        //     .then(function(data) {
-        //         var voteRef = firebase.database().ref('featureVotes/' + $rootScope.firebaseUser.uid);
-        //         for (var i = 0; i < data.length; i++) {
-        //             var state = $firebaseObject(voteRef.child(data[i].fid));
-        //             state.$loaded().then(function(data[i]) {
-        //                 data[i].status = state.$value;
-        //             });
-        //         }
-        //         console.log(data);
-        //     }).catch(function(error) {
-        //         console.error("Error:", error);
-        //     });
         $scope.features = obj;
+    }
+
+    function getUserFeatureVotes(pid) {
+        var userFeaturesRef = firebase.database().ref('featureVotes/' + pid + '/' + $rootScope.firebaseUser.uid);
+        var votes = $firebaseArray(userFeaturesRef);
+        votes.$loaded().then(function() {
+            for (var i = 0; i < $scope.features.length; i++) {
+                for (var j = 0; j < votes.length; j++) {
+                    if ($scope.features[i].fid == votes[j].$id) {
+                        $scope.features[i].status = votes[j].$value;
+                    }
+                }
+            }
+        });
     }
 
     $scope.saveComment = function() {
@@ -241,5 +246,6 @@ angular.module('crowDevelop')
     $scope.getFeatures(pid);
     if ($rootScope.firebaseUser) {
         $scope.getFavourite(pid);
+        getUserFeatureVotes(pid);
     }
 }]);

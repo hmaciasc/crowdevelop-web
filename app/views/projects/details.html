@@ -150,15 +150,15 @@
         <div class="col-xs-11 col-lg-7">
             <h3>Features:</h3>
             <div class="feature" ng-repeat="feature in features">
-                <div class="row">
+                <div class="row m-y-1">
                     <div class="col-xs-6 col-lg-9">
                         <p class="d-inline">{{$index + 1 + 'º ' + feature.description}}</p>
                     </div>
                     <div class="col-xs-6 col-lg-3 text-xs-right">
-                        <button class="btn d-inline push-right" ng-disabled="!firebaseUser" ng-class="(upVoted) ? 'btn-green' : 'btn-default'" ng-click="upVote(feature.fid)">
+                        <button class="btn d-inline push-right" ng-disabled="!firebaseUser" ng-class="(feature.status == 'up') ? 'btn-green' : 'btn-default'" ng-click="voteFeature(feature.fid, 'up')">
                             <i class="fa fa-chevron-circle-up"></i>
                         </button>
-                        <button class="btn d-inline" ng-disabled="!firebaseUser" ng-class="(downVoted) ? 'btn-red' : 'btn-default'" ng-click="downVote(feature.fid)">
+                        <button class="btn d-inline" ng-disabled="!firebaseUser" ng-class="(feature.status == 'down') ? 'btn-red' : 'btn-default'" ng-click="voteFeature(feature.fid, 'down')">
                             <i class="fa fa-chevron-circle-down"></i>
                         </button>
                         <p class="d-inline">{{feature.points}}</p>

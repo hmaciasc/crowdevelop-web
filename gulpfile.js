@@ -1,10 +1,10 @@
 // Load Gulp
 var gulp = require('gulp'),
-    cssmin = require('gulp-cssmin'),
+    // cssmin = require('gulp-cssmin'),
     sass = require('gulp-sass'),
     path = require('path'),
-    browserSync = require('browser-sync'),
-    modRewrite = require('connect-modrewrite'),
+    // browserSync = require('browser-sync'),
+    // modRewrite = require('connect-modrewrite'),
     exec = require('child_process').exec,
     plugins = require('gulp-load-plugins')({
         rename: {
