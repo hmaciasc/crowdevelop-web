@@ -155,10 +155,10 @@
                         <p class="d-inline">{{$index + 1 + 'º ' + feature.description}}</p>
                     </div>
                     <div class="col-xs-6 col-lg-3 text-xs-right">
-                        <button class="btn d-inline push-right" ng-disabled="!firebaseUser" ng-class="(feature.status == 'up') ? 'btn-green' : 'btn-default'" ng-click="voteFeature(feature.fid, 'up')">
+                        <button class="btn d-inline push-right" ng-disabled="!firebaseUser" ng-class="(feature.status == 'up') ? 'btn-green' : 'btn-default'" ng-click="voteFeature(feature.$id, 'up')">
                             <i class="fa fa-chevron-circle-up"></i>
                         </button>
-                        <button class="btn d-inline" ng-disabled="!firebaseUser" ng-class="(feature.status == 'down') ? 'btn-red' : 'btn-default'" ng-click="voteFeature(feature.fid, 'down')">
+                        <button class="btn d-inline" ng-disabled="!firebaseUser" ng-class="(feature.status == 'down') ? 'btn-red' : 'btn-default'" ng-click="voteFeature(feature.$id, 'down')">
                             <i class="fa fa-chevron-circle-down"></i>
                         </button>
                         <p class="d-inline">{{feature.points}}</p>

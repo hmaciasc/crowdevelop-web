@@ -45,25 +45,11 @@ angular.module('crowDevelop')
     }
 
     $scope.addFeature = function() {
-        // var favRef = firebase.database().ref('favourites/' + $rootScope.firebaseUser.uid);
-        // var state = $firebaseObject(favRef.child(pid));
-        // state.$loaded().then(function() {
-        //     favRef.child(pid).set(!state.$value);
-        //     $scope.favourited = !state.$value;
-        // });
-        // var featuresRef = firebase.database().ref('features/' + $scope.project.pid);
-        // var feature = {
-        //     description: $scope.newFeature,
-        //     points: 1
-        // };
-        // $firebaseArray(featuresRef).$add(feature);
-
         var root = firebase.database().ref().child('features/' + $scope.project.pid);
         var featureRef = root.push().key;
         var feature = {
             description: $scope.newFeature,
-            points: 1,
-            fid: featureRef
+            points: 1
         };
         firebase.database().ref('features/' + $scope.project.pid + '/' + featureRef).set(feature)
             .catch(function(e) {
@@ -76,7 +62,7 @@ angular.module('crowDevelop')
         var state = $firebaseArray(voteRef.child(fid));
         state.$loaded().then(function() {
             for (let i = 0; i < $scope.features.length; i++) {
-                if ($scope.features[i].fid == fid) {
+                if ($scope.features[i].$id == fid) {
                     $scope.features[i].status = status;
                 }
             }
@@ -96,7 +82,7 @@ angular.module('crowDevelop')
         votes.$loaded().then(function() {
             for (var i = 0; i < $scope.features.length; i++) {
                 for (var j = 0; j < votes.length; j++) {
-                    if ($scope.features[i].fid == votes[j].$id) {
+                    if ($scope.features[i].$id == votes[j].$id) {
                         $scope.features[i].status = votes[j].$value;
                     }
                 }
