@@ -31,7 +31,7 @@
                     Donate to this project
                 </button>
                 <a class="btn btn-def-black" href="/login" ng-if="!firebaseUser && project.status == 'inProgress'">Login to make a donation</a>
-                <button class="btn d-inline pdl-10px" ng-class="(favourited) ? 'btn-red-heart' : 'btn-black'" ng-click="favourite(project.pid)" ng-if="firebaseUser">
+                <button class="btn d-inline pdl-10px" ng-class="(favourited) ? 'btn-red-heart' : 'btn-black'" ng-click="favourite(project.$id)" ng-if="firebaseUser">
                     <i class="fav-icon fa fa-heart" ng-show="favourited"></i>
                     <i class="fav-icon fa fa-heart-o" ng-show="!favourited"></i>
                 </button>
@@ -123,7 +123,7 @@
             </div>
             <div class="d-inline pdl-10px">
                 <!-- Sharingbutton Google+ -->
-                <a class="btn btn-social-icon btn-google" href="https://plus.google.com/share?url=crowdevelop-40f3c.firebaseapp.com/projects/index/{{project.pid}}" onclick="javascript:window.open(this.href,
+                <a class="btn btn-social-icon btn-google" href="https://plus.google.com/share?url=crowdevelop-40f3c.firebaseapp.com/projects/index/{{project.$id}}" onclick="javascript:window.open(this.href,
                 '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" aria-label="">
                     <span class="fa fa-google"></span>
                 </a>
@@ -131,8 +131,7 @@
         </div>
     </div>
     <div class="row flex-items-xs-center m-t-2">
-        <!-- ng-if="project.ownerId == firebaseUser.uid" -->
-        <div class="col-xs-11 col-lg-7">
+        <div class="col-xs-11 col-lg-7" ng-if="project.ownerId == firebaseUser.uid">
             <h3>Add feature to the pool:</h3>
             <form class="form" ng-submit="addFeature()" name="featureForm">
                 <div class="form-group">
@@ -146,8 +145,7 @@
                 </div>
             </form>
         </div>
-        <!-- ng-if="project.ownerId == firebaseUser.uid" -->
-        <div class="col-xs-11 col-lg-7">
+        <div class="col-xs-11 col-lg-7" ng-if="project.ownerId == firebaseUser.uid">
             <h3>Features:</h3>
             <div class="feature" ng-repeat="feature in features">
                 <div class="row m-y-1">

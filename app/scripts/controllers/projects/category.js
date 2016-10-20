@@ -10,9 +10,7 @@ angular.module('crowDevelop')
         var projectsRef = firebase.database().ref('projects/');
         var query = projectsRef.orderByChild('category').equalTo(category);
         var list = $firebaseArray(query);
-        console.log("list ", list);
         $rootScope.projectSearch = list;
-        // $location.path('/projects/index');
     };
 
     $scope.go = function(ref) {

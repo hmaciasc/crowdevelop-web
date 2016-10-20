@@ -22,14 +22,9 @@ angular.module('crowDevelop')
         var videoId = vid.slice(initIndex + 1, vid.length);
         $scope.project.video = videoId;
 
-        var rootRef = firebase.database().ref().child('projects');
-        var ref = rootRef.push().key;
-        $scope.project.pid = ref;
-
-        firebase.database().ref('projects/' + ref).set($scope.project)
-            .catch(function(e) {
-                $scope.error = e;
-            });
+        var projectsRef = firebase.database().ref('projects');
+        var project = projectsRef.push();
+        project.set($scope.project);
 
         $location.path('/');
     };

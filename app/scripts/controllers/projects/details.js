@@ -45,13 +45,13 @@ angular.module('crowDevelop')
     }
 
     $scope.addFeature = function() {
-        var root = firebase.database().ref().child('features/' + $scope.project.pid);
+        var root = firebase.database().ref().child('features/' + $scope.project.$id);
         var featureRef = root.push().key;
         var feature = {
             description: $scope.newFeature,
             points: 1
         };
-        firebase.database().ref('features/' + $scope.project.pid + '/' + featureRef).set(feature)
+        firebase.database().ref('features/' + $scope.project.$id + '/' + featureRef).set(feature)
             .catch(function(e) {
                 $scope.error = e;
             });
@@ -68,6 +68,13 @@ angular.module('crowDevelop')
             }
             voteRef.child(fid).set(status);
         });
+        var featureRef = firebase.database().ref('features/' + pid + '/' + fid);
+        var feature = $firebaseObject(featureRef);
+        feature.$loaded().then(function() {
+            console.log(feature);
+
+        });
+        // $scope.features = feature;
     }
 
     $scope.getFeatures = function(pid) {
@@ -91,7 +98,7 @@ angular.module('crowDevelop')
     }
 
     $scope.saveComment = function() {
-        var commentRef = firebase.database().ref('comments/' + $scope.project.pid);
+        var commentRef = firebase.database().ref('comments/' + $scope.project.$id);
         var comment = {
             writer: $rootScope.firebaseUser.displayName,
             text: $scope.comments.newComment,
@@ -101,7 +108,7 @@ angular.module('crowDevelop')
     }
 
     $scope.donate = function() {
-        var donationsRef = firebase.database().ref('donations/' + $scope.project.pid);
+        var donationsRef = firebase.database().ref('donations/' + $scope.project.$id);
         var donation = {
             payer: $rootScope.firebaseUser.displayName,
             amount: $scope.amount
@@ -112,7 +119,7 @@ angular.module('crowDevelop')
     }
 
     $scope.changeProjectStatus = function(status) {
-        var projectRef = firebase.database().ref('projects/' + $scope.project.pid);
+        var projectRef = firebase.database().ref('projects/' + $scope.project.$id);
         var obj = $firebaseObject(projectRef);
         obj.$loaded(
             function(data) {
