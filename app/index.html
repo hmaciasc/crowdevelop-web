@@ -22,11 +22,11 @@
 
 </head>
 
-<body ng-app="crowDevelop">
+<body ng-app="crowDevelop" class="Site">
     <div ng-controller="HeaderCtrl">
         <div ng-include src="'views/shared/header.html'"></div>
     </div>
-    <ng-view></ng-view>
+    <ng-view class="Site-content"></ng-view>
     <div>
         <div ng-include src="'views/shared/footer.html'"></div>
     </div>
