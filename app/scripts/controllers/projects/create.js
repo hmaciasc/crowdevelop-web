@@ -3,8 +3,17 @@
 angular.module('crowDevelop')
 
 .controller('ProjectsCreateCtrl', ['$rootScope', '$scope', '$firebaseObject', '$location', function($rootScope, $scope, $firebaseObject, $location) {
-
+    $scope.project = {};
     $scope.currentDate = new Date();
+
+    window.sco = $scope;
+
+    $scope.log = function(image) {
+      $scope.project.image = image.files[0];
+      window.image = image.files[0];
+      console.log($scope);
+      $scope.$apply();
+    };
 
     $scope.create = function() {
         var project = $scope.project;
@@ -17,6 +26,7 @@ angular.module('crowDevelop')
         $scope.project.year = $scope.project.selectedDate.getFullYear();
         $scope.project.status = "inProgress";
 
+
         var vid = $scope.project.video.replace("/watch?v=", "/embed/");
         var initIndex = vid.lastIndexOf("/");
         var videoId = vid.slice(initIndex + 1, vid.length);
@@ -25,8 +35,19 @@ angular.module('crowDevelop')
         var projectsRef = firebase.database().ref('projects');
         var project = projectsRef.push();
         project.set($scope.project);
+        $scope.project.imageRef = uploadPhoto(project.key);
 
         $location.path('/');
     };
+
+    function uploadPhoto(projectKey) {
+      var storage = firebase.storage();
+      var storageRef = storage.ref();
+      var imagesRef = storageRef.child('projectImages/' + projectKey).put($scope.project.image);
+
+      console.log(imagesRef);
+
+      return imagesRef;
+    }
 
 }]);

@@ -51,6 +51,12 @@
         </div>
       </div>
 
+      <div class="form-group col-xs-11 col-md-6">
+        <input type="file" onchange="angular.element(this).scope().log(this)" class="form-control" name="image" ng-model="project.image" accept="image/*" required />
+        <label for="image">Image</label>
+        <p class="help-block">Picture for project header.</p>
+      </div>
+
       <div class="form-group col-xs-11 col-md-6 material">
         <input type="url" class="form-control" name="video" ng-model="project.video" required />
         <label for="video">Video</label>
