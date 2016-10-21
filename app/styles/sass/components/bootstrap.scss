@@ -41,6 +41,11 @@
     background-color: $color-modal-footer;
 }
 
+// ALERT
+.alert {
+  border-radius: 0 !important;
+}
+
 /* Enabling flex cols */
 $enable-flex : true;
 

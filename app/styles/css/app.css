@@ -462,6 +462,9 @@
 .modal-footer {
   background-color: #141E27; }
 
+.alert {
+  border-radius: 0 !important; }
+
 /* Enabling flex cols */
 /* Margin and padding spacing */
 /*!
@@ -5922,7 +5925,7 @@ form input {
 
 .divider {
   height: 1px;
-  margin: 0.5rem 0;
+  margin: 0.5px 0;
   overflow: hidden;
   background-color: #e5e5e5; }
 
@@ -6070,7 +6073,8 @@ form input {
   .comment .comment-text {
     color: #444444;
     text-align: justify;
-    padding: 10px 0; }
+    padding: 10px 0;
+    margin: 0; }
 
 .category {
   width: 200px; }

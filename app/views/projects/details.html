@@ -20,12 +20,12 @@
         </div>
     </div>
     <div class="row flex-items-xs-center m-t-4">
-        <div class="col-xs-11 col-lg-7 project">
+        <div class="col-xs-11 col-md-7 project">
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-        <div class="col-xs-11 col-lg-7 m-t-2">
+        <div class="col-xs-11 col-md-7 m-t-2">
             <div class="donation">
                 <button type="button" class="btn btn-def-black" ng-if="firebaseUser && project.status == 'inProgress'" data-toggle="modal" data-target="#paymentModal">
                     Donate to this project
@@ -89,7 +89,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-11 col-lg-7 m-t-3">
+        <div class="col-xs-11 col-md-7 m-t-3">
             <h3 class="m-t-2">Category: </h3>
             <span>{{project.category}}</span>
             <h3 class="m-t-2"> Description: </h3>
@@ -106,7 +106,7 @@
             </div>
         </div>
 
-        <div class="col-xs-11 col-lg-7 m-t-2">
+        <div class="col-xs-11 col-md-7 m-t-2">
             <h3>Share this project!</h3>
             <div class="d-inline">
                 <!-- Sharingbutton Facebook -->
@@ -131,7 +131,7 @@
         </div>
     </div>
     <div class="row flex-items-xs-center m-t-2">
-        <div class="col-xs-11 col-lg-7" ng-if="project.ownerId == firebaseUser.uid">
+        <div class="col-xs-11 col-md-7" ng-if="project.ownerId == firebaseUser.uid">
             <h3>Add feature to the pool:</h3>
             <form class="form" ng-submit="addFeature()" name="featureForm">
                 <div class="form-group">
@@ -145,7 +145,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-xs-11 col-lg-7" ng-if="project.ownerId == firebaseUser.uid">
+        <div class="col-xs-11 col-md-7" ng-if="project.ownerId == firebaseUser.uid">
             <h3>Features:</h3>
             <div class="feature" ng-repeat="feature in features | orderBy:'-points'">
                 <div class="row m-y-1">
@@ -166,7 +166,7 @@
         </div>
     </div>
     <div class="row flex-items-xs-center m-t-2">
-        <div class="col-xs-11 col-lg-7">
+        <div class="col-xs-11 col-md-7">
             <h3>Comments</h3>
             <form class="form" ng-submit="saveComment()" name="comment">
                 <div class="form-group">
@@ -182,8 +182,8 @@
             </form>
         </div>
     </div>
-    <div class="row flex-items-xs-center m-t-2">
-        <div class="col-xs-11 col-lg-7 comments">
+    <div class="row flex-items-xs-center m-t-1">
+        <div class="col-xs-11 col-md-7 comments">
             <div class="comment" ng-repeat="comment in comments">
                 <div class="comment-header">
                     <img class="img-rounded comment-photo" src="{{comment.photo}}" alt="User" />
