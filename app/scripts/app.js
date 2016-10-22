@@ -9,7 +9,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate'])
+angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate', 'ngMaterial'])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
