@@ -34,7 +34,7 @@ angular.module('crowDevelop')
         $scope.project.year = $scope.project.selectedDate.getFullYear();
         $scope.project.donated = 0;
         $scope.project.status = "inProgress";
-        $scope.project.imagesRef = "";
+        $scope.project.imageRef = "";
 
         var vid = $scope.project.videoUrl.replace("/watch?v=", "/embed/");
         var initIndex = vid.lastIndexOf("/");

@@ -93,6 +93,15 @@ form {
     height: 500px;
 }
 
+.project-title {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -9;
+    color: col(white);
+    height: 500px;
+}
+
 .divider {
     height: 1px;
     margin: 0.5px 0;

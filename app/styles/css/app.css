@@ -5923,6 +5923,14 @@ form input {
   color: #fefefe;
   height: 500px; }
 
+.project-title {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -9;
+  color: #fefefe;
+  height: 500px; }
+
 .divider {
   height: 1px;
   margin: 0.5px 0;
@@ -6087,3 +6095,6 @@ form input {
 
 .validation.text-success:after {
   content: 'Validation passed'; }
+
+.imageLabel {
+  color: #a7a7a7 !important; }
