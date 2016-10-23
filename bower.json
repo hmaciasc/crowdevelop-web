@@ -23,7 +23,8 @@
     "bootstrap-social": "^5.0.0",
     "font-awesome": "fontawesome#^4.5",
     "jquery.payment": "jquery-payment#^1.1.6",
-    "angular-material": "^1.1.1"
+    "angular-material": "^1.1.1",
+    "ngstorage": "^0.3.11"
   },
   "resolutions": {
     "bootstrap": "v4.0.0-alpha.4"

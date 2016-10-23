@@ -27,7 +27,7 @@
     <div ng-controller="HeaderCtrl">
         <div ng-include src="'views/shared/header.html'"></div>
     </div>
-    <ng-view class="Site-content"></ng-view>
+    <ng-view class="Site-content" autoscroll="true"></ng-view>
     <div>
         <div ng-include src="'views/shared/footer.html'"></div>
     </div>
@@ -39,6 +39,7 @@
     <script src="bower_components/angular-mocks/angular-mocks.js"></script>
     <script src="bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.min.js"></script>
 
     <!-- Firebase -->
     <script src="bower_components/firebase/firebase.js"></script>
@@ -46,6 +47,8 @@
 
     <!-- main app -->
     <script src="scripts/app.js"></script>
+    <!-- services -->
+    <script src="scripts/services/authService.js"></script>
     <!-- Controllers -->
     <script src="scripts/controllers/home.js"></script>
     <script src="scripts/controllers/header.js"></script>
@@ -55,8 +58,6 @@
     <script src="scripts/controllers/projects/index.js"></script>
     <script src="scripts/controllers/projects/category.js"></script>
     <script src="scripts/controllers/projects/favourites.js"></script>
-    <!-- services -->
-    <script src="scripts/services/authService.js"></script>
     <!-- JQuery -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/jquery.payment/lib/jquery.payment.js"></script>

@@ -19,7 +19,6 @@ angular.module('crowDevelop')
 
 
     $scope.logout = function() {
-        console.log("LOGIN CTRL");
         $rootScope.authService.logout();
         $location.path('/');
     };
