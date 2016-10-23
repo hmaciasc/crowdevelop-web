@@ -5917,7 +5917,7 @@ form input {
 .title-bg {
   background-image: url("../../images/title1.jpg");
   background-blend-mode: hue;
-  background-position: center;
+  background-position: right;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -9;
