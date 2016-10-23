@@ -45,8 +45,7 @@
   ],
   "display": "standalone",
   "orientation": "portrait",
-  "Scope": "/app",
-  "start_url": "/index.html",
+  "start_url": "/",
   "theme_color": "#000000",
   "background_color": "#2196f3"
 }
