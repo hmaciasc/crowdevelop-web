@@ -65,6 +65,14 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate', 
     }
 })
 
+.filter('capitalize', function() {
+  return function(input, scope) {
+    if (input!=null)
+    input = input.toLowerCase();
+    return input.substring(0,1).toUpperCase()+input.substring(1);
+  }
+})
+
 .run(['$rootScope', function($rootScope) {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('../sw.js').then(function(registration) {
