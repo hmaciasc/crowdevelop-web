@@ -10,9 +10,5 @@ angular.module('crowDevelop')
         var list = $firebaseArray(query);
         $rootScope.projectSearch = list;
     };
-
-    $scope.go = function(ref) {
-        $location.path(ref);
-    }
-
+    
 }]);

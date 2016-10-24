@@ -30,7 +30,7 @@
             <iframe class="embed-responsive-item" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" color="red" allowfullscreen></iframe>
         </div>
     </div>
-    <div class="col-xs-5" ng-click="go('projects/index/'+project.$id)">
+    <div class="col-xs-5" ng-click="goTo('projects/index/'+project.$id)">
         <div class="projectDetails">
             <h3>{{project.name}}</h3>
             <p> Category: {{project.category}}</p>

@@ -21,10 +21,6 @@ angular.module('crowDevelop')
         });
     }
 
-    $scope.go = function(ref) {
-        $location.path(ref);
-    }
-
     function getProject(pid) {
         var projectRef = firebase.database().ref('projects/' + pid);
         return $firebaseObject(projectRef);

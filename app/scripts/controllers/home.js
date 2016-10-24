@@ -18,9 +18,5 @@ angular.module('crowDevelop')
         $scope.projects = $firebaseArray(query);
     };
 
-    $scope.go = function(ref) {
-        $location.path(ref);
-    }
-
     $scope.init();
 }]);
