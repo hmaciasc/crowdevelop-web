@@ -71,7 +71,11 @@
 }
 
 .category {
-    width: 200px;
+    display: flex;
+}
+
+.category-btn {
+  flex: 1;
 }
 
 // Donation form validation

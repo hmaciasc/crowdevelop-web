@@ -482,7 +482,8 @@
   background-color: #EAE8E0 !important;
   border: none !important;
   border-bottom: 3px solid #212220 !important;
-  border-radius: 0 !important; }
+  border-radius: 0 !important;
+  padding-right: 30px !important; }
 
 .btn {
   border-radius: 0.1rem !important; }
@@ -6149,7 +6150,12 @@ form input {
     margin: 0; }
 
 .category {
-  width: 200px; }
+  display: -ms-flexbox;
+  display: flex; }
+
+.category-btn {
+  -ms-flex: 1;
+  flex: 1; }
 
 .has-error input {
   border-width: 2px; }
