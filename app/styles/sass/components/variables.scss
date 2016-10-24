@@ -64,6 +64,12 @@ $categories: (
     'News':            col(orange)
 );
 
+$vendors: (
+  'google':           #d34836,
+  'facebook':         #3B5998,
+  'twitter':          #00aced
+);
+
 
 // Primary
 $background: col(white);
@@ -95,6 +101,7 @@ $color-modal-footer: col(dark-blue);
 
 
 $colors: map-merge($base-colors, $categories);
+$colors: map-merge($colors, $vendors);
 // GENERATORS
 @each $key, $value in $colors {
     .btn-#{$key} {
