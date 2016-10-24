@@ -25,9 +25,9 @@
                     Donate to this project
                 </button>
                 <a class="btn btn-def-black" href="/login" ng-if="!firebaseUser && project.status == 'inProgress'">Login to make a donation</a>
-                <button class="btn d-inline pdl-10px" ng-class="(favourited) ? 'btn-red-heart' : 'btn-black'" ng-click="favourite(project.$id)" ng-if="firebaseUser">
-                    <i class="fav-icon fa fa-heart" ng-show="favourited"></i>
-                    <i class="fav-icon fa fa-heart-o" ng-show="!favourited"></i>
+                <button class="btn fav-btn d-inline" ng-class="(favourited) ? 'btn-red-heart' : 'btn-white'" ng-click="favourite(project.$id)" ng-if="firebaseUser">
+                  <img class="heart-svg" src="../../images/icons/heart-o.svg" ng-show="favourited">
+                  <img class="heart-svg" src="../../images/icons/heart-o.svg" ng-show="!favourited">
                 </button>
                 <!-- Modal -->
                 <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -73,10 +73,10 @@
                                     </div>
                                 </form>
                                 <div class="loaderDiv"></div>
-                                <div class="successDiv text-xs-center invisible"><i class="fa fa-check" aria-hidden="true"></i></div>
+                                <div class="successDiv text-xs-center invisible"><img class="check-svg" src="../../images/icons/check-green.svg" aria-hidden="true"></div>
                             </div>
                             <div class="modal-footer bg-black text-xs-center">
-                                <button type="submit" form="donationForm" class="btn btn-def-black" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order"><i class="fa fa-credit-card" aria-hidden="true"></i> Donate</button>
+                                <button type="submit" form="donationForm" class="btn btn-default"><img class="search-svg" src="../../images/icons/credit-card.svg"> Donate</button>
                             </div>
                         </div>
                     </div>
@@ -105,21 +105,21 @@
             <div class="d-inline">
                 <!-- Sharingbutton Facebook -->
                 <a class="btn btn-social-icon btn-facebook" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2F" target="_blank" aria-label="">
-                    <span class="fa fa-facebook"></span>
+                    <img class="search-svg" src="../../images/icons/facebook.svg">
                 </a>
             </div>
 
             <div class="d-inline pdl-10px">
                 <!-- Sharingbutton Twitter -->
                 <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/intent/tweet/?text=Checkout%20this%20awesome%20project%3A%20{{project.name}}&amp;url=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2F" target="_blank" aria-label="">
-                    <span class="fa fa-twitter"></span>
+                  <img class="search-svg" src="../../images/icons/twitter.svg">
                 </a>
             </div>
             <div class="d-inline pdl-10px">
                 <!-- Sharingbutton Google+ -->
                 <a class="btn btn-social-icon btn-google" href="https://plus.google.com/share?url=crowdevelop-40f3c.firebaseapp.com/projects/index/{{project.$id}}" onclick="javascript:window.open(this.href,
                 '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" aria-label="">
-                    <span class="fa fa-google"></span>
+                <img class="search-svg" src="../../images/icons/google_plus.svg">
                 </a>
             </div>
         </div>
@@ -148,10 +148,10 @@
                     </div>
                     <div class="col-xs-6 col-lg-3">
                         <button class="btn d-inline push-right" ng-disabled="!firebaseUser" ng-class="(feature.status == 'up') ? 'btn-green' : 'btn-default'" ng-click="voteFeature(feature.$id, 'up')">
-                            <i class="fa fa-chevron-circle-up"></i>
+                            <img class="up-svg" src="../../images/icons/up_circle.svg">
                         </button>
                         <button class="btn d-inline" ng-disabled="!firebaseUser" ng-class="(feature.status == 'down') ? 'btn-red' : 'btn-default'" ng-click="voteFeature(feature.$id, 'down')">
-                            <i class="fa fa-chevron-circle-down"></i>
+                            <img class="down-svg" src="../../images/icons/down_circle.svg">
                         </button>
                         <p class="d-inline">{{feature.points}}</p>
                     </div>

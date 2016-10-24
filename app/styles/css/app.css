@@ -6037,6 +6037,21 @@ form input {
     border-top: 0.375em solid rgba(0, 0, 0, 0.12);
     pointer-events: none; }
 
+.search-svg {
+  width: 30px;
+  height: auto; }
+
+.fav-btn {
+  padding: 2px 10px !important; }
+
+.heart-svg {
+  width: 30px;
+  height: auto; }
+
+.up-svg, .down-svg {
+  width: 20px;
+  height: auto; }
+
 /* Project list view */
 .project {
   background-color: #fefefe;
