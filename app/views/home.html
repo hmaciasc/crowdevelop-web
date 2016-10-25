@@ -24,7 +24,7 @@
                         <div class="input-group-addon"><img class="search-svg" src="../images/icons/search.svg"></div>
                     </div>
                     <div class="input-group m-t-1">
-                      <select ng-model="queryBy">
+                        <select ng-model="queryBy">
                         <option value="$"></option>
                         <option value="{{category}}" ng-repeat="category in categories">{{category | capitalize}}</option>
                       </select>
@@ -46,13 +46,13 @@
 </div>
 <div class="row flex-items-xs-center" ng-if="projects.length">
     <div class="col-xs-8 col-md-3 m-y-2 m-x-1 project" ng-repeat="project in projects | filter:query">
-      <div class="card">
-        <img class="card-img-top img-fluid" src="{{project.imageRef}}" alt="Card image cap">
-        <div class="card-block  text-xs-center">
-          <h4 class="card-title">{{project.name}}</h4>
-          <p class="card-text">{{project.description | limitTo : 250}}</p>
-          <a href="#" class="btn btn-primary" ng-click="goTo('projects/index/'+project.$id)">Project details</a>
+        <div class="card">
+            <img class="card-img-top img-fluid" src="{{project.imageRef}}" alt="Card image cap">
+            <div class="card-block  text-xs-center">
+                <h4 class="card-title">{{project.name}}</h4>
+                <p class="card-text">{{project.description | limitTo : 250}}</p>
+                <a href="#" class="btn btn-primary" ng-click="goTo('projects/index/'+project.$id)">Project details</a>
+            </div>
         </div>
-      </div>
     </div>
 </div>

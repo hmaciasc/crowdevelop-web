@@ -4,75 +4,82 @@
             <h1 ng-show="firebaseUser"> Create a project </h1>
         </div>
     </div>
-    <form class="form" ng-submit="create()" name="createProject">
-        <div class="row flex-items-xs-center">
-            <div class="form-group col-xs-11 col-md-7">
-                <md-input-container class="md-block">
-                    <label>Email</label>
-                    <input ng-model="project.email" type="email" name="email" required>
-                    <div ng-messages="createProject.email.$error">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-block">
-                    <label>Project name</label>
-                    <input ng-model="project.name" name="name" required />
-                    <div ng-messages="createProject.name.$error">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container>
-                    <label>Project category</label>
-                    <md-select name="category" ng-model="project.category" required>
-                        <div ng-repeat="category in categories">
-                            <md-option value="{{category}}">{{category}}</md-option>
+    <div class="row">
+        <div class="col-xs-12 offset-md-3 col-md-6">
+            <form class="form" ng-submit="create()" name="createProject">
+                <div class="row flex-items-xs-center">
+                    <div class="form-group col-xs-11 col-md-12 m-t-2 p-r-2 material">
+                        <input type="email" name="email" class="form-control" ng-model="project.email" required />
+                        <label for="email">E-mail:</label>
+                        <p class="help-block">Email to contact to.</p>
+                        <div class="alert alert-danger" ng-show="createProject.email.$submitted && createProject.email.$invalid">
+                            <strong>Alert!</strong> Need to specify a valid email.
                         </div>
-                    </md-select>
-                    <div ng-messages="createProject.category.$error">
-                        <div ng-message="required">This is required.</div>
                     </div>
-                </md-input-container>
-                <md-datepicker name="date" ng-model="project.selectedDate" md-placeholder="Enter finish date" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
-                <md-input-container class="md-block">
-                    <label>Description</label>
-                    <textarea ng-model="project.description" name="description" rows="1" md-select-on-focus required></textarea>
-                    <div ng-messages="projectForm.description.$error">
-                        <div ng-message="required">This is required.</div>
+                    <div class="form-group col-xs-11 col-md-12 p-r-2 material">
+                        <input type="name" name="name" class="form-control" ng-model="project.name" required />
+                        <label for="name">Project name:</label>
+                        <p class="help-block">Give your project a name.</p>
+                        <div class="alert alert-danger" ng-show="createProject.name.$submitted && createProject.name.$invalid">
+                            <strong>Alert!</strong> Need to specify a valid name.
+                        </div>
                     </div>
-                </md-input-container>
-                <div>
-                    <label for="input-file-id" class="imageLabel">Image to show as project header</label>
-                    <label for="input-file-id" class="md-button md-raised md-primary">Choose Image</label>
-                    <input class="ng-hide" id="input-file-id" multiple type="file" onchange="angular.element(this).scope().log(this)" data-toggle="tooltip" data-placement="bottom" title="Image should have a big size" />
+                    <div class="form-group col-xs-11 col-md-12 p-r-2 material">
+                        <textarea type="textarea" rows="2" name="description" placeholder="Description" class="form-control" ng-model="project.description" required></textarea>
+                        <label for="description"></label>
+                        <p class="help-block">Describe your project.</p>
+                        <div class="alert alert-danger" ng-show="createProject.description.$submitted && createProject.description.$error.required">
+                            <strong>Alert!</strong> Description must be 300 characters.
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-11 col-md-6 p-r-2 material" ng-class="{'has-error': datepickerForm.date.$invalid}">
+                        <input type="date" class="form-control" placeholder="Date" ng-model="project.selectedDate" min="{{currentDate | date: 'yyyy-MM-dd'}}" name="date" required />
+                        <label class="control-label"></label>
+                        <p class="help-block ">Select a finish date.</p>
+                        <div class="alert alert-danger" ng-show="createProject.date.$submitted && createProject.date.$error.required">
+                            <strong>Alert!</strong> Need to specify a date.
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-11 col-md-6">
+                        <input type="file" name="file" id="file" class="btn btn-green inputfile" onchange="angular.element(this).scope().log(this)" ng-model="project.image" accept="image/*" required />
+                        <label for="file">Choose an image</label> {{project.image.name}}
+                        <p class="help-block">Picture for project header.</p>
+                    </div>
+                    <div class="form-group col-xs-11 col-md-12 p-r-2 material">
+                        <input type="url" class="form-control" name="video" ng-model="project.video" required />
+                        <label for="video">Video</label>
+                        <p class="help-block">Video about project.</p>
+                        <div class="alert alert-danger" ng-show="createProject.video.$submitted && createProject.video.$error.url">
+                            <strong>Alert!</strong> Must be a valid url.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xs-11 col-md-6 p-r-2 material">
+                        <input type="number" class="form-control" name="goal" ng-model="project.goal" required />
+                        <label for="goal">Goal</label>
+                        <p class="help-block ">Stablish your goal in €.</p>
+                        <div class="alert alert-danger" ng-show="createProject.goal.$submitted && createProject.goal.$error.required">
+                            <strong>Alert!</strong> Goal must be stablished.
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-11 col-md-6 p-r-2 material">
+                        <input type="number" class="form-control" name="achievement" ng-model="project.achievement" max="{{project.goal}}" required />
+                        <label for="achievement">Achievement</label>
+                        <p class="help-block ">Stablish your achievement.</p>
+                        <div class="alert alert-danger" ng-show="createProject.achievement.$submitted && createProject.achievement.$error.max">
+                            <strong>Alert!</strong> Must be lower than projects target goal.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xs-11 col-md-12 p-r-2 material">
+                        <div class="alert alert-warning" ng-show="!firebaseUser">
+                            <strong>Alert!</strong> You have to make an account first.
+                        </div>
+                        <button type="submit" ng-disabled="!firebaseUser" class="btn btn-green">Create project</button>
+                        <a href="/" class="btn btn-red">Cancel</a>
+                    </div>
                 </div>
-                <md-input-container class="md-block">
-                    <label>Youtube video url</label>
-                    <input ng-model="project.videoUrl" type="url" name="video" required>
-                    <div ng-messages="createProject.video.$error">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-block">
-                    <label>Goal</label>
-                    <input ng-model="project.goal" type="number" name="goal" max="project.goal" required>
-                    <div ng-messages="createProject.goal.$error">
-                        <div ng-message="required">This is required.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-block">
-                    <label>Achievement</label>
-                    <input ng-model="project.achievement" type="number" name="achievement" max="project.achievement" required>
-                    <div ng-messages="createProject.achievement.$error">
-                        <div ng-message="required">This is required.</div>
-                        <div ng-message="max">This must be less than {{project.goal}} target goal.</div>
-                    </div>
-                </md-input-container>
-                <div class="alert alert-warning" ng-show="!firebaseUser">
-                    <strong>Alert!</strong> You have to make an account first.
-                </div>
-                <button type="submit" class="btn btn-green">Create project</button>
-                <a href="/" class="btn btn-red">Cancel</a>
-            </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>

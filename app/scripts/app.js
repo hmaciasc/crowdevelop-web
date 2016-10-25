@@ -9,7 +9,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate', 'ngMaterial'])
+angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
@@ -66,23 +66,23 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate', 
 })
 
 .filter('capitalize', function() {
-  return function(input, scope) {
-    if (input!=null)
-    input = input.toLowerCase();
-    return input.substring(0,1).toUpperCase()+input.substring(1);
-  }
+    return function(input, scope) {
+        if (input != null)
+            input = input.toLowerCase();
+        return input.substring(0, 1).toUpperCase() + input.substring(1);
+    }
 })
 
 .run(['$rootScope', function($rootScope) {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('../sw.js').then(function(registration) {
-            // Registration was successful
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }).catch(function(err) {
-            // registration failed :(
-            console.log('ServiceWorker registration failed: ', err);
-        });
-    }
+    // if ('serviceWorker' in navigator) {
+    //     navigator.serviceWorker.register('../sw.js').then(function(registration) {
+    //         // Registration was successful
+    //         console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    //     }).catch(function(err) {
+    //         // registration failed :(
+    //         console.log('ServiceWorker registration failed: ', err);
+    //     });
+    // }
 }])
 
 .run(['$rootScope', '$location', '$localStorage', 'AuthService', function($rootScope, $location, $localStorage, AuthService) {

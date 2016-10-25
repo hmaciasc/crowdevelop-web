@@ -6006,7 +6006,6 @@ form input {
 .material {
   position: relative;
   padding: 0;
-  margin: 5px;
   width: 100%;
   border: none;
   overflow: visible;
@@ -6044,8 +6043,8 @@ form input {
     top: 10px;
     left: 10px;
     font-size: 120%;
-    color: #607D8B;
-    transform-origin: 0 -150%;
+    color: #505050;
+    transform-origin: 0 -350%;
     transition: transform 300ms ease;
     pointer-events: none;
     z-index: 5; }
@@ -6053,7 +6052,7 @@ form input {
   .material input:valid ~ label,
   .material select ~ label,
   .material textarea ~ label {
-    transform: scale(0.6); }
+    transform: scale(0.7); }
   .material select {
     font-family: inherit;
     background-color: transparent;
@@ -6085,6 +6084,35 @@ form input {
     border-right: .25em solid transparent;
     border-top: 0.375em solid rgba(0, 0, 0, 0.12);
     pointer-events: none; }
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  padding: 5px 2.5px;
+  z-index: -1; }
+
+.inputfile + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  padding: 3px 10px;
+  background-color: #6477b9;
+  display: inline-block; }
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: #39487e; }
+
+.inputfile + label {
+  cursor: pointer;
+  /* "hand" cursor */ }
+
+.inputfile:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px; }
 
 .search-svg {
   width: 30px;
