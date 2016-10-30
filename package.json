@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "bower install",
     "karma": "./node_modules/karma/bin/karma start karma.conf.js",
     "driver": "webdriver-manager start",
     "protractor": "protractor protractor.conf.js",

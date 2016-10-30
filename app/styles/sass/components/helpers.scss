@@ -126,3 +126,12 @@
         font-size: 30px;
     }
 }
+
+// LIFT ANIMATION
+.lift {
+    transition: transform .5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.lift:hover {
+    transform: translate(0, -8px);
+}

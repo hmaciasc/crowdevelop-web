@@ -75,7 +75,16 @@ p {
     word-spacing: -0.10px;
     text-transform: none;
 }
-// override
+
+#notFound {
+    margin: 1em 0;
+    padding: 0 0 0.25em 0;
+    border-bottom: 1px dotted #ccc;
+    text-align: center;
+    font-size: 3em;
+    font-weight: 300;
+    line-height: 1.1em;
+}
 
 form {
     input {

@@ -5754,6 +5754,12 @@ a.text-danger:focus, a.text-danger:hover {
   .success i::after {
     font-size: 30px; }
 
+.lift {
+  transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
+
+.lift:hover {
+  transform: translate(0, -8px); }
+
 .header-item {
   max-height: 40px;
   font-size: 14px;
@@ -5959,6 +5965,15 @@ p {
   letter-spacing: -0.30px;
   word-spacing: -0.10px;
   text-transform: none; }
+
+#notFound {
+  margin: 1em 0;
+  padding: 0 0 0.25em 0;
+  border-bottom: 1px dotted #ccc;
+  text-align: center;
+  font-size: 3em;
+  font-weight: 300;
+  line-height: 1.1em; }
 
 form input {
   border-radius: 0 !important; }
