@@ -498,6 +498,9 @@
   border-color: #000 !important;
   color: #000 !important; }
 
+.card {
+  min-height: 100%; }
+
 .modal-body,
 .modal-header {
   background-color: #EAE8E0; }

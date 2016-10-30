@@ -36,10 +36,16 @@ angular.module('crowDevelop')
         $scope.project.status = "inProgress";
         $scope.project.imageRef = "";
 
-        var vid = $scope.project.videoUrl.replace("/watch?v=", "/embed/");
-        var initIndex = vid.lastIndexOf("/");
-        var videoId = vid.slice(initIndex + 1, vid.length);
-        $scope.project.video = videoId;
+        var video = $scope.project.video;
+        var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+        var match = $scope.project.video.toString().match(regExp);
+        if (match && match[2].length == 11) {
+            $scope.project.video = match[2];
+            $scope.videoError = false;
+        } else {
+            $scope.videoError = "Please enter a valid youtube video url";
+            return;
+        }
 
         var ref = firebase.database().ref('projects');
         var list = $firebaseArray(ref);

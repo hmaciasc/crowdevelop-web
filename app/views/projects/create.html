@@ -49,8 +49,8 @@
                         <input type="url" class="form-control" name="video" ng-model="project.video" required />
                         <label for="video">Video</label>
                         <p class="help-block">Video about project.</p>
-                        <div class="alert alert-danger" ng-show="createProject.video.$submitted && createProject.video.$error.url">
-                            <strong>Alert!</strong> Must be a valid url.
+                        <div class="alert alert-danger" ng-show="videoError">
+                            <span>{{videoError}}</span>
                         </div>
                     </div>
 
