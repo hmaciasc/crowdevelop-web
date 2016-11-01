@@ -5758,10 +5758,15 @@ a.text-danger:focus, a.text-danger:hover {
     font-size: 30px; }
 
 .lift {
-  transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
+  transition: transform 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
+  .lift:hover {
+    transform: translate(0, -8px); }
 
-.lift:hover {
-  transform: translate(0, -8px); }
+.shadow {
+  box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.62);
+  transition: box-shadow 0.7s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
+  .shadow:hover {
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.62); }
 
 .header-item {
   max-height: 40px;
@@ -6059,7 +6064,6 @@ form input {
   .material label {
     position: absolute;
     top: 10px;
-    left: 10px;
     font-size: 120%;
     color: #505050;
     transform-origin: 0 -350%;

@@ -22,8 +22,7 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
             controller: 'LoginCtrl'
         })
         .when('/tos', {
-            templateUrl: 'views/shared/tos.html',
-            controller: 'TosCtrl'
+            templateUrl: 'views/shared/tos.html'
         })
         .when('/projects/create', {
             templateUrl: 'views/projects/create.html',
