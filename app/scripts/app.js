@@ -24,6 +24,10 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
         .when('/tos', {
             templateUrl: 'views/shared/tos.html'
         })
+        .when('/myProjects', {
+            templateUrl: 'views/projects/index.html',
+            controller: 'MyProjectsCtrl'
+        })
         .when('/projects/create', {
             templateUrl: 'views/projects/create.html',
             controller: 'ProjectsCreateCtrl'

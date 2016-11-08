@@ -13,6 +13,9 @@
                     <a class="nav-link collapse-item" href="">Hello, {{firebaseUser.displayName}}</a>
                 </li>
                 <li class="nav-item" ng-show="firebaseUser">
+                    <a class="nav-link collapse-item" href="/myProjects" ng-if="firebaseUser">My project</a>
+                </li>
+                <li class="nav-item" ng-show="firebaseUser">
                     <a class="nav-link collapse-item" href="/projects/create" ng-if="firebaseUser">Create project</a>
                 </li>
                 <li class="nav-item" ng-show="firebaseUser">

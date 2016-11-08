@@ -3,7 +3,7 @@
     ".read": true,
     ".write": "auth != null",
     "projects" : {
-        ".indexOn": ["name", "donated"]
+        ".indexOn": ["name", "donated", "ownerId"]
     }
   }
 }
