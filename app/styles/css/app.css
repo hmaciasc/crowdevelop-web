@@ -417,20 +417,20 @@
   background: #ff8a30; }
 
 .btn-google {
-  background-color: #d34836;
-  border-color: #d34836;
+  background-color: #DD4B38;
+  border-color: #DD4B38;
   color: white; }
 
 .btn-google:hover {
   background-color: white;
-  border-color: #d34836;
-  color: #d34836; }
+  border-color: #DD4B38;
+  color: #DD4B38; }
 
 .color-google {
-  color: #d34836; }
+  color: #DD4B38; }
 
 .bg-google {
-  background: #d34836; }
+  background: #DD4B38; }
 
 .btn-facebook {
   background-color: #3B5998;
@@ -449,20 +449,20 @@
   background: #3B5998; }
 
 .btn-twitter {
-  background-color: #00aced;
-  border-color: #00aced;
+  background-color: #55ACEE;
+  border-color: #55ACEE;
   color: white; }
 
 .btn-twitter:hover {
   background-color: white;
-  border-color: #00aced;
-  color: #00aced; }
+  border-color: #55ACEE;
+  color: #55ACEE; }
 
 .color-twitter {
-  color: #00aced; }
+  color: #55ACEE; }
 
 .bg-twitter {
-  background: #00aced; }
+  background: #55ACEE; }
 
 .fs-14px {
   font-size: 14px; }
