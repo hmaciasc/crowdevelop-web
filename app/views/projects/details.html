@@ -108,7 +108,6 @@
                     <img class="search-svg" src="../../images/icons/facebook.svg">
                 </a>
             </div>
-
             <div class="d-inline pdl-10px">
                 <!-- Sharingbutton Twitter -->
                 <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/intent/tweet/?text=Checkout%20this%20awesome%20project%3A%20{{project.name}}&amp;url=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2F" target="_blank" aria-label="">
@@ -166,7 +165,7 @@
             <form class="form" ng-submit="saveComment()" name="comment">
                 <div class="form-group">
                     <label for="comment"></label>
-                    <textarea type="textarea" rows="2" name="commentInput" class="form-control comment-input" ng-model="comments.newComment" required></textarea>
+                    <textarea type="textarea" rows="2" name="commentInput" class="form-control comment-input" ng-model="newComment" required></textarea>
                     <div class="alert alert-danger" ng-show="comment.$submitted && comment.$error.required">
                         <strong>Alert!</strong> Write somethings first.
                     </div>

@@ -116,7 +116,7 @@ angular.module('crowDevelop')
         var commentRef = firebase.database().ref('comments/' + $scope.project.$id);
         var comment = {
             writer: $rootScope.firebaseUser.displayName,
-            text: $scope.comments.newComment,
+            text: $scope.newComment,
             photo: $rootScope.firebaseUser.photoURL
         };
         var obj = $firebaseArray(commentRef).$add(comment);
