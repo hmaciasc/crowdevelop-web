@@ -1,7 +1,6 @@
 .material {
   position: relative;
   padding: 0;
-  margin: 5px;
   width: 100%;
   border: none;
   overflow: visible;
@@ -29,19 +28,19 @@
   label {
     position: absolute;
     top: 10px;
-    left: 10px;
     font-size: 120%;
-    color: #607D8B;
-    transform-origin: 0 -150%;
+    color: col(light-black);
+    transform-origin: 0 -350%;
     transition: transform 300ms ease;
     pointer-events: none;
+    z-index: 5;
   }
 
   input:focus ~ label,
   input:valid ~ label,
   select ~ label,
   textarea ~ label {
-    transform: scale(0.6);
+    transform: scale(0.7);
   }
 
   select {
@@ -86,4 +85,38 @@
     border-top: 0.375em solid rgba(0,0,0, 0.12);
     pointer-events: none;
   }
+}
+
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    padding: 5px 2.5px;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    padding: 3px 10px;
+    background-color: col(purple);
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: darken(col(purple), 20%);
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
 }

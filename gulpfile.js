@@ -1,10 +1,10 @@
 // Load Gulp
 var gulp = require('gulp'),
-    cssmin = require('gulp-cssmin'),
+    // cssmin = require('gulp-cssmin'),
     sass = require('gulp-sass'),
     path = require('path'),
     browserSync = require('browser-sync'),
-    modRewrite = require('connect-modrewrite'),
+    // modRewrite = require('connect-modrewrite'),
     exec = require('child_process').exec,
     plugins = require('gulp-load-plugins')({
         rename: {
@@ -14,6 +14,17 @@ var gulp = require('gulp'),
     });
 
 gulp.task('default', ['watch', 'firebase']);
+
+gulp.task('generate-service-worker', function(callback) {
+    var path = require('path');
+    var swPrecache = require('sw-precache');
+    var rootDir = 'app';
+
+    swPrecache.write(path.join(rootDir, 'sw.js'), {
+        staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif}'],
+        stripPrefix: rootDir
+    }, callback);
+});
 
 gulp.task('serve', function() {
     browserSync.init(null, {

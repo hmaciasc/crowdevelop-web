@@ -57,6 +57,7 @@
         color: #444444;
         text-align: justify;
         padding: 10px 0;
+        margin: 0;
     }
 }
 @mixin input-image($image, $distance) {
@@ -70,7 +71,11 @@
 }
 
 .category {
-    width: 200px;
+    display: flex;
+}
+
+.category-btn {
+  flex: 1;
 }
 
 // Donation form validation
@@ -84,4 +89,8 @@
 
 .validation.text-success:after {
     content: 'Validation passed';
+}
+
+.imageLabel {
+    color: #a7a7a7 !important;
 }

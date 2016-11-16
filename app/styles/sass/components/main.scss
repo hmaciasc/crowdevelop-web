@@ -75,7 +75,16 @@ p {
     word-spacing: -0.10px;
     text-transform: none;
 }
-// override
+
+#notFound {
+    margin: 1em 0;
+    padding: 0 0 0.25em 0;
+    border-bottom: 1px dotted #ccc;
+    text-align: center;
+    font-size: 3em;
+    font-weight: 300;
+    line-height: 1.1em;
+}
 
 form {
     input {
@@ -84,7 +93,17 @@ form {
 }
 
 .title-bg {
-    background-image: url('../../images/title.jpg');
+    background-image: url('../../images/title1.jpg');
+    background-blend-mode: hue;
+    background-position: right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -9;
+    color: col(white);
+    height: 500px;
+}
+
+.project-title {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -95,7 +114,7 @@ form {
 
 .divider {
     height: 1px;
-    margin: 0.5rem 0;
+    margin: 0.5px 0;
     overflow: hidden;
     background-color: #e5e5e5;
 }
@@ -106,6 +125,12 @@ form {
     border-bottom: 3px solid $border-color !important;
 }
 
-.login {
-    height: 70vh;
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
 }

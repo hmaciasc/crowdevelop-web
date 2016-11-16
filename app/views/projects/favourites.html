@@ -1,4 +1,4 @@
-<div class="row m-t-4">
+<div class="row">
     <div class="offset-xs-1 col-xs-10 offset-lg-2 col-lg-8 left-addon">
         <div class="empty text-xs-center" ng-if="!favProjects.length">
             <h1>You have no favourite projects...Yet!</h1>
@@ -9,21 +9,14 @@
         </div>
     </div>
 </div>
-<div class="row m-t-4" ng-repeat="project in favProjects">
-    <div class="col-xs-10 offset-xs-1 offset-lg-2 col-lg-8 project">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="video" type="text/html" ng-src="{{project.video | trusted}}" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-    <div class="col-xs-10 offset-xs-1 offset-lg-2 col-lg-8" ng-click="go('projects/index/' + project.pid)">
-        <div class="projectDetails ">
-            <h3>{{project.name}}</h3>
-            <p> Category: {{project.category}}</p>
-            <div class="target ">
-                <div>
-                    <div class="text-xs-center " id="progress-text ">{{ project.donated / project.goal * 100 | number:0 || 0}}% Reached</div>
-                    <progress class="progress progress-striped progress-success " value="{{ project.donated / project.goal * 100 | number:0 }} " max="100 "></progress>
-                </div>
+<div class="row flex-items-xs-center">
+    <div class="col-xs-10 col-lg-3 m-y-2 m-x-1 lift" ng-repeat="project in favProjects" ng-if="favProjects.length">
+        <div class="card">
+            <img class="card-img-top img-fluid" src="{{project.imageRef}}" alt="Card image cap">
+            <div class="card-block  text-xs-center">
+                <h4 class="card-title">{{project.name}}</h4>
+                <p class="card-text">{{project.description | limitTo : 250}}</p>
+                <a href="#" class="btn btn-primary" ng-click="goTo('projects/index/'+project.$id)">Project details</a>
             </div>
         </div>
     </div>

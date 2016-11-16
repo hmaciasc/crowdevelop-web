@@ -9,7 +9,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate'])
+angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
@@ -22,8 +22,11 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate'])
             controller: 'LoginCtrl'
         })
         .when('/tos', {
-            templateUrl: 'views/shared/tos.html',
-            controller: 'TosCtrl'
+            templateUrl: 'views/shared/tos.html'
+        })
+        .when('/myProjects', {
+            templateUrl: 'views/projects/index.html',
+            controller: 'MyProjectsCtrl'
         })
         .when('/projects/create', {
             templateUrl: 'views/projects/create.html',
@@ -65,9 +68,17 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate'])
     }
 })
 
+.filter('capitalize', function() {
+    return function(input, scope) {
+        if (input != null)
+            input = input.toLowerCase();
+        return input.substring(0, 1).toUpperCase() + input.substring(1);
+    }
+})
+
 .run(['$rootScope', function($rootScope) {
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/scripts/serviceWorker.js').then(function(registration) {
+        navigator.serviceWorker.register('../sw.js').then(function(registration) {
             // Registration was successful
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
         }).catch(function(err) {
@@ -77,7 +88,8 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngAnimate'])
     }
 }])
 
-.run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
+.run(['$rootScope', '$location', '$localStorage', 'AuthService', function($rootScope, $location, $localStorage, AuthService) {
+    $rootScope.firebaseUser = $localStorage.firebaseUser;
     $rootScope.categories = ["Development", "Game", "Education", "Social", "Art", "Sports", "Health", "News"];
     $rootScope.authService = new AuthService({
         provider: 'google'

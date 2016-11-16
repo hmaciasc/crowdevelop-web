@@ -3,7 +3,6 @@
 }
 
 // paddings
-
 .pdl-10px {
     padding-left: 10px;
 }
@@ -15,7 +14,6 @@
 .text-300 {
     font-weight: 300;
 }
-
 
 .pos-f-b {
   position: fixed;
@@ -124,5 +122,23 @@
     }
     i::after {
         font-size: 30px;
+    }
+}
+
+// LIFT ANIMATION
+.lift {
+    transition: transform .7s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+
+    &:hover {
+        transform: translate(0, -8px);
+    }
+}
+
+.shadow {
+    box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.62);
+    transition: box-shadow .7s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+
+    &:hover {
+        box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.62);
     }
 }
