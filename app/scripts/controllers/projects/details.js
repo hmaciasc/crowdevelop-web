@@ -134,21 +134,23 @@ angular.module('crowDevelop')
     }
 
     $scope.changeProjectStatus = function(status) {
-        var projectRef = firebase.database().ref('projects/' + $scope.project.$id);
-        var obj = $firebaseObject(projectRef);
-        obj.$loaded(
-            function(data) {
-                data.status = status;
-                data.$save().then(function(projectRef) {
-                    projectRef.key === obj.$id;
-                }, function(error) {
-                    console.log("Error:", error);
-                });
-            },
-            function(error) {
-                console.error("Error:", error);
-            }
-        );
+        if (confirm('Are you sure?')) {
+            var projectRef = firebase.database().ref('projects/' + $scope.project.$id);
+            var obj = $firebaseObject(projectRef);
+            obj.$loaded(
+                function(data) {
+                    data.status = status;
+                    data.$save().then(function(projectRef) {
+                        projectRef.key === obj.$id;
+                    }, function(error) {
+                        console.log("Error:", error);
+                    });
+                },
+                function(error) {
+                    console.error("Error:", error);
+                }
+            );
+        }
     }
 
     function updateProject() {

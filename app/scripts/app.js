@@ -22,6 +22,9 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
             templateUrl: 'views/login.html',
             controller: 'LoginCtrl'
         })
+        .when('/contact', {
+            templateUrl: 'views/shared/contact.html'
+        })
         .when('/tos', {
             templateUrl: 'views/shared/tos.html'
         })
@@ -67,6 +70,12 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
         var text = description.replace(/\n/g, '<br />');
         return $sce.trustAsHtml(text);
     }
+})
+
+.filter('camelToHuman', function() {
+    return function(string) {
+        return string.replace(/([a-z])([A-Z])/g, '$1 $2')
+    };
 })
 
 .filter('capitalize', function() {

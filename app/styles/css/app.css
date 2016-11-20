@@ -8,7 +8,8 @@
 .btn-black:hover {
   background-color: #8c8c8c;
   border-color: #000;
-  color: #000; }
+  color: #000;
+  transition: all 1000ms ease; }
 
 .color-black {
   color: #000; }
@@ -24,7 +25,8 @@
 .btn-white:hover {
   background-color: white;
   border-color: #fefefe;
-  color: #fefefe; }
+  color: #fefefe;
+  transition: all 1000ms ease; }
 
 .color-white {
   color: #fefefe; }
@@ -40,7 +42,8 @@
 .btn-light-black:hover {
   background-color: gainsboro;
   border-color: #505050;
-  color: #505050; }
+  color: #505050;
+  transition: all 1000ms ease; }
 
 .color-light-black {
   color: #505050; }
@@ -56,7 +59,8 @@
 .btn-dark-white:hover {
   background-color: white;
   border-color: #EAE8E0;
-  color: #EAE8E0; }
+  color: #EAE8E0;
+  transition: all 1000ms ease; }
 
 .color-dark-white {
   color: #EAE8E0; }
@@ -72,7 +76,8 @@
 .btn-light-white:hover {
   background-color: white;
   border-color: #EEE7F7;
-  color: #EEE7F7; }
+  color: #EEE7F7;
+  transition: all 1000ms ease; }
 
 .color-light-white {
   color: #EEE7F7; }
@@ -88,7 +93,8 @@
 .btn-green-blue:hover {
   background-color: white;
   border-color: #60daaa;
-  color: #60daaa; }
+  color: #60daaa;
+  transition: all 1000ms ease; }
 
 .color-green-blue {
   color: #60daaa; }
@@ -104,7 +110,8 @@
 .btn-green:hover {
   background-color: white;
   border-color: #00E676;
-  color: #00E676; }
+  color: #00E676;
+  transition: all 1000ms ease; }
 
 .color-green {
   color: #00E676; }
@@ -120,7 +127,8 @@
 .btn-old-green:hover {
   background-color: white;
   border-color: #ACD07A;
-  color: #ACD07A; }
+  color: #ACD07A;
+  transition: all 1000ms ease; }
 
 .color-old-green {
   color: #ACD07A; }
@@ -136,7 +144,8 @@
 .btn-yellow:hover {
   background-color: white;
   border-color: #fbca67;
-  color: #fbca67; }
+  color: #fbca67;
+  transition: all 1000ms ease; }
 
 .color-yellow {
   color: #fbca67; }
@@ -152,7 +161,8 @@
 .btn-orange:hover {
   background-color: white;
   border-color: #ff8a30;
-  color: #ff8a30; }
+  color: #ff8a30;
+  transition: all 1000ms ease; }
 
 .color-orange {
   color: #ff8a30; }
@@ -168,7 +178,8 @@
 .btn-red:hover {
   background-color: white;
   border-color: #f45e61;
-  color: #f45e61; }
+  color: #f45e61;
+  transition: all 1000ms ease; }
 
 .color-red {
   color: #f45e61; }
@@ -184,7 +195,8 @@
 .btn-red-heart:hover {
   background-color: white;
   border-color: #f10829;
-  color: #f10829; }
+  color: #f10829;
+  transition: all 1000ms ease; }
 
 .color-red-heart {
   color: #f10829; }
@@ -200,7 +212,8 @@
 .btn-cyan:hover {
   background-color: white;
   border-color: #0eb7da;
-  color: #0eb7da; }
+  color: #0eb7da;
+  transition: all 1000ms ease; }
 
 .color-cyan {
   color: #0eb7da; }
@@ -216,7 +229,8 @@
 .btn-purple:hover {
   background-color: white;
   border-color: #6477b9;
-  color: #6477b9; }
+  color: #6477b9;
+  transition: all 1000ms ease; }
 
 .color-purple {
   color: #6477b9; }
@@ -232,7 +246,8 @@
 .btn-light-blue:hover {
   background-color: white;
   border-color: #2fa0d0;
-  color: #2fa0d0; }
+  color: #2fa0d0;
+  transition: all 1000ms ease; }
 
 .color-light-blue {
   color: #2fa0d0; }
@@ -248,7 +263,8 @@
 .btn-deep-blue:hover {
   background-color: white;
   border-color: #2f4bd0;
-  color: #2f4bd0; }
+  color: #2f4bd0;
+  transition: all 1000ms ease; }
 
 .color-deep-blue {
   color: #2f4bd0; }
@@ -264,7 +280,8 @@
 .btn-dark-blue:hover {
   background-color: #8eabc5;
   border-color: #141E27;
-  color: #141E27; }
+  color: #141E27;
+  transition: all 1000ms ease; }
 
 .color-dark-blue {
   color: #141E27; }
@@ -280,7 +297,8 @@
 .btn-dark-brown:hover {
   background-color: #adb0ab;
   border-color: #212220;
-  color: #212220; }
+  color: #212220;
+  transition: all 1000ms ease; }
 
 .color-dark-brown {
   color: #212220; }
@@ -296,7 +314,8 @@
 .btn-Development:hover {
   background-color: white;
   border-color: #0eb7da;
-  color: #0eb7da; }
+  color: #0eb7da;
+  transition: all 1000ms ease; }
 
 .color-Development {
   color: #0eb7da; }
@@ -312,7 +331,8 @@
 .btn-Game:hover {
   background-color: white;
   border-color: #00E676;
-  color: #00E676; }
+  color: #00E676;
+  transition: all 1000ms ease; }
 
 .color-Game {
   color: #00E676; }
@@ -328,7 +348,8 @@
 .btn-Education:hover {
   background-color: white;
   border-color: #ACD07A;
-  color: #ACD07A; }
+  color: #ACD07A;
+  transition: all 1000ms ease; }
 
 .color-Education {
   color: #ACD07A; }
@@ -344,7 +365,8 @@
 .btn-Social:hover {
   background-color: white;
   border-color: #6477b9;
-  color: #6477b9; }
+  color: #6477b9;
+  transition: all 1000ms ease; }
 
 .color-Social {
   color: #6477b9; }
@@ -360,7 +382,8 @@
 .btn-Art:hover {
   background-color: white;
   border-color: #fbca67;
-  color: #fbca67; }
+  color: #fbca67;
+  transition: all 1000ms ease; }
 
 .color-Art {
   color: #fbca67; }
@@ -376,7 +399,8 @@
 .btn-Sports:hover {
   background-color: white;
   border-color: #2f4bd0;
-  color: #2f4bd0; }
+  color: #2f4bd0;
+  transition: all 1000ms ease; }
 
 .color-Sports {
   color: #2f4bd0; }
@@ -392,7 +416,8 @@
 .btn-Health:hover {
   background-color: white;
   border-color: #2fa0d0;
-  color: #2fa0d0; }
+  color: #2fa0d0;
+  transition: all 1000ms ease; }
 
 .color-Health {
   color: #2fa0d0; }
@@ -408,7 +433,8 @@
 .btn-News:hover {
   background-color: white;
   border-color: #ff8a30;
-  color: #ff8a30; }
+  color: #ff8a30;
+  transition: all 1000ms ease; }
 
 .color-News {
   color: #ff8a30; }
@@ -424,7 +450,8 @@
 .btn-google:hover {
   background-color: white;
   border-color: #DD4B38;
-  color: #DD4B38; }
+  color: #DD4B38;
+  transition: all 1000ms ease; }
 
 .color-google {
   color: #DD4B38; }
@@ -440,7 +467,8 @@
 .btn-facebook:hover {
   background-color: #f2f4fa;
   border-color: #3B5998;
-  color: #3B5998; }
+  color: #3B5998;
+  transition: all 1000ms ease; }
 
 .color-facebook {
   color: #3B5998; }
@@ -456,7 +484,8 @@
 .btn-twitter:hover {
   background-color: white;
   border-color: #55ACEE;
-  color: #55ACEE; }
+  color: #55ACEE;
+  transition: all 1000ms ease; }
 
 .color-twitter {
   color: #55ACEE; }

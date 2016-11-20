@@ -1,10 +1,9 @@
 <div class="projects container-fluid">
-    <div class="row flex-items-xs-middle m-t-2" ng-if="project.ownerId == firebaseUser.uid">
+    <div class="row flex-items-xs-middle m-y-2" ng-if="project.ownerId == firebaseUser.uid">
         <div class="col-xs text-xs-center">
             <p class="title">Administrate your project:</p>
-        </div>
-        <div class="col-xs text-xs-center">
-            <button type="button" name="button" class="btn btn-red" ng-click="changeProjectStatus('closed')" ng-if="project.status == 'inProgress'">End project</button>
+            <p class="title">Project status: {{ project.status | camelToHuman }}</p>
+            <button type="button" name="button" class="btn btn-red" ng-click="changeProjectStatus('closed')" ng-disabled="project.status != 'inProgress'">End project</button>
         </div>
     </div>
     <div class="row flex-items-xs-middle project-title">
@@ -21,7 +20,7 @@
         </div>
         <div class="col-xs-11 col-md-7 m-t-2">
             <div class="donation">
-                <button type="button" class="btn btn-def-black" ng-if="firebaseUser && project.status == 'inProgress'" data-toggle="modal" data-target="#paymentModal">
+                <button type="button" class="btn btn-green-blue" ng-if="firebaseUser && project.status == 'inProgress'" data-toggle="modal" data-target="#paymentModal">
                     Donate to this project
                 </button>
                 <a class="btn btn-def-black" href="/login" ng-if="!firebaseUser && project.status == 'inProgress'">Login to make a donation</a>
@@ -100,7 +99,7 @@
             </div>
         </div>
 
-        <div class="col-xs-11 col-md-7 m-t-2">
+        <div class="col-xs-11 col-md-7 text-xs-center m-t-2">
             <h3>Share this project!</h3>
             <div class="d-inline">
                 <!-- Sharingbutton Facebook -->
@@ -142,10 +141,10 @@
             <h3>Features:</h3>
             <div class="feature" ng-repeat="feature in features | orderBy:'-points'">
                 <div class="row m-y-1">
-                    <div class="col-xs-6 col-lg-9">
+                    <div class="col-xs-6 col-lg-8">
                         <p class="d-inline">{{$index + 1 + 'º ' + feature.description}}</p>
                     </div>
-                    <div class="col-xs-6 col-lg-3">
+                    <div class="col-xs-6 text-xs-right col-lg-4">
                         <button class="btn d-inline push-right" ng-disabled="!firebaseUser" ng-class="(feature.status == 'up') ? 'btn-green' : 'btn-default'" ng-click="voteFeature(feature.$id, 'up')">
                             <img class="up-svg" src="../../images/icons/up_circle.svg">
                         </button>

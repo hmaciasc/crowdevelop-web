@@ -114,6 +114,7 @@ $colors: map-merge($colors, $vendors);
         background-color: lighten($value, 55%);
         border-color: $value;
         color: $value;
+        transition: all 1000ms ease;
     }
     .color-#{$key} {
         color: $value;
