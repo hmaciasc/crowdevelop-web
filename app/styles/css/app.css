@@ -6000,7 +6000,7 @@ form input {
 .title-bg {
   background-image: url("https://firebasestorage.googleapis.com/v0/b/crowdevelop-40f3c.appspot.com/o/title1.jpg?alt=media&token=d6b89087-174b-46f4-b30e-cdfd669627e7");
   background-blend-mode: hue;
-  background-position: right;
+  background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -9;
