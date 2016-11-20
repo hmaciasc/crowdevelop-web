@@ -20,7 +20,7 @@
 
 </head>
 
-<body ng-app="crowDevelop" class="Site">
+<body ng-app="crowDevelop" class="Site container-fluid">
     <div ng-controller="HeaderCtrl">
         <div ng-include src="'views/shared/header.html'"></div>
         <div class="floaty alert-size" ng-show="notifications">
@@ -38,7 +38,7 @@
         </div>
     </div>
     <ng-view class="Site-content" autoscroll="true"></ng-view>
-    <div>
+    <div class="">
         <div ng-include src="'views/shared/footer.html'"></div>
     </div>
 
