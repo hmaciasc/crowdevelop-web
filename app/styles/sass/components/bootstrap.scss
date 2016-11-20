@@ -33,7 +33,8 @@
 // NOTIFICATIONS
 .floaty {
     position: fixed;
-    top: 15px;
+    z-index: 20;
+    bottom: 15px;
     right: 15px;
 }
 
