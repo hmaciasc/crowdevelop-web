@@ -29,6 +29,22 @@
     min-height: 100%;
 }
 
+
+// NOTIFICATIONS
+.floaty {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+}
+
+.alert-size {
+    width: 25%;
+}
+
+.alert-img {
+    width: 10%;
+}
+
 // MODAL
 .modal-body,
 .modal-header {

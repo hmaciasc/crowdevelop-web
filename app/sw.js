@@ -316,7 +316,7 @@ var precacheConfig = [
     ["/views/shared/header.html", "81438f15c187a4a7a25f9a989340154a"],
     ["/views/shared/tos.html", "b0eb24053d502fdbe091fee29d1b6753"]
 ];
-var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
+var cacheName = 'sw-precache-v4--' + (self.registration ? self.registration.scope : '');
 
 
 var ignoreUrlParametersMatching = [/^utm_/];

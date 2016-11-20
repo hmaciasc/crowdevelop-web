@@ -501,6 +501,17 @@
 .card {
   min-height: 100%; }
 
+.floaty {
+  position: fixed;
+  top: 15px;
+  right: 15px; }
+
+.alert-size {
+  width: 25%; }
+
+.alert-img {
+  width: 10%; }
+
 .modal-body,
 .modal-header {
   background-color: #EAE8E0; }

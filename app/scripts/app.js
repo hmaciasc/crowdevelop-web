@@ -107,17 +107,29 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
         })
 
     messaging.onMessage(function(payload) {
-        console.log(payload);
+        $rootScope.notifications.push(payload.notification);
+        $rootScope.$apply();
+        // $rootScope.addNotification(payload);
     });
 }])
 
 .run(['$rootScope', '$location', '$localStorage', 'AuthService', function($rootScope, $location, $localStorage, AuthService) {
+    $rootScope.notifications = [];
     $rootScope.firebaseUser = $localStorage.firebaseUser;
     $rootScope.categories = ["Development", "Game", "Education", "Social", "Art", "Sports", "Health", "News"];
     $rootScope.authService = new AuthService({
         provider: 'google'
     });
+    $rootScope.addNotification = function(payload) {
+        if ($rootScope.notifications) {
+            $rootScope.notifications.push(payload.notification);
+        } else {
+            $rootScope.notifications = [];
+            $rootScope.notifications.push(payload.notification)
+        }
+        console.log($rootScope.notifications);
+    };
     $rootScope.goTo = function(path) {
         $location.path(path);
-    }
+    };
 }]);
