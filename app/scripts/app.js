@@ -1,10 +1,17 @@
 'use strict';
 
+// var config = {
+//     apiKey: "AIzaSyDP4kTth7VjRSaNosacjj3PKGKM76OJKD0",
+//     authDomain: "crowdevelop-40f3c.firebaseapp.com",
+//     databaseURL: "https://crowdevelop-40f3c.firebaseio.com",
+//     storageBucket: "crowdevelop-40f3c.appspot.com",
+// };
 var config = {
     apiKey: "AIzaSyDP4kTth7VjRSaNosacjj3PKGKM76OJKD0",
     authDomain: "crowdevelop-40f3c.firebaseapp.com",
     databaseURL: "https://crowdevelop-40f3c.firebaseio.com",
     storageBucket: "crowdevelop-40f3c.appspot.com",
+    messagingSenderId: "598401583655"
 };
 
 firebase.initializeApp(config);
@@ -77,15 +84,31 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
 })
 
 .run(['$rootScope', function($rootScope) {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('../sw.js').then(function(registration) {
-            // Registration was successful
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }).catch(function(err) {
-            // registration failed :(
-            console.log('ServiceWorker registration failed: ', err);
-        });
-    }
+    // if ('serviceWorker' in navigator) {
+    //     navigator.serviceWorker.register('../sw.js').then(function(registration) {
+    //         // Registration was successful
+    //         console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    //     }).catch(function(err) {
+    //         // registration failed :(
+    //         console.log('ServiceWorker registration failed: ', err);
+    //     });
+    // }
+    var messaging = firebase.messaging();
+    messaging.requestPermission()
+        .then(function() {
+            console.log('Hurray');
+            return messaging.getToken();
+        })
+        .then(function(token) {
+            console.log(token);
+        })
+        .catch(function(err) {
+            console.log('Notifications cancelled by user');
+        })
+
+    messaging.onMessage(function(payload) {
+        console.log(payload);
+    });
 }])
 
 .run(['$rootScope', '$location', '$localStorage', 'AuthService', function($rootScope, $location, $localStorage, AuthService) {
