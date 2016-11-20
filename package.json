@@ -36,6 +36,6 @@
     "karma-cli": "^1.0.1",
     "karma-phantomjs-launcher": "^1.0.2",
     "protractor": "^4.0.9",
-    "sw-precache": "^4.2.1"
+    "sw-precache": "^4.2.2"
   }
 }
