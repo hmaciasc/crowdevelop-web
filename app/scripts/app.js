@@ -1,11 +1,5 @@
 'use strict';
 
-// var config = {
-//     apiKey: "AIzaSyDP4kTth7VjRSaNosacjj3PKGKM76OJKD0",
-//     authDomain: "crowdevelop-40f3c.firebaseapp.com",
-//     databaseURL: "https://crowdevelop-40f3c.firebaseio.com",
-//     storageBucket: "crowdevelop-40f3c.appspot.com",
-// };
 var config = {
     apiKey: "AIzaSyDP4kTth7VjRSaNosacjj3PKGKM76OJKD0",
     authDomain: "crowdevelop-40f3c.firebaseapp.com",
@@ -109,26 +103,29 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
     messaging.onMessage(function(payload) {
         $rootScope.notifications.push(payload.notification);
         $rootScope.$apply();
-        // $rootScope.addNotification(payload);
     });
 }])
 
-.run(['$rootScope', '$location', '$localStorage', 'AuthService', function($rootScope, $location, $localStorage, AuthService) {
+.run(['$rootScope', '$location', '$localStorage', 'AuthService', '$window', function($rootScope, $location, $localStorage, AuthService, $window) {
     $rootScope.notifications = [];
     $rootScope.firebaseUser = $localStorage.firebaseUser;
     $rootScope.categories = ["Development", "Game", "Education", "Social", "Art", "Sports", "Health", "News"];
     $rootScope.authService = new AuthService({
         provider: 'google'
     });
-    $rootScope.addNotification = function(payload) {
-        if ($rootScope.notifications) {
-            $rootScope.notifications.push(payload.notification);
-        } else {
-            $rootScope.notifications = [];
-            $rootScope.notifications.push(payload.notification)
-        }
-        console.log($rootScope.notifications);
-    };
+    $rootScope.online = navigator.onLine;
+    $window.addEventListener("offline", function() {
+        $rootScope.$apply(function() {
+            $rootScope.online = false;
+        });
+    }, false);
+
+    $window.addEventListener("online", function() {
+        $rootScope.$apply(function() {
+            $rootScope.online = true;
+        });
+    }, false);
+
     $rootScope.goTo = function(path) {
         $location.path(path);
     };

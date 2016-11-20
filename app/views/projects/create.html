@@ -25,6 +25,14 @@
                         </div>
                     </div>
                     <div class="form-group col-xs-11 col-md-12 p-x-2 material">
+                        <select ng-model="project.category" class="form-control selectField" name="category" ng-options="x for x in categories" required></select>
+                        <label for="category">Category:</label>
+                        <p class="help-block">Categorize your project.</p>
+                        <div class="alert alert-danger" ng-show="createProject.category.$touched && createProject.category.$error.required">
+                            <strong>Alert!</strong> Need to specify a category.
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-11 col-md-12 p-x-2 material">
                         <textarea type="textarea" rows="2" name="description" placeholder="Description" class="form-control" ng-model="project.description" required></textarea>
                         <label for="description"></label>
                         <p class="help-block">Describe your project.</p>
@@ -55,7 +63,7 @@
                     </div>
 
                     <div class="form-group col-xs-11 col-md-6 p-x-2 material">
-                        <input type="number" class="form-control" name="goal" ng-model="project.goal" required />
+                        <input type="number" class="form-control" name="goal" ng-model="project.goal" max="1000000" required />
                         <label for="goal">Goal</label>
                         <p class="help-block ">Stablish your goal in €.</p>
                         <div class="alert alert-danger" ng-show="createProject.goal.$submitted && createProject.goal.$error.required">

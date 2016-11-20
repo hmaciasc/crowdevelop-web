@@ -32,6 +32,9 @@
                 <span>{{notification.title}}</span>
                 <span>{{notification.body}}</span>
             </div>
+            <div class="alert alert-danger fade in" role="alert" ng-if="!online">
+                <span>You have no internet</span>
+            </div>
         </div>
     </div>
     <ng-view class="Site-content" autoscroll="true"></ng-view>

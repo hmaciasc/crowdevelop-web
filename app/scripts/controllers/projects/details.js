@@ -11,7 +11,6 @@ angular.module('crowDevelop')
         var projectRef = firebase.database().ref('projects/' + pid);
         var obj = $firebaseObject(projectRef);
         obj.$loaded().then(function() {
-            console.log($scope.project.imageRef);
             $('.project-title').css('background-image', 'url(' + $scope.project.imageRef + ')');
         });
         $scope.project = obj;

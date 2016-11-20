@@ -19,7 +19,7 @@ angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAu
         var deferred = $q.defer();
 
         auth.$signInWithPopup(provider).then(function(firebaseUser) {
-            console.log(firebaseUser);
+            // console.log(firebaseUser);
             $localStorage.firebaseUser = firebaseUser.user;
             deferred.resolve(firebaseUser.user);
         }).catch(function(error) {
@@ -38,7 +38,6 @@ angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAu
     };
 
     AuthService.prototype.logout = function() {
-        console.log("LOGOUT");
         var auth = $firebaseAuth();
         auth.$signOut();
         $localStorage.$reset();
