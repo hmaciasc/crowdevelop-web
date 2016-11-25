@@ -19,12 +19,19 @@ angular.module('crowDevelop')
             }
             $scope.favProjects = projects;
         });
+        if (!favourites.length) addEmptyMessage();
     }
 
     function getProject(pid) {
         var projectRef = firebase.database().ref('projects/' + pid);
         return $firebaseObject(projectRef);
     };
+
+    function addEmptyMessage() {
+        $scope.errorMessage = {};
+        $scope.errorMessage.big = 'You have no favourite projects...Yet!';
+        $scope.errorMessage.small = 'Favourite a project first';
+    }
 
     $scope.getFavouriteProjects();
 }]);

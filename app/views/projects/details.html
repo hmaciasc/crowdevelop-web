@@ -98,6 +98,13 @@
                 </div>
             </div>
         </div>
+        <!-- <div class="m-t-2"> -->
+        <div class="col-xs-11 col-md-7 b-b-1px-black-1px p-y-1" ng-repeat="update in projectUpdates">
+            <h2>Update {{$index + 1}}</h2>
+            <p>{{update.body}}</p>
+            <a ng-if="update.url" href="{{update.url}}">{{update.url}}</a>
+        </div>
+        <!-- </div> -->
 
         <div class="col-xs-11 col-md-7 text-xs-center m-t-2">
             <h3>Share this project!</h3>
@@ -120,13 +127,6 @@
                     <img class="search-svg" src="../../images/icons/google_plus.svg">
                 </a>
             </div>
-        </div>
-    </div>
-    <div class="row flex-items-xs-center m-t-2">
-        <div class="col-xs-11 col-md-7 b-b-1px-black-1px p-y-1" ng-repeat="update in projectUpdates">
-            <h2>Update {{$index + 1}}</h2>
-            <p>{{update.body}}</p>
-            <a ng-if="update.url" href="{{update.url}}">{{update.url}}</a>
         </div>
     </div>
     <div class="row flex-items-xs-center m-t-2">

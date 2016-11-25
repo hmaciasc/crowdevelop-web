@@ -2,13 +2,20 @@
 
 angular.module('crowDevelop')
 
-.controller('ProjectsIndexCtrl', ['$rootScope', '$scope', '$firebaseArray', '$location', function($rootScope, $scope, $firebaseArray, $location) {
+.controller('ProjectsIndexCtrl', ['ProjectService', '$rootScope', '$scope', '$firebaseArray', '$location', function(ProjectService, $rootScope, $scope, $firebaseArray, $location) {
 
     $scope.findProject = function() {
-        var projectsRef = firebase.database().ref('projects/');
-        var query = projectsRef.orderByChild('name').equalTo($scope.query);
-        var list = $firebaseArray(query);
-        $rootScope.projectSearch = list;
+        $rootScope.projectSearch = ProjectService.findProjects('name', $scope.query);
+        if (!$rootScope.projectSearch.length) addEmptyMessage();
     };
-    
+
+
+    function addEmptyMessage() {
+        $scope.errorMessage = {};
+        $scope.errorMessage.big = 'No projects found with that name';
+        $scope.errorMessage.small = 'Look for something else';
+    }
+
+    if (!$rootScope.projectSearch.length) addEmptyMessage();
+
 }]);
