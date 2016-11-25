@@ -47,6 +47,24 @@ angular.module('crowDevelop')
         });
     }
 
+    $scope.getUpdates = function() {
+        var projectUpdates = firebase.database().ref().child('projectUpdates/' + $scope.project.$id);
+        $scope.projectUpdates = $firebaseArray(projectUpdates);
+    }
+
+    $scope.addUpdate = function() {
+        var root = firebase.database().ref().child('projectUpdates/' + $scope.project.$id);
+        var updateRef = root.push().key;
+        var update = {
+            body: $scope.update.body,
+            url: $scope.update.url
+        };
+        firebase.database().ref('projectUpdates/' + $scope.project.$id + '/' + updateRef).set(update)
+            .catch(function(e) {
+                $scope.error = e;
+            });
+    }
+
     $scope.addFeature = function() {
         var root = firebase.database().ref().child('features/' + $scope.project.$id);
         var featureRef = root.push().key;
@@ -252,6 +270,7 @@ angular.module('crowDevelop')
     expiryValidation();
     cvcValidation();
     $scope.getProject();
+    $scope.getUpdates();
     $scope.getComments();
     $scope.getFeatures();
     if ($rootScope.firebaseUser) {

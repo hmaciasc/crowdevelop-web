@@ -123,8 +123,34 @@
         </div>
     </div>
     <div class="row flex-items-xs-center m-t-2">
+        <div class="col-xs-11 col-md-7 b-b-1px-black-1px p-y-1" ng-repeat="update in projectUpdates">
+            <h2>Update {{$index + 1}}</h2>
+            <p>{{update.body}}</p>
+            <a ng-if="update.url" href="{{update.url}}">{{update.url}}</a>
+        </div>
+    </div>
+    <div class="row flex-items-xs-center m-t-2">
         <div class="col-xs-11 col-md-7" ng-if="project.ownerId == firebaseUser.uid">
-            <h3>Add feature to the pool:</h3>
+            <h2>Publish an update. Keep the donors informed.</h2>
+            <form class="form" ng-submit="addUpdate()" name="addUpdateForm">
+                <div class="form-group">
+                    <input type="text" name="updateBody" class="form-control comment-input" ng-model="$parent.update.body" required />
+                    <div class="alert alert-danger" ng-show="featureForm.$submitted && featureForm.$error.required">
+                        <strong>Alert!</strong> Write somethings first.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="url" name="updateUrl" class="form-control comment-input" ng-model="$parent.update.url" />
+                </div>
+                <div class="form-group material text-xs-right">
+                    <button type="submit" class="btn btn-green">Publish update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row flex-items-xs-center m-t-2">
+        <div class="col-xs-11 col-md-7" ng-if="project.ownerId == firebaseUser.uid">
+            <h2>Add feature to the pool:</h2>
             <form class="form" ng-submit="addFeature()" name="featureForm">
                 <div class="form-group">
                     <input type="text" name="featureInput" class="form-control comment-input" ng-model="$parent.newFeature" required />
@@ -138,7 +164,7 @@
             </form>
         </div>
         <div class="col-xs-11 col-md-7" ng-if="project.ownerId == firebaseUser.uid">
-            <h3>Features:</h3>
+            <h2>Features:</h2>
             <div class="feature" ng-repeat="feature in features | orderBy:'-points'">
                 <div class="row m-y-1">
                     <div class="col-xs-6 col-lg-8">
@@ -160,7 +186,7 @@
     </div>
     <div class="row flex-items-xs-center m-t-2">
         <div class="col-xs-11 col-md-7">
-            <h3>Comments</h3>
+            <h2>Comments</h2>
             <form class="form" ng-submit="saveComment()" name="comment">
                 <div class="form-group">
                     <label for="comment"></label>
