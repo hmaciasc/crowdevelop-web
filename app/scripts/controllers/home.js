@@ -30,6 +30,7 @@ angular.module('crowDevelop')
                 for (var i = 0; i < projects.length; i++) {
                     var expireDate = new Date(projects[i].year, projects[i].month, projects[i].day);
                     var now = new Date();
+                    now.setHours(0, 0, 0, 0);
                     if (expireDate < now) endProject(projects[i]);
                 }
             },
