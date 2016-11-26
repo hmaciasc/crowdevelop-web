@@ -4,6 +4,9 @@
   @return map-get($base-colors, '#{$col}');
 }
 
+$effect1 : grayscale(100%);
+$effect : blur(2px);
+
 $black:           #000;
 $white:           #fefefe;
 $light-black:     #505050;
@@ -37,6 +40,8 @@ $base-colors: (
     'green-blue':      #60daaa,
     'green':           #00E676,
     'old-green':       #ACD07A,
+    'light-deep-green':#1abb9c,
+    'deep-green':      #169f84,
 
     'yellow':          #fbca67,
     'orange':          #ff8a30,

@@ -28,10 +28,10 @@ angular.module('crowDevelop')
         projects.$loaded(
             function(projects) {
                 for (var i = 0; i < projects.length; i++) {
-                    var expireDate = new Date(projects[i].year, projects[i].month, projects[i].day);
+                    var expireDate = new Date(projects[i].year, projects[i].month - 1, projects[i].day);
                     var now = new Date();
                     now.setHours(0, 0, 0, 0);
-                    if (expireDate < now) endProject(projects[i]);
+                    if (expireDate < now) endProject(projects[i].$id);
                 }
             },
             function(err) {
@@ -39,11 +39,9 @@ angular.module('crowDevelop')
             });
     }
 
-    function endProject(project) {
-        var projectRef = firebase.database().ref('projects/' + project.$id);
-        var project = $firebaseObject(projectRef);
-        project.status = 'closed';
-        project.$save();
+    function endProject(projectId) {
+        var projectRef = firebase.database().ref('projects/' + projectId);
+        projectRef.child('status').set('closed');
     }
 
     $scope.init();

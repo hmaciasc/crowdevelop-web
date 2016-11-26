@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="row flex-items-xs-middle project-title">
-        <div class="col-xs text-xs-center">
+        <div class="text-xs-center project-head">
             <h1 class="text-400">{{project.name}}</h1>
             <h4 class="text-300">by {{project.ownerName}}</h4>
         </div>
@@ -134,13 +134,13 @@
             <h2>Publish an update. Keep the donors informed.</h2>
             <form class="form" ng-submit="addUpdate()" name="addUpdateForm">
                 <div class="form-group">
-                    <input type="text" name="updateBody" class="form-control comment-input" ng-model="$parent.update.body" required />
+                    <input type="text" name="updateBody" class="form-control comment-input" placeholder="New update" ng-model="$parent.update.body" required />
                     <div class="alert alert-danger" ng-show="featureForm.$submitted && featureForm.$error.required">
                         <strong>Alert!</strong> Write somethings first.
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="url" name="updateUrl" class="form-control comment-input" ng-model="$parent.update.url" />
+                    <input type="url" name="updateUrl" class="form-control comment-input" placeholder="Url" ng-model="$parent.update.url" />
                 </div>
                 <div class="form-group material text-xs-right">
                     <button type="submit" class="btn btn-green">Publish update</button>
@@ -153,7 +153,7 @@
             <h2>Add feature to the pool:</h2>
             <form class="form" ng-submit="addFeature()" name="featureForm">
                 <div class="form-group">
-                    <input type="text" name="featureInput" class="form-control comment-input" ng-model="$parent.newFeature" required />
+                    <input type="text" name="featureInput" class="form-control comment-input" placeholder="Feature" ng-model="$parent.newFeature" required />
                     <div class="alert alert-danger" ng-show="featureForm.$submitted && featureForm.$error.required">
                         <strong>Alert!</strong> Write somethings first.
                     </div>
@@ -163,7 +163,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-xs-11 col-md-7" ng-if="project.ownerId == firebaseUser.uid">
+        <div class="col-xs-11 col-md-7" ng-if="features.length">
             <h2>Features:</h2>
             <div class="feature" ng-repeat="feature in features | orderBy:'-points'">
                 <div class="row m-y-1">
@@ -190,7 +190,7 @@
             <form class="form" ng-submit="saveComment()" name="comment">
                 <div class="form-group">
                     <label for="comment"></label>
-                    <textarea type="textarea" rows="2" name="commentInput" class="form-control comment-input" ng-model="newComment" required></textarea>
+                    <textarea type="textarea" rows="2" name="commentInput" class="form-control comment-input" placeholder="Comment something, give us your opinion" ng-model="newComment" required></textarea>
                     <div class="alert alert-danger" ng-show="comment.$submitted && comment.$error.required">
                         <strong>Alert!</strong> Write somethings first.
                     </div>

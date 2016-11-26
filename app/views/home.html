@@ -1,7 +1,8 @@
-<div class="row flex-items-xs-middle title-bg">
-    <div class="col-xs text-xs-center">
-        <h1>Funding your ideas</h1>
-        <h2>Crowd guided development</h2>
+<div class="home-container">
+    <div class="title-bg"></div>
+    <div class="text-xs-center text-container">
+        <h1 class="title-text">Funding your ideas</h1>
+        <h2 class="title-text">Crowd guided development</h2>
     </div>
 </div>
 <div class="row m-y-4">
@@ -18,10 +19,10 @@
         <div class="form-group has-feedback">
             <form class="form" ng-submit="findProject()" name="searchForm">
                 <div class="form-group material">
-                    <div class="input-group">
+                    <div class="input-group search-container">
                         <input type="text" name="searchField" class="form-control searchInput" ng-model="query" palceholder="Search" required />
-                        <label for="searchField">Search project</label>
-                        <div class="input-group-addon"><img class="search-svg" src="../images/icons/search.svg"></div>
+                        <label for="searchField" class="search-label">Search project</label>
+                        <div class="input-group-addon search-addon" ng-click="findProject()">Find</div>
                     </div>
                 </div>
             </form>
