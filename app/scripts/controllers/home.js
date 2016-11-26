@@ -2,7 +2,7 @@
 
 angular.module('crowDevelop')
 
-.controller('HomeCtrl', ['$rootScope', '$scope', '$firebaseArray', '$location', function($rootScope, $scope, $firebaseArray, $location) {
+.controller('HomeCtrl', ['$rootScope', '$scope', '$firebaseArray', '$firebaseObject', '$location', function($rootScope, $scope, $firebaseArray, $firebaseObject, $location) {
 
     $scope.queryFilter = {};
     $scope.queryBy = '$';
