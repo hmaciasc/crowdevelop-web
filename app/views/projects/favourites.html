@@ -1,8 +1,8 @@
 <div class="row">
     <div class="offset-xs-1 col-xs-10 offset-lg-2 col-lg-8 left-addon">
         <div class="empty text-xs-center" ng-if="!favProjects.length">
-            <h1>You have no favourite projects...Yet!</h1>
-            <h2>Go find some awesome project first!</h2>
+            <h1>{{errorMessage.big}}</h1>
+            <h2>{{errorMessage.small}}</h2>
         </div>
         <div class="empty" ng-if="favProjects.length">
             <h2>My favourite projects: </h2>

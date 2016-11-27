@@ -5,6 +5,7 @@ var config = {
     authDomain: "crowdevelop-40f3c.firebaseapp.com",
     databaseURL: "https://crowdevelop-40f3c.firebaseio.com",
     storageBucket: "crowdevelop-40f3c.appspot.com",
+    messagingSenderId: "598401583655"
 };
 
 firebase.initializeApp(config);
@@ -20,6 +21,9 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
         .when('/login', {
             templateUrl: 'views/login.html',
             controller: 'LoginCtrl'
+        })
+        .when('/contact', {
+            templateUrl: 'views/shared/contact.html'
         })
         .when('/tos', {
             templateUrl: 'views/shared/tos.html'
@@ -68,6 +72,12 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
     }
 })
 
+.filter('camelToHuman', function() {
+    return function(string) {
+        return string.replace(/([a-z])([A-Z])/g, '$1 $2')
+    };
+})
+
 .filter('capitalize', function() {
     return function(input, scope) {
         if (input != null)
@@ -76,7 +86,7 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
     }
 })
 
-.run(['$rootScope', function($rootScope) {
+.run(['$rootScope', '$firebaseObject', function($rootScope, $firebaseObject) {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('../sw.js').then(function(registration) {
             // Registration was successful
@@ -86,15 +96,46 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
             console.log('ServiceWorker registration failed: ', err);
         });
     }
+    var messaging = firebase.messaging();
+    messaging.requestPermission()
+        .then(function() {
+            console.log('Hurray');
+            return messaging.getToken();
+        })
+        .then(function(token) {
+            $rootScope.fcmToken = token;
+        })
+        .catch(function(err) {
+            console.log('Notifications cancelled by user');
+        })
+
+    messaging.onMessage(function(payload) {
+        $rootScope.notifications.push(payload.notification);
+        $rootScope.$apply();
+    });
 }])
 
-.run(['$rootScope', '$location', '$localStorage', 'AuthService', function($rootScope, $location, $localStorage, AuthService) {
+.run(['$rootScope', '$location', '$localStorage', 'AuthService', '$window', function($rootScope, $location, $localStorage, AuthService, $window) {
+    $rootScope.notifications = [];
     $rootScope.firebaseUser = $localStorage.firebaseUser;
     $rootScope.categories = ["Development", "Game", "Education", "Social", "Art", "Sports", "Health", "News"];
     $rootScope.authService = new AuthService({
         provider: 'google'
     });
+    $rootScope.online = navigator.onLine;
+    $window.addEventListener("offline", function() {
+        $rootScope.$apply(function() {
+            $rootScope.online = false;
+        });
+    }, false);
+
+    $window.addEventListener("online", function() {
+        $rootScope.$apply(function() {
+            $rootScope.online = true;
+        });
+    }, false);
+
     $rootScope.goTo = function(path) {
         $location.path(path);
-    }
+    };
 }]);

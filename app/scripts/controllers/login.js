@@ -7,7 +7,6 @@ angular.module('crowDevelop')
 
     $scope.login = function(provider) {
         $rootScope.authService.login(provider).then(function(user) {
-            console.log(user);
             $rootScope.firebaseUser = user;
             if (user != null) {
                 $location.path('/');

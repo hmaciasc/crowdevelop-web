@@ -1,6 +1,6 @@
 /* BOOTSTRAP OVERRIDES */
 .input-group-addon {
-    width: 8% !important;
+    width: 7% !important;
     background-color: $color-modal-content !important;
     border: none !important;
     border-bottom: 3px solid $border-color !important;
@@ -27,6 +27,23 @@
 // CARDS
 .card {
     min-height: 100%;
+}
+
+
+// NOTIFICATIONS
+.floaty {
+    position: fixed;
+    z-index: 20;
+    bottom: 15px;
+    right: 15px;
+}
+
+.alert-size {
+    width: 25%;
+}
+
+.alert-img {
+    width: 10%;
 }
 
 // MODAL

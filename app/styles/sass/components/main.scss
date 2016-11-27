@@ -92,14 +92,48 @@ form {
     }
 }
 
+.home-container {
+    display: block;
+}
+
 .title-bg {
-    background-image: url('../../images/title1.jpg');
-    background-blend-mode: hue;
-    background-position: right;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/crowdevelop-40f3c.appspot.com/o/title1.jpg?alt=media&token=d6b89087-174b-46f4-b30e-cdfd669627e7');
+    background-size: cover;
+    display: block;
+    filter: $effect;
+    -webkit-filter: $effect;
+    height: 500px;
+    left: 0;
+    position: relative;
+    right: 0;
+    z-index: 1;
+    -webkit-transition: all 1s ease-out;
+
+    &:hover {
+        filter: none;
+        -webkit-filter: none;
+    }
+}
+.text-container {
+    display: inline-block;
+    position: relative;
+    top: -300px;
+    left: calc(50% - 151px);
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.75);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    color: white;
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+.alternate-title-bg {
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/crowdevelop-40f3c.appspot.com/o/title1.jpg?alt=media&token=d6b89087-174b-46f4-b30e-cdfd669627e7');
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: -9;
-    color: col(white);
+    filter: blur(1px);
+    z-index: 1;
     height: 500px;
 }
 
@@ -112,6 +146,15 @@ form {
     height: 500px;
 }
 
+.project-head {
+    margin: 0 auto;
+    color: white;
+    border-radius: 3px;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.75);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
 .divider {
     height: 1px;
     margin: 0.5px 0;
@@ -119,16 +162,52 @@ form {
     background-color: #e5e5e5;
 }
 
+.search-container {
+    box-shadow:
+   1px 1px 0 col('deep-green'),
+   2px 2px 0 col('deep-green'),
+   3px 3px 0 col('deep-green'),
+   4px 4px 0 col('deep-green'),
+   5px 5px 0 col('deep-green'),
+   6px 6px 0 col('deep-green'),
+   7px 7px 0 col('deep-green');
+}
+
 .searchInput, .searchInput:focus{
-    background-color: $color-modal-content;
-    border: none !important;
-    border-bottom: 3px solid $border-color !important;
+    @extend .b-a-2px-light-deep-green-3px;
+}
+.search-addon {
+    @extend .b-a-2px-light-deep-green-3px;
+    color: white !important;
+    background-color: col('light-deep-green') !important;
+
+    @media screen and (max-width: 543px) {
+        width: 15% !important;
+    }
+    @media screen and (min-width: 544px) {
+        width: 7% !important;
+    }
+}
+
+.search-label {
+    color: #A9A9A9 !important;
+    padding-left: 5px;
 }
 
 .Site {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+}
+
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .Site-content {

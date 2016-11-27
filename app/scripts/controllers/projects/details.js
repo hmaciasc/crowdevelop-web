@@ -11,7 +11,6 @@ angular.module('crowDevelop')
         var projectRef = firebase.database().ref('projects/' + pid);
         var obj = $firebaseObject(projectRef);
         obj.$loaded().then(function() {
-            console.log($scope.project.imageRef);
             $('.project-title').css('background-image', 'url(' + $scope.project.imageRef + ')');
         });
         $scope.project = obj;
@@ -46,6 +45,24 @@ angular.module('crowDevelop')
             favRef.child($scope.project.$id).set(!state.$value);
             $scope.favourited = !state.$value;
         });
+    }
+
+    $scope.getUpdates = function() {
+        var projectUpdates = firebase.database().ref().child('projectUpdates/' + $scope.project.$id);
+        $scope.projectUpdates = $firebaseArray(projectUpdates);
+    }
+
+    $scope.addUpdate = function() {
+        var root = firebase.database().ref().child('projectUpdates/' + $scope.project.$id);
+        var updateRef = root.push().key;
+        var update = {
+            body: $scope.update.body,
+            url: $scope.update.url
+        };
+        firebase.database().ref('projectUpdates/' + $scope.project.$id + '/' + updateRef).set(update)
+            .catch(function(e) {
+                $scope.error = e;
+            });
     }
 
     $scope.addFeature = function() {
@@ -135,21 +152,23 @@ angular.module('crowDevelop')
     }
 
     $scope.changeProjectStatus = function(status) {
-        var projectRef = firebase.database().ref('projects/' + $scope.project.$id);
-        var obj = $firebaseObject(projectRef);
-        obj.$loaded(
-            function(data) {
-                data.status = status;
-                data.$save().then(function(projectRef) {
-                    projectRef.key === obj.$id;
-                }, function(error) {
-                    console.log("Error:", error);
-                });
-            },
-            function(error) {
-                console.error("Error:", error);
-            }
-        );
+        if (confirm('Are you sure?')) {
+            var projectRef = firebase.database().ref('projects/' + $scope.project.$id);
+            var obj = $firebaseObject(projectRef);
+            obj.$loaded(
+                function(data) {
+                    data.status = status;
+                    data.$save().then(function(projectRef) {
+                        projectRef.key === obj.$id;
+                    }, function(error) {
+                        console.log("Error:", error);
+                    });
+                },
+                function(error) {
+                    console.error("Error:", error);
+                }
+            );
+        }
     }
 
     function updateProject() {
@@ -251,6 +270,7 @@ angular.module('crowDevelop')
     expiryValidation();
     cvcValidation();
     $scope.getProject();
+    $scope.getUpdates();
     $scope.getComments();
     $scope.getFeatures();
     if ($rootScope.firebaseUser) {

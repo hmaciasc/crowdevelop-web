@@ -2,7 +2,7 @@
 
 angular.module('crowDevelop')
 
-.controller('HomeCtrl', ['$rootScope', '$scope', '$firebaseArray', '$location', function($rootScope, $scope, $firebaseArray, $location) {
+.controller('HomeCtrl', ['$rootScope', '$scope', '$firebaseArray', '$firebaseObject', '$location', function($rootScope, $scope, $firebaseArray, $firebaseObject, $location) {
 
     $scope.queryFilter = {};
     $scope.queryBy = '$';
@@ -20,7 +20,29 @@ angular.module('crowDevelop')
         var projectRef = firebase.database().ref('projects/');
         var query = projectRef.orderByChild('donated').limitToLast(10);
         $scope.projects = $firebaseArray(query);
+        updateStatuses($scope.projects);
     };
+
+
+    function updateStatuses(projects) {
+        projects.$loaded(
+            function(projects) {
+                for (var i = 0; i < projects.length; i++) {
+                    var expireDate = new Date(projects[i].year, projects[i].month - 1, projects[i].day);
+                    var now = new Date();
+                    now.setHours(0, 0, 0, 0);
+                    if (expireDate < now) endProject(projects[i].$id);
+                }
+            },
+            function(err) {
+                console.log(err);
+            });
+    }
+
+    function endProject(projectId) {
+        var projectRef = firebase.database().ref('projects/' + projectId);
+        projectRef.child('status').set('closed');
+    }
 
     $scope.init();
 }]);

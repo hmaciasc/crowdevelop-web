@@ -9,6 +9,11 @@ angular.module('crowDevelop')
         var query = projectsRef.orderByChild('ownerId').equalTo($rootScope.firebaseUser.uid);
         var list = $firebaseArray(query);
         $rootScope.projectSearch = list;
+        if (!list.length) {
+            $scope.errorMessage = {};
+            $scope.errorMessage.big = 'You have not yet created a project';
+            $scope.errorMessage.small = 'Go ahead, get funded.';
+        }
     };
 
     $scope.getOwnProjects();

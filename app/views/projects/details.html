@@ -1,14 +1,13 @@
 <div class="projects container-fluid">
-    <div class="row flex-items-xs-middle m-t-2" ng-if="project.ownerId == firebaseUser.uid">
+    <div class="row flex-items-xs-middle m-y-2" ng-if="project.ownerId == firebaseUser.uid">
         <div class="col-xs text-xs-center">
             <p class="title">Administrate your project:</p>
-        </div>
-        <div class="col-xs text-xs-center">
-            <button type="button" name="button" class="btn btn-red" ng-click="changeProjectStatus('closed')" ng-if="project.status == 'inProgress'">End project</button>
+            <p class="title">Project status: {{ project.status | camelToHuman }}</p>
+            <button type="button" name="button" class="btn btn-red" ng-click="changeProjectStatus('closed')" ng-disabled="project.status != 'inProgress'">End project</button>
         </div>
     </div>
     <div class="row flex-items-xs-middle project-title">
-        <div class="col-xs text-xs-center">
+        <div class="text-xs-center project-head">
             <h1 class="text-400">{{project.name}}</h1>
             <h4 class="text-300">by {{project.ownerName}}</h4>
         </div>
@@ -21,7 +20,7 @@
         </div>
         <div class="col-xs-11 col-md-7 m-t-2">
             <div class="donation">
-                <button type="button" class="btn btn-def-black" ng-if="firebaseUser && project.status == 'inProgress'" data-toggle="modal" data-target="#paymentModal">
+                <button type="button" class="btn btn-green-blue" ng-if="firebaseUser && project.status == 'inProgress'" data-toggle="modal" data-target="#paymentModal">
                     Donate to this project
                 </button>
                 <a class="btn btn-def-black" href="/login" ng-if="!firebaseUser && project.status == 'inProgress'">Login to make a donation</a>
@@ -40,20 +39,20 @@
                                 <h4 class="modal-title" id="myModalLabel">Donate to: {{ project.name }}</h4>
                             </div>
                             <div class="modal-body">
-                                <form id="donationForm" ng-submit="donate()" novalidate autocomplete="on" role="form" method="POST">
+                                <form id="donationForm" ng-submit="donate()" autocomplete="on" role="form" method="POST">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label class="sr-only" for="amount">Amount (in euros)</label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">€</div>
-                                                    <input type="text" class="form-control" id="amount" ng-model="amount" placeholder="Amount">
+                                                    <input type="text" class="form-control" id="amount" ng-model="amount" placeholder="Amount" required />
                                                     <div class="input-group-addon">.00</div>
                                                 </div>
                                             </div>
                                             <div class="form-group m-t-3">
                                                 <label for="cc-number" class="control-label">Card number <small class="text-muted">[<span class="cc-brand"></span>]</small></label>
-                                                <input id="cc-number" type="tel" class="form-control cc-number" ng-model="cNumber" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required>
+                                                <input id="cc-number" type="tel" class="form-control cc-number" ng-model="cNumber" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" required />
                                             </div>
                                         </div>
                                     </div>
@@ -61,13 +60,13 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="cc-exp" class="control-label">Card expiry date</label>
-                                                <input id="cc-exp" type="tel" class="form-control cc-exp" ng-model="expiryDate" autocomplete="cc-exp" placeholder="•• / ••" required>
+                                                <input id="cc-exp" type="tel" class="form-control cc-exp" ng-model="expiryDate" autocomplete="cc-exp" placeholder="•• / ••" required />
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="cc-cvc" class="control-label">Card CVC</label>
-                                                <input id="cc-cvc" type="tel" class="form-control cc-cvc" ng-model="cvc" autocomplete="off" placeholder="•••" required>
+                                                <input id="cc-cvc" type="tel" class="form-control cc-cvc" ng-model="cvc" autocomplete="off" placeholder="•••" required />
                                             </div>
                                         </div>
                                     </div>
@@ -99,18 +98,25 @@
                 </div>
             </div>
         </div>
+        <!-- <div class="m-t-2"> -->
+        <div class="col-xs-11 col-md-7 b-b-1px-black-1px p-y-1" ng-repeat="update in projectUpdates">
+            <h2>Update {{$index + 1}}</h2>
+            <p>{{update.body}}</p>
+            <a ng-if="update.url" href="{{update.url}}">{{update.url}}</a>
+        </div>
+        <!-- </div> -->
 
-        <div class="col-xs-11 col-md-7 m-t-2">
+        <div class="col-xs-11 col-md-7 text-xs-center m-t-2">
             <h3>Share this project!</h3>
             <div class="d-inline">
                 <!-- Sharingbutton Facebook -->
-                <a class="btn btn-social-icon btn-facebook" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2F" target="_blank" aria-label="">
+                <a class="btn btn-social-icon btn-facebook" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2Fprojects%2Findex%2F{{project.$id}}" target="_blank" aria-label="">
                     <img class="search-svg" src="../../images/icons/facebook.svg">
                 </a>
             </div>
             <div class="d-inline pdl-10px">
                 <!-- Sharingbutton Twitter -->
-                <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/intent/tweet/?text=Checkout%20this%20awesome%20project%3A%20{{project.name}}&amp;url=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2F" target="_blank" aria-label="">
+                <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/intent/tweet/?text=Checkout%20this%20awesome%20project%3A%20{{project.name}}&amp;url=http://crowdevelop-40f3c.firebaseapp.com/projects/index/{{project.$id}}" target="_blank" aria-label="">
                     <img class="search-svg" src="../../images/icons/twitter.svg">
                 </a>
             </div>
@@ -125,10 +131,29 @@
     </div>
     <div class="row flex-items-xs-center m-t-2">
         <div class="col-xs-11 col-md-7" ng-if="project.ownerId == firebaseUser.uid">
-            <h3>Add feature to the pool:</h3>
+            <h2>Publish an update. Keep the donors informed.</h2>
+            <form class="form" ng-submit="addUpdate()" name="addUpdateForm">
+                <div class="form-group">
+                    <input type="text" name="updateBody" class="form-control comment-input" placeholder="New update" ng-model="$parent.update.body" required />
+                    <div class="alert alert-danger" ng-show="featureForm.$submitted && featureForm.$error.required">
+                        <strong>Alert!</strong> Write somethings first.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="url" name="updateUrl" class="form-control comment-input" placeholder="Url" ng-model="$parent.update.url" />
+                </div>
+                <div class="form-group material text-xs-right">
+                    <button type="submit" class="btn btn-green">Publish update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row flex-items-xs-center m-t-2">
+        <div class="col-xs-11 col-md-7" ng-if="project.ownerId == firebaseUser.uid">
+            <h2>Add feature to the pool:</h2>
             <form class="form" ng-submit="addFeature()" name="featureForm">
                 <div class="form-group">
-                    <input type="text" name="featureInput" class="form-control comment-input" ng-model="$parent.newFeature" required />
+                    <input type="text" name="featureInput" class="form-control comment-input" placeholder="Feature" ng-model="$parent.newFeature" required />
                     <div class="alert alert-danger" ng-show="featureForm.$submitted && featureForm.$error.required">
                         <strong>Alert!</strong> Write somethings first.
                     </div>
@@ -138,14 +163,14 @@
                 </div>
             </form>
         </div>
-        <div class="col-xs-11 col-md-7" ng-if="project.ownerId == firebaseUser.uid">
-            <h3>Features:</h3>
+        <div class="col-xs-11 col-md-7" ng-if="features.length">
+            <h2>Features:</h2>
             <div class="feature" ng-repeat="feature in features | orderBy:'-points'">
                 <div class="row m-y-1">
-                    <div class="col-xs-6 col-lg-9">
+                    <div class="col-xs-6 col-lg-8">
                         <p class="d-inline">{{$index + 1 + 'º ' + feature.description}}</p>
                     </div>
-                    <div class="col-xs-6 col-lg-3">
+                    <div class="col-xs-6 text-xs-right col-lg-4">
                         <button class="btn d-inline push-right" ng-disabled="!firebaseUser" ng-class="(feature.status == 'up') ? 'btn-green' : 'btn-default'" ng-click="voteFeature(feature.$id, 'up')">
                             <img class="up-svg" src="../../images/icons/up_circle.svg">
                         </button>
@@ -161,11 +186,11 @@
     </div>
     <div class="row flex-items-xs-center m-t-2">
         <div class="col-xs-11 col-md-7">
-            <h3>Comments</h3>
+            <h2>Comments</h2>
             <form class="form" ng-submit="saveComment()" name="comment">
                 <div class="form-group">
                     <label for="comment"></label>
-                    <textarea type="textarea" rows="2" name="commentInput" class="form-control comment-input" ng-model="newComment" required></textarea>
+                    <textarea type="textarea" rows="2" name="commentInput" class="form-control comment-input" placeholder="Comment something, give us your opinion" ng-model="newComment" required></textarea>
                     <div class="alert alert-danger" ng-show="comment.$submitted && comment.$error.required">
                         <strong>Alert!</strong> Write somethings first.
                     </div>
