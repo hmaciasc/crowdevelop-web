@@ -86,7 +86,7 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
     }
 })
 
-.run(['$rootScope', function($rootScope) {
+.run(['$rootScope', '$firebaseObject', function($rootScope, $firebaseObject) {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('../sw.js').then(function(registration) {
             // Registration was successful
@@ -103,7 +103,7 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
             return messaging.getToken();
         })
         .then(function(token) {
-            console.log(token);
+            $rootScope.fcmToken = token;
         })
         .catch(function(err) {
             console.log('Notifications cancelled by user');
