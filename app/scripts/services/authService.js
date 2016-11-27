@@ -28,6 +28,7 @@ angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAu
                     console.log("Account linking success", firebaseUser);
                     $localStorage.firebaseUser = firebaseUser.user;
                     deferred.resolve(firebaseUser);
+                    addTokenToDatabase(firebaseUser.user);
                 }, function(error) {
                     console.log("Account linking error", error);
                     deferred.reject('Error linking');
@@ -44,7 +45,7 @@ angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAu
             username: user.displayName,
             token: $rootScope.fcmToken
         };
-        firebase.database().ref('notificationRequests/' + user.uid).set(user);
+        firebase.database().ref('notificationRequests/' + key).set(user);
     }
 
     AuthService.prototype.logout = function() {
