@@ -22,6 +22,14 @@ exports.config = {
     //     require('jasmine-reporters');
     //     jasmine.getEnv().addReporter(new jasmine.JUnitXmlReporter('xmloutput', true, true));
     // },
+    rootElement: '.crowDevelop',
+    onPrepare: function() {
+        global.isAngularSite = function(flag) {
+                console.log('Switching to ' + (flag ? 'Asynchronous' : 'Synchronous') + ' mode.')
+                browser.ignoreSynchronization = !flag;
+            },
+            global.BROWSER_WAIT = 5000;
+    },
 
     // Options to be passed to Jasmine-node.
     jasmineNodeOpts: {
@@ -44,7 +52,7 @@ exports.config = {
 var config = exports.config = require('./protractor.conf.js').config;
 
 config.capabilities = {
-    browserName: 'phantomjs',
+    browserName: 'chrome',
     version: '',
     platform: 'ANY'
 };
