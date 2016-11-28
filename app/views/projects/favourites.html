@@ -1,8 +1,8 @@
 <div class="row">
     <div class="offset-xs-1 col-xs-10 offset-lg-2 col-lg-8 left-addon">
         <div class="empty text-xs-center" ng-if="!favProjects.length">
-            <h1>{{errorMessage.big}}</h1>
-            <h2>{{errorMessage.small}}</h2>
+            <h1 id="errorBig">{{errorMessage.big}}</h1>
+            <h2 id="errorSmall">{{errorMessage.small}}</h2>
         </div>
         <div class="empty" ng-if="favProjects.length">
             <h2>My favourite projects: </h2>
@@ -14,9 +14,9 @@
         <div class="card">
             <img class="card-img-top img-fluid" src="{{project.imageRef}}" alt="Card image cap">
             <div class="card-block  text-xs-center">
-                <h4 class="card-title">{{project.name}}</h4>
-                <p class="card-text">{{project.description | limitTo : 250}}</p>
-                <a href="#" class="btn btn-primary" ng-click="goTo('projects/index/'+project.$id)">Project details</a>
+                <h4 id="projectName" class="card-title">{{project.name}}</h4>
+                <p id="projectDescription" class="card-text">{{project.description | limitTo : 250}}</p>
+                <a href="#" id="detailsButton" class="btn btn-primary" ng-click="goTo('projects/index/'+project.$id)">Project details</a>
             </div>
         </div>
     </div>
