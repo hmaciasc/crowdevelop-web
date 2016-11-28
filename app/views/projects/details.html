@@ -20,7 +20,7 @@
         </div>
         <div class="col-xs-11 col-md-7 m-t-2">
             <div class="donation">
-                <button type="button" class="btn btn-green-blue" ng-if="firebaseUser && project.status == 'inProgress'" data-toggle="modal" data-target="#paymentModal">
+                <button id="donateButton" type="button" class="btn btn-green-blue" ng-if="firebaseUser && project.status == 'inProgress'" data-toggle="modal" data-target="#paymentModal">
                     Donate to this project
                 </button>
                 <a id="loginToDonate" class="btn btn-def-black" href="/login" ng-if="!firebaseUser && project.status == 'inProgress'">Login to make a donation</a>
@@ -110,19 +110,20 @@
             <h3>Share this project!</h3>
             <div class="d-inline">
                 <!-- Sharingbutton Facebook -->
-                <a class="btn btn-social-icon btn-facebook" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2Fprojects%2Findex%2F{{project.$id}}" target="_blank" aria-label="">
+                <a id="googleShare" class="btn btn-social-icon btn-facebook" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcrowdevelop-40f3c.firebaseapp.com%2Fprojects%2Findex%2F{{project.$id}}" target="_blank" aria-label="">
                     <img class="search-svg" src="../../images/icons/facebook.svg">
                 </a>
             </div>
             <div class="d-inline pdl-10px">
                 <!-- Sharingbutton Twitter -->
-                <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/intent/tweet/?text=Checkout%20this%20awesome%20project%3A%20{{project.name}}&amp;url=http://crowdevelop-40f3c.firebaseapp.com/projects/index/{{project.$id}}" target="_blank" aria-label="">
+                <a id="twitterShare" class="btn btn-social-icon btn-twitter" href="https://twitter.com/intent/tweet/?text=Checkout%20this%20awesome%20project%3A%20{{project.name}}&amp;url=http://crowdevelop-40f3c.firebaseapp.com/projects/index/{{project.$id}}" target="_blank"
+                    aria-label="">
                     <img class="search-svg" src="../../images/icons/twitter.svg">
                 </a>
             </div>
             <div class="d-inline pdl-10px">
                 <!-- Sharingbutton Google+ -->
-                <a class="btn btn-social-icon btn-google" href="https://plus.google.com/share?url=crowdevelop-40f3c.firebaseapp.com/projects/index/{{project.$id}}" onclick="javascript:window.open(this.href,
+                <a id="facebookShare" class="btn btn-social-icon btn-google" href="https://plus.google.com/share?url=crowdevelop-40f3c.firebaseapp.com/projects/index/{{project.$id}}" onclick="javascript:window.open(this.href,
                 '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" aria-label="">
                     <img class="search-svg" src="../../images/icons/google_plus.svg">
                 </a>

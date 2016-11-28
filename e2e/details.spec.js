@@ -1,11 +1,50 @@
 'use strict';
 
-describe('CrowDevelop home page', function() {
+describe('CrowDevelop details page', function() {
     var updates = element.all(by.repeater('update in projectUpdates'));
     var comments = element.all(by.repeater('comment in comments'));
     var features = element.all(by.repeater('feature in features'));
 
     beforeAll(function() {
+        browser.get('http://localhost:5000/login');
+        var google = element(by.className('btn-google')).click();
+        browser.getAllWindowHandles().then(function(handles) {
+            browser.getAllWindowHandles().then(function(handles) {
+                var popupHandle = handles[1];
+
+                browser.switchTo().window(popupHandle);
+
+                var emailFieldExists = by.id('Email');
+                browser.driver.wait(function() {
+                    return browser.driver.isElementPresent(emailFieldExists);
+                }, 5000);
+
+                var email = browser.driver.findElement(by.id('Email'));
+                var next = browser.driver.findElement(by.id('next'));
+                var signIn = browser.driver.findElement(by.id('signIn'));
+
+                email.sendKeys('crowdevelopTest@gmail.com');
+                next.click();
+                browser.sleep(1000);
+                var passwd = browser.driver.findElement(by.id('Passwd'));
+                var passwordFieldExists = by.id('Passwd');
+                browser.driver.wait(function() {
+                    return browser.driver.isElementPresent(passwordFieldExists);
+                }, 5000);
+
+                passwd.sendKeys('cdcrowdevelop');
+                signIn.click();
+
+                browser.sleep(3000);
+                browser.switchTo().window(handles[0]);
+                var signOut = element(by.id('quickstart-sign-in'))
+                expect(signOut.isPresent()).toBe(true);
+                element(by.className('navbar-toggler')).click();
+
+            });
+        });
+
+
         browser.get('http://localhost:5000/projects/index/-KXWsNzIL95aYJc3S9GX');
         browser.sleep(4000);
     });
@@ -30,9 +69,14 @@ describe('CrowDevelop home page', function() {
         expect(owner.getText()).toEqual('by Héctor Macías');
     });
 
-    it('should have a login to donate button', function() {
-        var donateButton = element(by.id('loginToDonate'));
-        expect(donateButton.getText()).toEqual('Login to make a donation');
+    it('should have a donate button', function() {
+        var donateButton = element(by.id('donateButton'));
+        expect(donateButton.getText()).toEqual('Donate to this project');
+    });
+
+    it('should have a favourite button', function() {
+        var favouriteButton = element(by.className('fav-btn'));
+        expect(favouriteButton.isPresent());
     });
 
     it('should have a description', function() {
@@ -76,6 +120,15 @@ describe('CrowDevelop home page', function() {
         expect(commentWriter.getText()).toEqual('Héctor Macías');
         var commentText = element.all(by.className('comment-text')).first();
         expect(commentText.getText()).toEqual('Comment 1');
+    });
+
+    it('should have 3 share buttons', function() {
+        var googleShare = element.all(by.className('googleShare')).first();
+        var twitterShare = element.all(by.className('twitterShare')).first();
+        var facebookShare = element.all(by.className('facebookShare')).first();
+        expect(twitterShare.isPresent());
+        expect(googleShare.isPresent());
+        expect(facebookShare.isPresent());
     });
 
 
