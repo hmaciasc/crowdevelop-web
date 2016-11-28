@@ -1,5 +1,3 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto';
-
 @function col($col) {
   @return map-get($base-colors, '#{$col}');
 }

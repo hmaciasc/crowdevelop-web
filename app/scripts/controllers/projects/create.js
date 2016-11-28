@@ -59,7 +59,7 @@ angular.module('crowDevelop')
         var storage = firebase.storage();
         var storageRef = storage.ref();
         var imagesRef = storageRef.child('projectImages/' + projectKey).put($scope.project.image);
-        var downUrl = imagesRef.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        var downUrl = imagesRef.on(firebase.storage.TaskEvent.STATE_CHANGED,
             function(snapshot) {
                 var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 console.log('Upload is ' + progress + '% done');

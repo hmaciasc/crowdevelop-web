@@ -27,7 +27,7 @@
         border-left: $size solid $cvalue !important;
         border-radius: $radius;
       }
-      // Axis
+      // AXIS
       .b-x-#{$size}-#{$ckey}-#{$radius} {
         border-right:  $size solid $cvalue !important;
         border-left:   $size solid $cvalue !important;
@@ -42,7 +42,7 @@
   }
 }
 
-// paddings
+// PADDINGS
 .pdl-10px {
     padding-left: 10px;
 }
