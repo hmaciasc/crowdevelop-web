@@ -20,7 +20,6 @@ angular.module('crowDevelop')
 
     $scope.log = function(image) {
         $scope.project.image = image.files[0];
-        window.image = image.files[0];
         $scope.$apply();
     };
 

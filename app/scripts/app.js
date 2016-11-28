@@ -90,16 +90,16 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('../sw.js').then(function(registration) {
             // Registration was successful
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            console.log('ServiceWorker registration successful');
         }).catch(function(err) {
             // registration failed :(
-            console.log('ServiceWorker registration failed: ', err);
+            console.log('ServiceWorker registration failed: ');
         });
     }
     var messaging = firebase.messaging();
     messaging.requestPermission()
         .then(function() {
-            console.log('Hurray');
+            console.log('Notifications enabled');
             return messaging.getToken();
         })
         .then(function(token) {
@@ -116,6 +116,7 @@ angular.module('crowDevelop', ['firebase', 'ngRoute', 'ngStorage', 'ngAnimate'])
 }])
 
 .run(['$rootScope', '$location', '$localStorage', 'AuthService', '$window', function($rootScope, $location, $localStorage, AuthService, $window) {
+
     $rootScope.notifications = [];
     $rootScope.firebaseUser = $localStorage.firebaseUser;
     $rootScope.categories = ["Development", "Game", "Education", "Social", "Art", "Sports", "Health", "News"];

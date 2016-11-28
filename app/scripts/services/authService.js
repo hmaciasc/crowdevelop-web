@@ -45,7 +45,6 @@ angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAu
         };
 
         function getProviderForProviderId(provider) {
-            console.log(provider);
             if (provider === "google.com") return new firebase.auth.GoogleAuthProvider();
             if (provider === "facebook.com") return new firebase.auth.FacebookAuthProvider();
             if (provider === "twitter.com") return new firebase.auth.TwitterAuthProvider();

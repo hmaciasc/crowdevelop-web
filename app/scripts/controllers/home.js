@@ -31,7 +31,7 @@ angular.module('crowDevelop')
                     var expireDate = new Date(projects[i].year, projects[i].month - 1, projects[i].day);
                     var now = new Date();
                     now.setHours(0, 0, 0, 0);
-                    if (expireDate < now) endProject(projects[i].$id);
+                    if (expireDate < now && $rootScope.firebaseUser) endProject(projects[i].$id);
                 }
             },
             function(err) {
@@ -43,6 +43,7 @@ angular.module('crowDevelop')
         var projectRef = firebase.database().ref('projects/' + projectId);
         projectRef.child('status').set('closed');
     }
+
 
     $scope.init();
 }]);
