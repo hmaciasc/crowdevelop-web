@@ -17,6 +17,14 @@ angular.module('crowDevelop')
         $scope.errorMessage.small = 'Look for something else';
     }
 
+    $scope.findProject = function() {
+        var projectsRef = firebase.database().ref('projects/');
+        var query = projectsRef.orderByChild('name').equalTo($scope.query);
+        var list = $firebaseArray(query);
+        $rootScope.projectSearch = list;
+        $location.path('/projects/index');
+    };
+
 
     $scope.getCategoryProjects();
 }]);
