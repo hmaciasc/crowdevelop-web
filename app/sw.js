@@ -367,7 +367,7 @@ var precacheConfig = [
     ["/views/home.html", "ade191f75483471150cccaa2525800fa"],
     ["/views/login.html", "5a21335ed9005efaa24119e326ca6b83"],
     ["/views/projects/create.html", "7db21f56f72bf904961bd5ff761fc2cb"],
-    ["/views/projects/details.html", "3e37c26b0915950adab706e9ab230d84"],
+    ["/views/projects/details.html", "adc47a82b35839d36411e091a5ebf06a"],
     ["/views/projects/favourites.html", "e0beea3fe52724c349a5c95a4907d25b"],
     ["/views/projects/index.html", "937a327a9a5623dc33304564bff6805c"],
     ["/views/shared/404.html", "a2e45c128eb2a0fab0c75aa9c88cb3ba"],
@@ -376,7 +376,7 @@ var precacheConfig = [
     ["/views/shared/header.html", "2616a0c8e16aa800aaf70d3672670cf6"],
     ["/views/shared/tos.html", "b0eb24053d502fdbe091fee29d1b6753"]
 ];
-var cacheName = 'sw-precache-v10--' + (self.registration ? self.registration.scope : '');
+var cacheName = 'sw-precache-v11--' + (self.registration ? self.registration.scope : '');
 
 
 var ignoreUrlParametersMatching = [/^utm_/];
