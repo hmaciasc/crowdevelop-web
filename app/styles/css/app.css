@@ -1,4 +1,3 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto';
 @import 'https://fonts.googleapis.com/css?family=Fira+Sans:500,700,400|Roboto:400';
 .btn-black {
   background-color: #000;
@@ -570,8 +569,13 @@
   bottom: 15px;
   right: 15px; }
 
-.alert-size {
-  width: 25%; }
+@media screen and (max-width: 600px) {
+  .alert-size {
+    width: 90%; } }
+
+@media screen and (min-width: 601px) {
+  .alert-size {
+    width: 300px; } }
 
 .alert-img {
   width: 10%; }
@@ -11570,7 +11574,7 @@ footer {
     transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s; }
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box; }

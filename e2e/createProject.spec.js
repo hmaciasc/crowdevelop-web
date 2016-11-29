@@ -1,6 +1,6 @@
 'use strict';
 
-describe('CrowDevelop details page', function() {
+describe('CrowDevelop create project page', function() {
     var updates = element.all(by.repeater('update in projectUpdates'));
     var comments = element.all(by.repeater('comment in comments'));
     var features = element.all(by.repeater('feature in features'));

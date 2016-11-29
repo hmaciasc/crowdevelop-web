@@ -338,41 +338,45 @@ var precacheConfig = [
     ["/bower_components/tether/src/js/utils.js", "fa9938ddb2ab8703cf7a009b020ce34e"],
     ["/firebase-messaging-sw.js", "16ffe93294b2459a628ad335ee66cf2e"],
     ["/images/icon-notification-192x192.png", "153ec28d4a902ee51b7e6ccb127d092d"],
-    ["/images/icons/icon-128x128.png", "99ef70c87134cd1b1e19d2cfa652eb9c"],
-    ["/images/icons/icon-144x144.png", "ee5e43c06a31757c12468f6a297add0c"],
-    ["/images/icons/icon-152x152.png", "358c22d1be8934c610ff7a3fcc4c57fa"],
-    ["/images/icons/icon-192x192.png", "413907773557d8edbe5e15dd74c150fd"],
-    ["/images/icons/icon-384x384.png", "413907773557d8edbe5e15dd74c150fd"],
-    ["/images/icons/icon-512x512.png", "413907773557d8edbe5e15dd74c150fd"],
-    ["/images/icons/icon-72x72.png", "2f523cf6e77523ddd05a5ea0b67543a8"],
-    ["/images/icons/icon-96x96.png", "979644053e7dc2baa499212a5b574189"],
+    ["/images/icons/icon-128x128.png", "93a402037a21745d81981edfbc64c850"],
+    ["/images/icons/icon-144x144.png", "eafbe3387c7e8237670659675a0bd92d"],
+    ["/images/icons/icon-152x152.png", "030e72d03ce15bfa8abab30c429c0440"],
+    ["/images/icons/icon-192x192.png", "b6817b595223d05071a2c13c7b8cea31"],
+    ["/images/icons/icon-384x384.png", "75cbaa6e3e9c5dd7700fe48a786adb2a"],
+    ["/images/icons/icon-72x72.png", "65fc449f3abf8325922d069f6fbad9d6"],
+    ["/images/icons/icon-96x96.png", "9b14d3618f14ec8d99f1ef1288c6975a"],
     ["/images/icons/search-icon.png", "9b273adad0d1945d0b6b0841af07cefc"],
-    ["/index.html", "4f1c43f3d3d0f39bf4cdcbafc1f8b4d6"],
-    ["/scripts/app.js", "af705382e8b5a5c29de679391987c98f"],
+    ["/images/title1.jpg", "3740064bbd83a0db3869f5eb8d3994ef"],
+    ["/index.html", "64956ba525ce8f68f0fab1f94b481d89"],
+    ["/scripts/app.js", "7d867bd7620782774a6c866d72fa06e3"],
     ["/scripts/controllers/header.js", "af1d22d5417835c12e49113ace36b76e"],
-    ["/scripts/controllers/home.js", "033b528500c8f72e2e2e2eab699118e1"],
-    ["/scripts/controllers/login.js", "90b7cd29503b2722121918794648659d"],
-    ["/scripts/controllers/projects/category.js", "023c9a6c8bc7dcdea842003f524e0265"],
-    ["/scripts/controllers/projects/create.js", "c58790875ed649f18f02745ff6df7d4b"],
-    ["/scripts/controllers/projects/details.js", "ca976c7359c2874df100d3d306b2c42c"],
-    ["/scripts/controllers/projects/favourites.js", "8ba67c6e140624b7afdd4652d35ff404"],
-    ["/scripts/controllers/projects/index.js", "9176738a975f6f7997024b7d52a1ce0a"],
-    ["/scripts/controllers/projects/myProjects.js", "81e02ab951438a6a88f0f6b359952fde"],
-    ["/scripts/services/authService.js", "b64591ec250493e5ed250aa4f28edf0b"],
-    ["/styles/css/app.css", "ab9d121c42e985e85336dd118df09b21"],
-    ["/views/home.html", "68c520b52e12f64868d0902fe685e8eb"],
-    ["/views/login.html", "9f9b442355f793ad9b13a5f88bda0bb3"],
-    ["/views/projects/create.html", "aba73d274f77beee72fbd095ef8f1533"],
-    ["/views/projects/details.html", "d17aa28d093dd53410622ece1a30ec46"],
-    ["/views/projects/favourites.html", "26c352f768a4c1dcf08df1823431f094"],
-    ["/views/projects/index.html", "4e18f26363020165af084fa96f01ddfc"],
-    ["/views/projects/oldCreate.html", "a97a0a5f731ec72ad6559724f15fe01b"],
+    ["/scripts/controllers/home.js", "1305b453f4e6cd82c75e6f1d596e52c9"],
+    ["/scripts/controllers/login.js", "06f7d1c91a17f2e4feda0eef83eb64c1"],
+    ["/scripts/controllers/projects/category.js", "567fb30733de83b7c86d5899d853c1e1"],
+    ["/scripts/controllers/projects/create.js", "1fe9f738d224eebfa2c429af372a4693"],
+    ["/scripts/controllers/projects/details.js", "58af3dfdaa46873d0a64e87c0622444e"],
+    ["/scripts/controllers/projects/favourites.js", "995184aafa553f55efde83218edd947b"],
+    ["/scripts/controllers/projects/index.js", "c6bbac43067cfa7afb133cea29cb7eb7"],
+    ["/scripts/controllers/projects/myProjects.js", "0da3366052eddc2c6fa2c81626850fff"],
+    ["/scripts/oneSignal/OneSignalConfig.js", "598bbf6e17e6cba2a2b53c9e551bca2f"],
+    ["/scripts/oneSignal/OneSignalSDKUpdaterWorker.js", "a4f31b84d594856359f740d4fa3f088d"],
+    ["/scripts/oneSignal/OneSignalSDKWorker.js", "a4f31b84d594856359f740d4fa3f088d"],
+    ["/scripts/services/authService.js", "88fad6ec728484131fa78e845c57025f"],
+    ["/scripts/services/projectService.js", "07a9221d25bbb1b54ebda2b7d6ffae1c"],
+    ["/styles/css/app.css", "9b807f1be7a64d09295305f208e21e55"],
+    ["/views/home.html", "ade191f75483471150cccaa2525800fa"],
+    ["/views/login.html", "5a21335ed9005efaa24119e326ca6b83"],
+    ["/views/projects/create.html", "7db21f56f72bf904961bd5ff761fc2cb"],
+    ["/views/projects/details.html", "3e37c26b0915950adab706e9ab230d84"],
+    ["/views/projects/favourites.html", "e0beea3fe52724c349a5c95a4907d25b"],
+    ["/views/projects/index.html", "937a327a9a5623dc33304564bff6805c"],
     ["/views/shared/404.html", "a2e45c128eb2a0fab0c75aa9c88cb3ba"],
-    ["/views/shared/footer.html", "210c4ecdccd0d99539af6e906569382f"],
-    ["/views/shared/header.html", "81438f15c187a4a7a25f9a989340154a"],
+    ["/views/shared/contact.html", "078be41b0f6d1f9fb2d92a6c6cc7e68a"],
+    ["/views/shared/footer.html", "04ec9c7131f9cd5e8267809f33dc4b4a"],
+    ["/views/shared/header.html", "2616a0c8e16aa800aaf70d3672670cf6"],
     ["/views/shared/tos.html", "b0eb24053d502fdbe091fee29d1b6753"]
 ];
-var cacheName = 'sw-precache-v9--' + (self.registration ? self.registration.scope : '');
+var cacheName = 'sw-precache-v10--' + (self.registration ? self.registration.scope : '');
 
 
 var ignoreUrlParametersMatching = [/^utm_/];
@@ -558,4 +562,20 @@ self.addEventListener('fetch', function(event) {
             );
         }
     }
+});
+
+self.addEventListener('notificationclick', event => {
+    const rootUrl = new URL('/', location).href;
+    event.notification.close();
+    // Enumerate windows, and call window.focus(), or open a new one.
+    event.waitUntil(
+        clients.matchAll().then(matchedClients => {
+            for (let client of matchedClients) {
+                if (client.url === rootUrl) {
+                    return client.focus();
+                }
+            }
+            return clients.openWindow("/");
+        })
+    );
 });
