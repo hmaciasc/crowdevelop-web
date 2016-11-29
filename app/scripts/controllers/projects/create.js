@@ -31,6 +31,7 @@ angular.module('crowDevelop')
         $scope.project.day = $scope.project.selectedDate.getDate();
         $scope.project.month = $scope.project.selectedDate.getMonth() + 1;
         $scope.project.year = $scope.project.selectedDate.getFullYear();
+        $scope.project.notified = false;
         $scope.project.donated = 0;
         $scope.project.status = "inProgress";
         $scope.project.imageRef = "";
