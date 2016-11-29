@@ -42,3 +42,5 @@ $ gulp
 ```
 
 Navigate to localhost:5000
+
+### Current master version 1.0
