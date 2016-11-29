@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Page Not Found</title>
+</head>
+
+<body>
+    <h1 id="notFound">Looks like you are lost</h1>
+    <p class="text-xs-center">Try looking for a project among our categories.</p>
+    <div class="row m-y-4">
+        <div class="col-xs-12 offset-md-1 col-md-10">
+            <div class="row flex-items-xs-center">
+                <div class="col-xs-6 col-md-3 category text-xs-center m-t-1" ng-repeat="category in categories">
+                    <button class="category-btn btn btn-{{category}}" ng-click="goTo('projects/category/' + category)">{{ category }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

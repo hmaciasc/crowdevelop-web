@@ -1,0 +1,122 @@
+.material {
+  position: relative;
+  padding: 0;
+  width: 100%;
+  border: none;
+  overflow: visible;
+
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 10px 8px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #DDD;
+    font-size: 120%;
+    outline: none;
+    cursor: text;
+
+    &::placeholder {
+      transition: color 300ms ease;
+    }
+    &:not(:focus)::placeholder {
+      color: transparent;
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 10px;
+    font-size: 120%;
+    color: col(light-black);
+    transform-origin: 0 -350%;
+    transition: transform 300ms ease;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  input:focus ~ label,
+  input:valid ~ label,
+  select ~ label,
+  textarea ~ label {
+    transform: scale(0.7);
+  }
+
+  select {
+    font-family: inherit;
+    background-color: transparent;
+    width: 100%;
+    padding: 4px 0;
+    font-size: 16px;
+    color: rgba(0,0,0, 0.26);
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0, 0.12);
+  }
+
+  /* Remove focus */
+  select:focus {
+    outline: none;
+  }
+
+  /* Use custom arrow */
+  .selectField select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  .selectField {
+    font-family: 'Roboto';
+    position: relative;
+  }
+
+  .selectField:after {
+    position: absolute;
+    top: 0.75em;
+    right: 0.5em;
+    /* Styling the down arrow */
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: .25em solid transparent;
+    border-right: .25em solid transparent;
+    border-top: 0.375em solid rgba(0,0,0, 0.12);
+    pointer-events: none;
+  }
+}
+
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    padding: 5px 2.5px;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    padding: 3px 10px;
+    background-color: col(purple);
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: darken(col(purple), 20%);
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}

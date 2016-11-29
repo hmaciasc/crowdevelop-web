@@ -1,0 +1,184 @@
+.col-center {
+    margin: auto;
+}
+
+// BORDERS
+@each $radius in 0px, 1px, 3px {
+  @each $size in 1px, 2px {
+    @each $ckey, $cvalue in $colors {
+
+      .b-a-#{$size}-#{$ckey}-#{$radius} {
+        border: $size solid $cvalue !important;
+        border-radius: $radius;
+      }
+      .b-t-#{$size}-#{$ckey}-#{$radius} {
+        border-top: $size solid $cvalue !important;
+        border-radius: $radius;
+      }
+      .b-r-#{$size}-#{$ckey}-#{$radius} {
+        border-right: $size solid $cvalue !important;
+        border-radius: $radius;
+      }
+      .b-b-#{$size}-#{$ckey}-#{$radius} {
+        border-bottom: $size solid $cvalue !important;
+        border-radius: $radius;
+      }
+      .b-l-#{$size}-#{$ckey}-#{$radius} {
+        border-left: $size solid $cvalue !important;
+        border-radius: $radius;
+      }
+      // AXIS
+      .b-x-#{$size}-#{$ckey}-#{$radius} {
+        border-right:  $size solid $cvalue !important;
+        border-left:   $size solid $cvalue !important;
+        border-radius: $radius;
+      }
+      .b-y-#{$size}-#{$ckey}-#{$radius} {
+        border-top:    $size solid $cvalue !important;
+        border-bottom: $size solid $cvalue !important;
+        border-radius: $radius;
+      }
+    }
+  }
+}
+
+// PADDINGS
+.pdl-10px {
+    padding-left: 10px;
+}
+
+.text-400 {
+    font-weight: 400;
+}
+
+.text-300 {
+    font-weight: 300;
+}
+
+.pos-f-b {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: $zindex-navbar-fixed;
+}
+
+/*datepicker*/
+
+.datepicker.dropdown-menu {
+    width: 250px;
+    height: 250px;
+}
+
+.datepicker.dropdown-menu button {
+    outline: none;
+    border: 0px;
+}
+
+.datepicker.dropdown-menu tbody {
+    height: 180px;
+}
+
+.datepicker.dropdown-menu tbody button {
+    padding: 6px;
+}
+
+.datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
+    height: 65px;
+}
+
+.timepicker.dropdown-menu {
+    padding: 0 4px;
+}
+
+.timepicker.dropdown-menu button {
+    outline: none;
+    border: 0px;
+}
+
+.timepicker.dropdown-menu tbody button {
+    padding: 6px;
+}
+
+/* Loader */
+.loader {
+    color: $loader;
+    font-size: 10px;
+    margin: 20px auto;
+    position: relative;
+    text-indent: -9999em;
+    transform: translateZ(0);
+    animation-delay: -0.16s;
+
+    &::before,
+    &::after,
+    & {
+        border-radius: 50%;
+        width: 2.5em;
+        height: 2.5em;
+        animation-fill-mode: both;
+        animation: loadKF 1.8s infinite ease-in-out;
+    }
+
+    &::before {
+        left: -3.5em;
+        animation-delay: -0.32s;
+    }
+
+    &::after {
+        left: 3.5em;
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+    }
+}
+
+@keyframes loadKF {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+
+.success {
+    color: #50be61;
+    font-size: 18px;
+    margin: 20px auto;
+    position: relative;
+    transform: translateZ(0);
+    transform: rotate(720deg);
+
+    &::after {
+        content: '  Donation made. Thank you!';
+        font-size: 18px;
+    }
+    i::after {
+        font-size: 30px;
+    }
+}
+
+// LIFT ANIMATION
+.lift {
+    transition: transform .7s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+
+    &:hover {
+        transform: translate(0, -8px);
+    }
+}
+
+.shadow {
+    box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.62);
+    transition: box-shadow .7s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+
+    &:hover {
+        box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.62);
+    }
+}

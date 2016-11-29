@@ -1,0 +1,36 @@
+{
+  "name": "tfgCrowDevelop",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Héctor Macías <hectormaciasc@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-route": "1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "angularfire": "^2.0.2",
+    "bootstrap": "v4.0.0-alpha.4",
+    "jquery.payment": "jquery-payment#^1.1.6",
+    "ngstorage": "^0.3.11"
+  },
+  "resolutions": {
+    "bootstrap": "v4.0.0-alpha.4"
+  },
+  "devDependencies": {
+    "angular": "1.5.8",
+    "angular-mocks": "1.5.8",
+    "bower": "*",
+    "install": "^1.0.4"
+  }
+}

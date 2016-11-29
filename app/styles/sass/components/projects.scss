@@ -1,0 +1,95 @@
+/* Project list view */
+.project {
+    background-color: col(white);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: col(black);
+    box-sizing: border-box;
+    cursor: pointer;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: 0 5px 24px 1px $shadow-color;
+}
+
+.projectDetails {
+    background-color: rgba(38, 50, 56, 0.7);
+    box-sizing: inherit;
+    padding: 5px 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 24px 1px $shadow-color;
+}
+
+.fav-icon {
+    padding-left: 4px !important;
+}
+
+.description {
+    text-align: justify;
+    display: block;
+}
+
+.comment-input {
+    border: 2px solid #CDD3D7 !important;
+    border-radius: 4px !important;
+}
+
+.comment {
+    padding-bottom: 15px;
+
+    .comment-header {
+        display: inline;
+    }
+
+    .comment-photo {
+        max-height: 40px;
+        width: auto;
+        margin: 0 10px;
+    }
+
+    .comment-writer {
+        color: #5995DD;
+        font-size: 15px;
+    }
+
+    .comment-text {
+        color: #444444;
+        text-align: justify;
+        padding: 10px 0;
+        margin: 0;
+    }
+}
+@mixin input-image($image, $distance) {
+    background: url($image) no-repeat !important;
+    background-position: -webkit-calc(100% - #{$distance}) center !important;
+    background-position: -moz-calc(100% - #{$distance}) center !important;
+    background-position: calc(100% - #{$distance}) center !important;
+    background-size: contain !important;
+    background-color: white !important;
+    padding-right: 60px !important;
+}
+
+.category {
+    display: flex;
+}
+
+.category-btn {
+  flex: 1;
+}
+
+// Donation form validation
+.has-error input {
+    border-width: 2px;
+}
+
+.validation.text-danger:after {
+    content: 'Validation failed';
+}
+
+.validation.text-success:after {
+    content: 'Validation passed';
+}
+
+.imageLabel {
+    color: #a7a7a7 !important;
+}

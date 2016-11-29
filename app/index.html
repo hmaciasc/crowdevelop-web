@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CrowDevelop</title>
+    <base href="/">
+    <meta name="description" content="Crowdfunding for devs">
+    <meta name="author" content="Héctor Macías">
+    <!-- Meta tag for app-like behaviour in iOS -->
+    <meta name=”apple-mobile-web-app-capable” content=”yes”>
+    <link rel="canonical" href="crowdevelop-40f3c.firebaseapp.com" />
+    <link rel="stylesheet" href="styles/css/app.css">
+
+    <link rel="manifest" href="manifest.json">
+
+</head>
+
+<body ng-app="crowDevelop" class="crowDevelop Site container-fluid">
+    <div ng-controller="HeaderCtrl" class="header-container">
+        <div ng-include src="'views/shared/header.html'"></div>
+        <div class="floaty alert-size" ng-show="notifications">
+            <div class="alert alert-success alert-dismissible fade in" role="alert" ng-repeat="notification in notifications">
+                <img class="img-fluid alert-img" src="{{notification.icon}}" alt="Notification icon">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                <span>{{notification.title}}</span>
+                <span>{{notification.body}}</span>
+            </div>
+            <div class="alert alert-danger fade in" role="alert" ng-if="!online">
+                <span>You have no internet</span>
+            </div>
+        </div>
+    </div>
+    <ng-view class="Site-content" autoscroll="true"></ng-view>
+    <div class="">
+        <div ng-include src="'views/shared/footer.html'"></div>
+    </div>
+
+    <!-- AngularJS -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+
+    <!-- main app -->
+    <script src="scripts/app.js"></script>
+    <!-- services -->
+    <script src="scripts/services/authService.js"></script>
+    <script src="scripts/services/projectService.js"></script>
+    <!-- Controllers -->
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/header.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/projects/create.js"></script>
+    <script src="scripts/controllers/projects/myProjects.js"></script>
+    <script src="scripts/controllers/projects/details.js"></script>
+    <script src="scripts/controllers/projects/index.js"></script>
+    <script src="scripts/controllers/projects/category.js"></script>
+    <script src="scripts/controllers/projects/favourites.js"></script>
+
+    <!-- Twitter share -->
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+
+    <!-- Push Notifications -->
+    <!-- <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+    <script src="scripts/oneSignal/OneSignalConfig.js"></script>-->
+
+    <!-- JQuery -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery.payment/lib/jquery.payment.js"></script>
+    <script src="bower_components/tether/dist/js/tether.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
