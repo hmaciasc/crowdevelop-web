@@ -353,7 +353,7 @@ var precacheConfig = [
     ["/scripts/controllers/home.js", "71b0d44b2e51e0a3ec1f96914fc67d3b"],
     ["/scripts/controllers/login.js", "06f7d1c91a17f2e4feda0eef83eb64c1"],
     ["/scripts/controllers/projects/category.js", "567fb30733de83b7c86d5899d853c1e1"],
-    ["/scripts/controllers/projects/create.js", "494990d4ccb495e3934db72aef5c22ed"],
+    ["/scripts/controllers/projects/create.js", "73a841ff237c3f999daeca9c731528e4"],
     ["/scripts/controllers/projects/details.js", "58af3dfdaa46873d0a64e87c0622444e"],
     ["/scripts/controllers/projects/favourites.js", "995184aafa553f55efde83218edd947b"],
     ["/scripts/controllers/projects/index.js", "c6bbac43067cfa7afb133cea29cb7eb7"],
@@ -376,7 +376,7 @@ var precacheConfig = [
     ["/views/shared/header.html", "2616a0c8e16aa800aaf70d3672670cf6"],
     ["/views/shared/tos.html", "b0eb24053d502fdbe091fee29d1b6753"]
 ];
-var cacheName = 'sw-precache-v12--' + (self.registration ? self.registration.scope : '');
+var cacheName = 'sw-precache-v13--' + (self.registration ? self.registration.scope : '');
 
 
 var ignoreUrlParametersMatching = [/^utm_/];
@@ -563,7 +563,6 @@ self.addEventListener('fetch', function(event) {
         }
     }
 });
-
 
 self.addEventListener('notificationclick', event => {
     const rootUrl = new URL('/', location).href;
