@@ -90,8 +90,9 @@
             <div class="date m-t-2">
                 <h3 id="deadline">Deadline: <small>{{project.day}}/{{project.month}}/{{project.year}}</small></h3>
             </div>
-            <div class="target">
-                <span id="targetAmount">Target amount: {{project.goal}}€</span>
+            <div class="target m-t-2">
+                <p id="targetAmount">Target amount: {{project.goal}}€</p>
+                <p id="targetAmount">Already donated: {{project.donated}}€</p>
                 <div>
                     <div class="text-xs-center" id="progress-text">{{ project.donated / project.goal * 100 | number:0 || 0}}% Reached</div>
                     <progress class="progress progress-striped progress-success" value="{{ project.donated / project.goal * 100 | number:0 }}" max="100"></progress>
@@ -191,7 +192,7 @@
             <form class="form" ng-submit="saveComment()" ng-if="firebaseUser" name="comment">
                 <div class="form-group">
                     <label for="comment"></label>
-                    <textarea type="textarea" rows="2" name="commentInput" class="form-control comment-input" placeholder="Comment something, give us your opinion" ng-model="newComment" required></textarea>
+                    <textarea type="textarea" rows="2" name="commentInput" class="form-control comment-input" placeholder="Comment something, give us your opinion" ng-model="$parent.newComment" required></textarea>
                     <div class="alert alert-danger" ng-show="comment.$submitted && comment.$error.required">
                         <strong>Alert!</strong> Write somethings first.
                     </div>
