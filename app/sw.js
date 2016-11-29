@@ -350,10 +350,10 @@ var precacheConfig = [
     ["/index.html", "64956ba525ce8f68f0fab1f94b481d89"],
     ["/scripts/app.js", "7d867bd7620782774a6c866d72fa06e3"],
     ["/scripts/controllers/header.js", "af1d22d5417835c12e49113ace36b76e"],
-    ["/scripts/controllers/home.js", "1305b453f4e6cd82c75e6f1d596e52c9"],
+    ["/scripts/controllers/home.js", "71b0d44b2e51e0a3ec1f96914fc67d3b"],
     ["/scripts/controllers/login.js", "06f7d1c91a17f2e4feda0eef83eb64c1"],
     ["/scripts/controllers/projects/category.js", "567fb30733de83b7c86d5899d853c1e1"],
-    ["/scripts/controllers/projects/create.js", "1fe9f738d224eebfa2c429af372a4693"],
+    ["/scripts/controllers/projects/create.js", "494990d4ccb495e3934db72aef5c22ed"],
     ["/scripts/controllers/projects/details.js", "58af3dfdaa46873d0a64e87c0622444e"],
     ["/scripts/controllers/projects/favourites.js", "995184aafa553f55efde83218edd947b"],
     ["/scripts/controllers/projects/index.js", "c6bbac43067cfa7afb133cea29cb7eb7"],
@@ -376,7 +376,7 @@ var precacheConfig = [
     ["/views/shared/header.html", "2616a0c8e16aa800aaf70d3672670cf6"],
     ["/views/shared/tos.html", "b0eb24053d502fdbe091fee29d1b6753"]
 ];
-var cacheName = 'sw-precache-v11--' + (self.registration ? self.registration.scope : '');
+var cacheName = 'sw-precache-v12--' + (self.registration ? self.registration.scope : '');
 
 
 var ignoreUrlParametersMatching = [/^utm_/];
@@ -563,6 +563,7 @@ self.addEventListener('fetch', function(event) {
         }
     }
 });
+
 
 self.addEventListener('notificationclick', event => {
     const rootUrl = new URL('/', location).href;

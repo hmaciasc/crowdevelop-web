@@ -28,7 +28,7 @@ angular.module('crowDevelop')
 
         $scope.project.ownerId = $rootScope.firebaseUser.uid;
         $scope.project.ownerName = $rootScope.firebaseUser.displayName;
-        $scope.project.day = $scope.project.selectedDate.getDay();
+        $scope.project.day = $scope.project.selectedDate.getDate();
         $scope.project.month = $scope.project.selectedDate.getMonth() + 1;
         $scope.project.year = $scope.project.selectedDate.getFullYear();
         $scope.project.donated = 0;
