@@ -32,7 +32,7 @@ angular.module('crowDevelop').factory('AuthService', ['$rootScope', '$firebaseAu
                         var provider = getProviderForProviderId(providers[0]);
                         firebase.auth().signInWithPopup(provider).then(function(firebaseUser) {
                             firebase.auth().currentUser.link(pendingCred).then(function(firebaseUser) {
-                                console.log("Account linking success", firebaseUser);
+                                // console.log("Account linking success", firebaseUser);
                                 $localStorage.firebaseUser = firebaseUser;
                                 deferred.resolve(firebaseUser);
                                 addTokenToDatabase(firebaseUser);
