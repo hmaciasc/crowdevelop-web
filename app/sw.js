@@ -357,7 +357,7 @@ var precacheConfig = [
     ["/scripts/controllers/projects/details.js", "58af3dfdaa46873d0a64e87c0622444e"],
     ["/scripts/controllers/projects/favourites.js", "995184aafa553f55efde83218edd947b"],
     ["/scripts/controllers/projects/index.js", "c6bbac43067cfa7afb133cea29cb7eb7"],
-    ["/scripts/controllers/projects/myProjects.js", "0da3366052eddc2c6fa2c81626850fff"],
+    ["/scripts/controllers/projects/myProjects.js", "a0cdda29b22051cc7d4ed1d49034f30d"],
     ["/scripts/oneSignal/OneSignalConfig.js", "598bbf6e17e6cba2a2b53c9e551bca2f"],
     ["/scripts/oneSignal/OneSignalSDKUpdaterWorker.js", "a4f31b84d594856359f740d4fa3f088d"],
     ["/scripts/oneSignal/OneSignalSDKWorker.js", "a4f31b84d594856359f740d4fa3f088d"],
@@ -376,7 +376,7 @@ var precacheConfig = [
     ["/views/shared/header.html", "2616a0c8e16aa800aaf70d3672670cf6"],
     ["/views/shared/tos.html", "b0eb24053d502fdbe091fee29d1b6753"]
 ];
-var cacheName = 'sw-precache-v13--' + (self.registration ? self.registration.scope : '');
+var cacheName = 'sw-precache-v14--' + (self.registration ? self.registration.scope : '');
 
 
 var ignoreUrlParametersMatching = [/^utm_/];
