@@ -2,7 +2,7 @@
 
 angular.module('crowDevelop')
 
-.controller('MyProjectsCtrl', ['$rootScope', '$scope', '$firebaseArray', function($rootScope, $scope, $firebaseArray) {
+.controller('MyProjectsCtrl', ['$rootScope', '$scope', '$firebaseArray', 'ProjectService', function($rootScope, $scope, $firebaseArray, ProjectService) {
 
     $scope.getOwnProjects = function() {
         var projectsRef = firebase.database().ref('projects/');
@@ -15,6 +15,18 @@ angular.module('crowDevelop')
             $scope.errorMessage.small = 'Go ahead, get funded.';
         }
     };
+
+    $scope.findProject = function() {
+        $rootScope.projectSearch = ProjectService.findProjects('name', $scope.query);
+        if (!$rootScope.projectSearch.length) addEmptyMessage();
+    };
+
+
+    function addEmptyMessage() {
+        $scope.errorMessage = {};
+        $scope.errorMessage.big = 'No projects found with that name';
+        $scope.errorMessage.small = 'Look for something else';
+    }
 
     $scope.getOwnProjects();
 }]);
