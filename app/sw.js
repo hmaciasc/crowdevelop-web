@@ -361,13 +361,13 @@ var precacheConfig = [
     ["/scripts/oneSignal/OneSignalConfig.js", "598bbf6e17e6cba2a2b53c9e551bca2f"],
     ["/scripts/oneSignal/OneSignalSDKUpdaterWorker.js", "a4f31b84d594856359f740d4fa3f088d"],
     ["/scripts/oneSignal/OneSignalSDKWorker.js", "a4f31b84d594856359f740d4fa3f088d"],
-    ["/scripts/services/authService.js", "88fad6ec728484131fa78e845c57025f"],
+    ["/scripts/services/authService.js", "06322d4e5c3e47830360753eb73e6927"],
     ["/scripts/services/projectService.js", "07a9221d25bbb1b54ebda2b7d6ffae1c"],
     ["/styles/css/app.css", "9b807f1be7a64d09295305f208e21e55"],
     ["/views/home.html", "ade191f75483471150cccaa2525800fa"],
     ["/views/login.html", "5a21335ed9005efaa24119e326ca6b83"],
     ["/views/projects/create.html", "7db21f56f72bf904961bd5ff761fc2cb"],
-    ["/views/projects/details.html", "adc47a82b35839d36411e091a5ebf06a"],
+    ["/views/projects/details.html", "0720444d8abe10bc7156f2e475740ae8"],
     ["/views/projects/favourites.html", "e0beea3fe52724c349a5c95a4907d25b"],
     ["/views/projects/index.html", "937a327a9a5623dc33304564bff6805c"],
     ["/views/shared/404.html", "a2e45c128eb2a0fab0c75aa9c88cb3ba"],
@@ -376,7 +376,7 @@ var precacheConfig = [
     ["/views/shared/header.html", "2616a0c8e16aa800aaf70d3672670cf6"],
     ["/views/shared/tos.html", "b0eb24053d502fdbe091fee29d1b6753"]
 ];
-var cacheName = 'sw-precache-v14--' + (self.registration ? self.registration.scope : '');
+var cacheName = 'sw-precache-v15--' + (self.registration ? self.registration.scope : '');
 
 
 var ignoreUrlParametersMatching = [/^utm_/];
