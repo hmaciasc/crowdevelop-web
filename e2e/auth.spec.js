@@ -47,7 +47,7 @@ describe('CrowDevelop authentication', function() {
                 var next = browser.driver.findElement(by.id('next'));
                 var signIn = browser.driver.findElement(by.id('signIn'));
 
-                email.sendKeys('crowdevelopTest@gmail.com');
+                email.sendKeys('GMAIL_ACCOUNT');
                 next.click();
                 browser.sleep(1000);
                 var passwd = browser.driver.findElement(by.id('Passwd'));
@@ -56,7 +56,7 @@ describe('CrowDevelop authentication', function() {
                     return browser.driver.isElementPresent(passwordFieldExists);
                 }, 5000);
 
-                passwd.sendKeys('cdcrowdevelop');
+                passwd.sendKeys('PASSWORD');
                 signIn.click();
 
                 browser.sleep(3000);
