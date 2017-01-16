@@ -1,5 +1,7 @@
 # CrowDevelop - Software engineer ULPGC final college project
 
+Project stalled. If you want to fork it and continue development you will have to create a firebase project and import keys.
+
 ### Status
 [![Build Status](https://travis-ci.com/hmaciasc/CrowDevelop.svg?token=3qqEyH2Ym2Cs3Z3KNiwA&branch=develop)](https://travis-ci.com/hmaciasc/CrowDevelop)
 
