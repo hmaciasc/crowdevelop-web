@@ -40,28 +40,9 @@ describe('Home controller suite', function() {
             projectsRef.on('value', function(snapshot) {
                 console.log(snapshot.val());
             });
-            // var list = $firebaseArray(query);
-            // console.log(list);
             expect(list[0]).toBe('Test1');
         });
     });
 
-    // describe('$scope.init', function() {
-    //     var $scope, controller;
-    //
-    //     beforeEach(function() {
-    //         $scope = {};
-    //         controller = $controller('HomeCtrl', {
-    //             $scope: $scope,
-    //             $firebaseArray: $firebaseArray
-    //         });
-    //     });
-    //
-    //     it('gets a list of projects from db', function() {
-    //         $scope.init();
-    //         console.log($scope.projects);
-    //         expect($scope.projects.length).not.toBe(0);
-    //     });
-    // });
 
 });
